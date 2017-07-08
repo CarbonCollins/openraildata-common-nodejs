@@ -1,0 +1,14 @@
+{
+    "name": "openraildata-common",
+    "version": "1.0.0",
+    "description": "A package for common files and functions between the various openraildata packages",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Steven Collins",
+    "license": "MIT",
+    "devDependencies": {
+        "eslint": "^4.1.1"
+    }
+}
