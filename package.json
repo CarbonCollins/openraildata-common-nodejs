@@ -1,6 +1,6 @@
 {
   "name": "openraildata-common",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A package for common files and functions between the various openraildata packages",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,10 @@
   "author": "Steven Collins",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.1.1"
+    "gulp": "^3.9.1",
+    "gulp-jsdoc-to-markdown": "^1.2.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.8"
   },
   "dependencies": {
     "optional": "^0.1.3"
