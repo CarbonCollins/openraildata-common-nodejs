@@ -6,15 +6,16 @@ A package for common files and functions between the various openraildata packag
 To use the openraildata-common package you need to import the required classes and functions in which your application needs, this can be done as follows:
 
 ```
-const { Association, Location, Schedule, Station } = require('openraildata-common');
+const { Association, Station } = require('openraildata-common');
 ```
 
 the currently available classes that can be used are listed below
 
-- Association
-- Location
-- Schedule
-- Station
+- [Association](./docs/association.md)
+- [Location](./docs/location.md)
+- [Schedule](./docs/schedule.md)
+- [Station](./docs/station.md)
+- [TrainOrder](./docs/trainOrder.md)
 
 an example of using the classes are:
 
