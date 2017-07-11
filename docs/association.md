@@ -137,3 +137,4 @@ an optional package for accessing the reference data to allow some extra functio
 if the package is not present then the extra functions will only return null
 
 **Kind**: global external  
+**See**: [refData](https://github.com/CarbonCollins/openraildata-referencedata-nodejs)  
