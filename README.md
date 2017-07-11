@@ -15,6 +15,7 @@ the currently available classes that can be used are listed below
 - [Location](./docs/location.md)
 - [Schedule](./docs/schedule.md)
 - [Station](./docs/station.md)
+- [StationMessage](./docs/stationMessage.md)
 - [TrainOrder](./docs/trainOrder.md)
 
 an example of using the classes are:
