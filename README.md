@@ -17,6 +17,7 @@ the currently available classes that can be used are listed below
 - [Station](./docs/station.md)
 - [StationMessage](./docs/stationMessage.md)
 - [TrainOrder](./docs/trainOrder.md)
+- [TrainStatus](./docs/trainStatus.md)
 
 an example of using the classes are:
 
