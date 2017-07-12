@@ -1,4 +1,12 @@
 # openraildata-common
+
+[![GitHub issues](https://img.shields.io/github/issues/CarbonCollins/openraildata-common-nodejs.svg)](https://github.com/CarbonCollins/openraildata-common-nodejs/issues)
+[![npm](https://img.shields.io/npm/v/openraildata-common.svg)](https://www.npmjs.com/package/openraildata-common)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CarbonCollins/openraildata-common-nodejs/master/LICENSE)
+[![David](https://img.shields.io/david/CarbonCollins/openraildata-common-nodejs.svg)]()
+[![David](https://img.shields.io/david/dev/CarbonCollins/openraildata-common-nodejs.svg)]()
+[![sheilds](https://img.shields.io/badge/status-WIP-yellow.svg)](https://img.shields.io/badge/status-WIP-yellow.svg)
+
 A package for common files and functions between the various openraildata packages
 
 # usage
