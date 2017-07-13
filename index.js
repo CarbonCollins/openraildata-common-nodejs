@@ -9,5 +9,6 @@ module.exports.Association = require('./lib/association');
 module.exports.Location = require('./lib/location');
 module.exports.Schedule = require('./lib/schedule');
 module.exports.Station = require('./lib/station');
+module.exports.StationMessage = require('./lib/stationMessage');
 module.exports.TrainOrder = require('./lib/trainOrder');
 module.exports.TrainStatus = require('./lib/trainStatus');
