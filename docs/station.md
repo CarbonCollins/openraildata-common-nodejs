@@ -1,20 +1,3 @@
-## Classes
-
-<dl>
-<dt><a href="#Station">Station</a></dt>
-<dd><p>a class for storing data about a station and to supply helpful functions for manipulating the data</p>
-</dd>
-</dl>
-
-## External
-
-<dl>
-<dt><a href="#external_refData">refData</a></dt>
-<dd><p>an optional package for accessing the reference data to allow some extra functionality in this package
-if the package is not present then the extra functions will only return null</p>
-</dd>
-</dl>
-
 <a name="Station"></a>
 
 ## Station
@@ -33,7 +16,6 @@ a class for storing data about a station and to supply helpful functions for man
         * [.workingTimeOfDeparture](#Station+workingTimeOfDeparture) ⇒ <code>String</code>
         * [.operational](#Station+operational) ⇒ <code>Boolean</code>
         * [.platform](#Station+platform) ⇒ <code>String</code>
-        * [.name](#Station+name) ⇒ <code>String</code>
     * _inner_
         * [~isPlatformSuppressed()](#Station..isPlatformSuppressed) ⇒ <code>Boolean</code>
 
@@ -105,25 +87,9 @@ is the platform number (if known)
 
 **Kind**: instance property of <code>[Station](#Station)</code>  
 **Read only**: true  
-<a name="Station+name"></a>
-
-### station.name ⇒ <code>String</code>
-gets the stations name from the reference data
-
-**Kind**: instance property of <code>[Station](#Station)</code>  
-**Returns**: <code>String</code> - the location name  
-**Read only**: true  
 <a name="Station..isPlatformSuppressed"></a>
 
 ### Station~isPlatformSuppressed() ⇒ <code>Boolean</code>
 determines if the platform is to be suppressed form public view
 
 **Kind**: inner method of <code>[Station](#Station)</code>  
-<a name="external_refData"></a>
-
-## refData
-an optional package for accessing the reference data to allow some extra functionality in this package
-if the package is not present then the extra functions will only return null
-
-**Kind**: global external  
-**See**: [refData](https://github.com/CarbonCollins/openraildata-referencedata-nodejs)  

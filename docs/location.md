@@ -1,20 +1,3 @@
-## Classes
-
-<dl>
-<dt><a href="#Location">Location</a></dt>
-<dd><p>a class for location information along with helpful functions</p>
-</dd>
-</dl>
-
-## External
-
-<dl>
-<dt><a href="#external_refData">refData</a></dt>
-<dd><p>an optional package for accessing the reference data to allow some extra functionality in this package
-if the package is not present then the extra functions will only return null</p>
-</dd>
-</dl>
-
 <a name="Location"></a>
 
 ## Location
@@ -123,11 +106,3 @@ Updates the location wiht a new raw data
 | --- | --- | --- |
 | location | <code>Object</code> | the raw location object to be parsed |
 
-<a name="external_refData"></a>
-
-## refData
-an optional package for accessing the reference data to allow some extra functionality in this package
-if the package is not present then the extra functions will only return null
-
-**Kind**: global external  
-**See**: [refData](https://github.com/CarbonCollins/openraildata-referencedata-nodejs)  
