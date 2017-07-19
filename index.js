@@ -1,14 +1,77 @@
 'use strict';
 
-/**
- * @desc Contains various classes for use with the openraildata packages and can be accessed by using:
- * const { Association, Station, ect } = require('openraildata-common);
- */
+const Association = require('./lib/association');
+const Location = require('./lib/location');
+const Schedule = require('./lib/schedule');
+const Station =require('./lib/station');
+const StationMessage = require('./lib/stationMessage');
+const TrainOrder = require('./lib/trainOrder');
+const TrainStatus = require('./lib/trainStatus');
 
-module.exports.Association = require('./lib/association');
-module.exports.Location = require('./lib/location');
-module.exports.Schedule = require('./lib/schedule');
-module.exports.Station = require('./lib/station');
-module.exports.StationMessage = require('./lib/stationMessage');
-module.exports.TrainOrder = require('./lib/trainOrder');
-module.exports.TrainStatus = require('./lib/trainStatus');
+/**
+ * @class
+ * @classdesc a class that is used to export the various data models aswell as provide mixin support
+ */
+class ORDCommon {
+  /**
+   * @constructor
+   */
+  constructor() {
+    this.Association = Association;
+    this.Location = Schedule;
+    this.Station = Station;
+    this.StationMessage = StationMessage;
+    this.TrainOrder = TrainOrder;
+    this.TrainStatus = TrainStatus;
+  }
+
+  /**
+   * @method ORDCommon~associationMixer
+   * @param {Function} mixin a mixin function to apply to the Association model
+   * @mixes Association
+   * @see {@link ./association.md|Association}
+   */
+  associationMixer(mixin) { this.Association = mixin(this.Association); };
+
+  /**
+   * @method ORDCommon~locationMixer
+   * @param {Function} mixin a mixin function to apply to the Location model
+   * @mixes Location
+   * @see {@link ./location.md|Location}
+   */
+  locationMixer(mixin) { this.Location = mixin(this.Location); };
+
+  /**
+   * @method ORDCommon~stationMixer
+   * @param {Function} mixin a mixin function to apply to the Station model
+   * @mixes Station
+   * @see {@link ./station.md|Station}
+   */
+  stationMixer(mixin) { this.Station = mixin(this.Station); };
+
+  /**
+   * @method ORDCommon~stationMessageMixer
+   * @param {Function} mixin a mixin function to apply to the StationMessage model
+   * @mixes StationMessage
+   * @see {@link ./stationMessage.md|StationMessage}
+   */
+  stationMessageMixer(mixin) { this.StationMessage = mixin(this.StationMessage); };
+
+  /**
+   * @method ORDCommon~trainOrderMixer
+   * @param {Function} mixin a mixin function to apply to the TrainOrder model
+   * @mixes TrainOrder
+   * @see {@link ./trainOrder.md|TrainOrder}
+   */
+  stationMessageMixer(mixin) { this.TrainOrder = mixin(this.TrainOrder); };
+
+  /**
+   * @method ORDCommon~trainStatusMixer
+   * @param {Function} mixin a mixin function to apply to the TrainStatus model
+   * @mixes TrainStatus
+   * @see {@link ./trainStatus.md|TrainStatus}
+   */
+  stationStatusMixer(mixin) { this.TrainStatus = mixin(this.TrainStatus); };
+}
+
+module.exports = new ORDCommon();

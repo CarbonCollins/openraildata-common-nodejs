@@ -6,7 +6,7 @@ const gulpJsdoc2md = require('gulp-jsdoc-to-markdown');
 const rename = require('gulp-rename');
  
 gulp.task('documentation', function () {
-  return gulp.src('lib/**/*.js')
+  return gulp.src(['lib/**/*.js', 'index.js'])
     .pipe(gulpJsdoc2md())
     .on('error', function (err) {
       gutil.log(gutil.colors.red('jsdoc2md failed'), err.message)
