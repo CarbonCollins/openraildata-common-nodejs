@@ -63,7 +63,7 @@ class ORDCommon {
    * @mixes TrainOrder
    * @see {@link ./trainOrder.md|TrainOrder}
    */
-  stationMessageMixer(mixin) { this.TrainOrder = mixin(this.TrainOrder); };
+  trainOrderMixer(mixin) { this.TrainOrder = mixin(this.TrainOrder); };
 
   /**
    * @method ORDCommon~trainStatusMixer
@@ -71,7 +71,7 @@ class ORDCommon {
    * @mixes TrainStatus
    * @see {@link ./trainStatus.md|TrainStatus}
    */
-  stationStatusMixer(mixin) { this.TrainStatus = mixin(this.TrainStatus); };
+  trainStatusMixer(mixin) { this.TrainStatus = mixin(this.TrainStatus); };
 }
 
 module.exports = new ORDCommon();
