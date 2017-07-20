@@ -8,6 +8,7 @@ a class that is used to export the various data models aswell as provide mixin s
 * [ORDCommon](#ORDCommon)
     * [~associationMixer(mixin)](#ORDCommon..associationMixer)
     * [~locationMixer(mixin)](#ORDCommon..locationMixer)
+    * [~scheduleMixer(mixin)](#ORDCommon..scheduleMixer)
     * [~stationMixer(mixin)](#ORDCommon..stationMixer)
     * [~stationMessageMixer(mixin)](#ORDCommon..stationMessageMixer)
     * [~trainOrderMixer(mixin)](#ORDCommon..trainOrderMixer)
@@ -34,6 +35,17 @@ a class that is used to export the various data models aswell as provide mixin s
 | Param | Type | Description |
 | --- | --- | --- |
 | mixin | <code>function</code> | a mixin function to apply to the Location model |
+
+<a name="ORDCommon..scheduleMixer"></a>
+
+### ORDCommon~scheduleMixer(mixin)
+**Kind**: inner method of <code>[ORDCommon](#ORDCommon)</code>  
+**Mixes**: <code>Schedule</code>  
+**See**: [Schedule](./schedule.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the Schedule model |
 
 <a name="ORDCommon..stationMixer"></a>
 

@@ -19,6 +19,7 @@ class ORDCommon {
   constructor() {
     this.Association = Association;
     this.Location = Schedule;
+    this.Schedule = Schedule;
     this.Station = Station;
     this.StationMessage = StationMessage;
     this.TrainOrder = TrainOrder;
@@ -40,6 +41,14 @@ class ORDCommon {
    * @see {@link ./location.md|Location}
    */
   locationMixer(mixin) { this.Location = mixin(this.Location); };
+
+  /**
+   * @method ORDCommon~scheduleMixer
+   * @param {Function} mixin a mixin function to apply to the Schedule model
+   * @mixes Schedule
+   * @see {@link ./schedule.md|Schedule}
+   */
+  scheduleMixer(mixin) { this.Schedule = mixin(this.Schedule); };
 
   /**
    * @method ORDCommon~stationMixer
