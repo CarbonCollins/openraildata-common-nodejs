@@ -6,6 +6,9 @@
 [![David](https://img.shields.io/david/CarbonCollins/openraildata-common-nodejs.svg)]()
 [![David](https://img.shields.io/david/dev/CarbonCollins/openraildata-common-nodejs.svg)]()
 [![sheilds](https://img.shields.io/badge/status-WIP-yellow.svg)](https://img.shields.io/badge/status-WIP-yellow.svg)
+[![Maintainability](https://api.codeclimate.com/v1/badges/d565af9f95f072c98381/maintainability)](https://codeclimate.com/github/CarbonCollins/openraildata-common-nodejs/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/d565af9f95f072c98381/test_coverage)](https://codeclimate.com/github/CarbonCollins/openraildata-common-nodejs/test_coverage)
+[![Known Vulnerabilities](https://snyk.io/test/github/carboncollins/openraildata-common-nodejs/badge.svg)](https://snyk.io/test/github/carboncollins/openraildata-common-nodejs)
 
 A package for common files and functions between the various openraildata packages
 
@@ -20,13 +23,13 @@ const common = require('openraildata-common');
 
 the currently available classes that can be used are listed below
 
-- [Association](./docs/association.md)
-- [Location](./docs/location.md)
-- [Schedule](./docs/schedule.md)
-- [Station](./docs/station.md)
-- [StationMessage](./docs/stationMessage.md)
-- [TrainOrder](./docs/trainOrder.md)
-- [TrainStatus](./docs/trainStatus.md)
+- [Association](./docs/api.md#module_openraildata/common+Association)
+- [Location](./docs/location.md#module_openraildata/common+Location)
+- [Schedule](./docs/schedule.md#module_openraildata/common+Schedule)
+- [Station](./docs/station.md#module_openraildata/common+Station)
+- [StationMessage](./docs/stationMessage.md#module_openraildata/common+StationMessage)
+- [TrainOrder](./docs/trainOrder.md#module_openraildata/common+TrainOrder)
+- [TrainStatus](./docs/trainStatus.md#module_openraildata/common+TrainStatus)
 
 an example of using the classes are:
 
@@ -62,4 +65,4 @@ const common = require('openraildata-common);
 common.stationMixer(mixin);
 ```
 
-all the functions for this are documents <a href="./docs/index.md">here</a>
+all the functions for this are documented in the <a href="./docs/api.md">API docs</a>
