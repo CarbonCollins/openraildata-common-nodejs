@@ -12,7 +12,7 @@ gulp.task('generateDocs', () => {
       return jsdoc2md.render({
         'no-cache': true,
         separators: true,
-        files: ['./index.js', './lib/*.js']
+        files: ['./docs/alias.js', './index.js', './lib/*.js']
       });
     })
     .then((output) => {

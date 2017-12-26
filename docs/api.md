@@ -23,7 +23,7 @@ classes to be identical wherever they are used.</p>
 <dt><a href="#Schedule">Schedule</a> ⇐ <code><a href="#module_openraildata/common+Schedule">Schedule</a></code></dt>
 <dd><p>A class for location information along with helpful functions</p>
 </dd>
-<dt><a href="#Station">Station</a></dt>
+<dt><a href="#Station">Station</a> ⇐ <code><a href="#module_openraildata/common+Station">Station</a></code></dt>
 <dd><p>a class for storing data about a station and to supply helpful functions for manipulating the data</p>
 </dd>
 <dt><a href="#StationMessage">StationMessage</a></dt>
@@ -34,6 +34,49 @@ classes to be identical wherever they are used.</p>
 </dd>
 <dt><a href="#TrainStatus">TrainStatus</a></dt>
 <dd><p>a class for train status messages</p>
+</dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#tpl">tpl</a> : <code>String</code></dt>
+<dd><p>A TIPLOC code used to identify a station or line parting.
+For a comprehensive list of TIPLOC codes there is a currently (26/12/2017) activly maintained
+db found at the provided link</p>
+</dd>
+<dt><a href="#act">act</a> : <code>String</code></dt>
+<dd><p>An action code is used to determine what kind of action an operation is
+performing. The value is pretty much always &#39;A&#39;, however, under rare circmstances it could be
+a &#39;C&#39; or a &#39;D&#39; this should not happen though.</p>
+</dd>
+<dt><a href="#pta">pta</a> : <code>String</code></dt>
+<dd><p>Normaly in the format of HH:MM which represents the Planned Time of Arrival. This
+value is used on timetables as it is when trains are meant to arrive at that position on the
+network.</p>
+</dd>
+<dt><a href="#ptd">ptd</a> : <code>String</code></dt>
+<dd><p>Normaly in the format of HH:MM which represents the Planned Time of Departure. This
+value is used on timetables as it is when trains are meant to depart from that position on the
+network.</p>
+</dd>
+<dt><a href="#wta">wta</a> : <code>String</code></dt>
+<dd><p>Normaly in the format of HH:MM:SS which represents the Working Time of Arrival.
+This value is shows the time in which the train actualy arrived at that point on the network.</p>
+</dd>
+<dt><a href="#wtd">wtd</a> : <code>String</code></dt>
+<dd><p>Normaly in the format of HH:MM:SS which represents the Working Time of Arrival.
+This value is shows the time in which the train actualy arrived at that point on the network.</p>
+</dd>
+<dt><a href="#plat">plat</a> : <code>String</code></dt>
+<dd><p>The identifier of a platform, this can be a number formatted as a string, a letter
+or a combination of both e.g. &#39;1&#39;, &#39;2A&#39;, &#39;C&#39;.</p>
+</dd>
+<dt><a href="#platsup">platsup</a> : <code>Boolean</code></dt>
+<dd><p>A boolean to determine if the platform identifier should be suppressed from public
+view. This is used on the arrival displays as it is used to allow staff to perform train duties
+before allowing the public to know which train to board. If this is set as true then the
+platform identifier should not be displayed to the public.</p>
 </dd>
 </dl>
 
@@ -95,6 +138,17 @@ classes to be identical wherever they are used.
             * [.operationalStops](#module_openraildata/common+Schedule+operationalStops) : [<code>Array.&lt;Station&gt;</code>](#Station)
             * [.destination](#module_openraildata/common+Schedule+destination) : [<code>Station</code>](#Station)
         * [.Station](#module_openraildata/common+Station) : [<code>Station</code>](#Station)
+            * _instance_
+                * [.tiploc](#module_openraildata/common+Station+tiploc) : [<code>tpl</code>](#tpl)
+                * [.action](#module_openraildata/common+Station+action) : [<code>act</code>](#act)
+                * [.plannedTimeOfArrival](#module_openraildata/common+Station+plannedTimeOfArrival) : [<code>pta</code>](#pta)
+                * [.plannedTimeOfDeparture](#module_openraildata/common+Station+plannedTimeOfDeparture) : [<code>ptd</code>](#ptd)
+                * [.workingTimeOfArrival](#module_openraildata/common+Station+workingTimeOfArrival) : [<code>wta</code>](#wta)
+                * [.workingTimeOfDeparture](#module_openraildata/common+Station+workingTimeOfDeparture) : [<code>wtd</code>](#wtd)
+                * [.operational](#module_openraildata/common+Station+operational) : <code>Boolean</code>
+                * [.platform](#module_openraildata/common+Station+platform) : [<code>plat</code>](#plat)
+            * _inner_
+                * [~isPlatformSuppressed()](#module_openraildata/common+Station..isPlatformSuppressed) ⇒ <code>Boolean</code>
         * [.StationMessage](#module_openraildata/common+StationMessage) : [<code>StationMessage</code>](#StationMessage)
         * [.TrainOrder](#module_openraildata/common+TrainOrder) : [<code>TrainOrder</code>](#TrainOrder)
         * [.TrainStatus](#module_openraildata/common+TrainStatus) : [<code>TrainStatus</code>](#TrainStatus)
@@ -565,6 +619,109 @@ gets the trains operational destination station
 ### openraildata/common.Station : [<code>Station</code>](#Station)
 **Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
 **Read only**: true  
+
+* [.Station](#module_openraildata/common+Station) : [<code>Station</code>](#Station)
+    * _instance_
+        * [.tiploc](#module_openraildata/common+Station+tiploc) : [<code>tpl</code>](#tpl)
+        * [.action](#module_openraildata/common+Station+action) : [<code>act</code>](#act)
+        * [.plannedTimeOfArrival](#module_openraildata/common+Station+plannedTimeOfArrival) : [<code>pta</code>](#pta)
+        * [.plannedTimeOfDeparture](#module_openraildata/common+Station+plannedTimeOfDeparture) : [<code>ptd</code>](#ptd)
+        * [.workingTimeOfArrival](#module_openraildata/common+Station+workingTimeOfArrival) : [<code>wta</code>](#wta)
+        * [.workingTimeOfDeparture](#module_openraildata/common+Station+workingTimeOfDeparture) : [<code>wtd</code>](#wtd)
+        * [.operational](#module_openraildata/common+Station+operational) : <code>Boolean</code>
+        * [.platform](#module_openraildata/common+Station+platform) : [<code>plat</code>](#plat)
+    * _inner_
+        * [~isPlatformSuppressed()](#module_openraildata/common+Station..isPlatformSuppressed) ⇒ <code>Boolean</code>
+
+
+* * *
+
+<a name="module_openraildata/common+Station+tiploc"></a>
+
+#### station.tiploc : [<code>tpl</code>](#tpl)
+gets the TIPLOC code for this station
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+action"></a>
+
+#### station.action : [<code>act</code>](#act)
+gets the action at this station
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+plannedTimeOfArrival"></a>
+
+#### station.plannedTimeOfArrival : [<code>pta</code>](#pta)
+gets the planned time of arrival (public facing)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+plannedTimeOfDeparture"></a>
+
+#### station.plannedTimeOfDeparture : [<code>ptd</code>](#ptd)
+gets the planned time of departure (public facing)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+workingTimeOfArrival"></a>
+
+#### station.workingTimeOfArrival : [<code>wta</code>](#wta)
+gets the working time of arrival for the train (hidden form pulic view)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+workingTimeOfDeparture"></a>
+
+#### station.workingTimeOfDeparture : [<code>wtd</code>](#wtd)
+gets the working time of departure for the train (hidden form pulic view)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+operational"></a>
+
+#### station.operational : <code>Boolean</code>
+is the station an operational station
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+platform"></a>
+
+#### station.platform : [<code>plat</code>](#plat)
+is the platform number (if known)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station..isPlatformSuppressed"></a>
+
+#### Station~isPlatformSuppressed() ⇒ <code>Boolean</code>
+determines if the platform is to be suppressed form public view
+
+**Kind**: inner method of [<code>Station</code>](#module_openraildata/common+Station)  
 
 * * *
 
@@ -1135,24 +1292,22 @@ gets the trains operational destination station
 
 <a name="Station"></a>
 
-## Station
+## Station ⇐ [<code>Station</code>](#module_openraildata/common+Station)
 a class for storing data about a station and to supply helpful functions for manipulating the data
 
 **Kind**: global class  
+**Extends**: [<code>Station</code>](#module_openraildata/common+Station)  
 
-* [Station](#Station)
+* [Station](#Station) ⇐ [<code>Station</code>](#module_openraildata/common+Station)
     * [new Station(payload, [operational])](#new_Station_new)
-    * _instance_
-        * [.tiploc](#Station+tiploc) ⇒ <code>String</code>
-        * [.action](#Station+action) ⇒ <code>String</code>
-        * [.plannedTimeOfArrival](#Station+plannedTimeOfArrival) ⇒ <code>String</code>
-        * [.plannedTimeOfDeparture](#Station+plannedTimeOfDeparture) ⇒ <code>String</code>
-        * [.workingTimeOfArrival](#Station+workingTimeOfArrival) ⇒ <code>String</code>
-        * [.workingTimeOfDeparture](#Station+workingTimeOfDeparture) ⇒ <code>String</code>
-        * [.operational](#Station+operational) ⇒ <code>Boolean</code>
-        * [.platform](#Station+platform) ⇒ <code>String</code>
-    * _inner_
-        * [~isPlatformSuppressed()](#Station..isPlatformSuppressed) ⇒ <code>Boolean</code>
+    * [.tiploc](#module_openraildata/common+Station+tiploc) : [<code>tpl</code>](#tpl)
+    * [.action](#module_openraildata/common+Station+action) : [<code>act</code>](#act)
+    * [.plannedTimeOfArrival](#module_openraildata/common+Station+plannedTimeOfArrival) : [<code>pta</code>](#pta)
+    * [.plannedTimeOfDeparture](#module_openraildata/common+Station+plannedTimeOfDeparture) : [<code>ptd</code>](#ptd)
+    * [.workingTimeOfArrival](#module_openraildata/common+Station+workingTimeOfArrival) : [<code>wta</code>](#wta)
+    * [.workingTimeOfDeparture](#module_openraildata/common+Station+workingTimeOfDeparture) : [<code>wtd</code>](#wtd)
+    * [.operational](#module_openraildata/common+Station+operational) : <code>Boolean</code>
+    * [.platform](#module_openraildata/common+Station+platform) : [<code>plat</code>](#plat)
 
 
 * * *
@@ -1161,17 +1316,17 @@ a class for storing data about a station and to supply helpful functions for man
 
 ### new Station(payload, [operational])
 
-| Param | Type | Description |
-| --- | --- | --- |
-| payload | <code>Object</code> | a raw object containing the station information |
-| [operational] | <code>Boolean</code> | an optional boolean to specify if the station is an operational stop |
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| payload | <code>Object</code> |  | a raw object containing the station information |
+| [operational] | <code>Boolean</code> | <code>false</code> | an optional boolean to specify if the station is an operational stop |
 
 
 * * *
 
-<a name="Station+tiploc"></a>
+<a name="module_openraildata/common+Station+tiploc"></a>
 
-### station.tiploc ⇒ <code>String</code>
+### station.tiploc : [<code>tpl</code>](#tpl)
 gets the TIPLOC code for this station
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
@@ -1179,9 +1334,9 @@ gets the TIPLOC code for this station
 
 * * *
 
-<a name="Station+action"></a>
+<a name="module_openraildata/common+Station+action"></a>
 
-### station.action ⇒ <code>String</code>
+### station.action : [<code>act</code>](#act)
 gets the action at this station
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
@@ -1189,9 +1344,9 @@ gets the action at this station
 
 * * *
 
-<a name="Station+plannedTimeOfArrival"></a>
+<a name="module_openraildata/common+Station+plannedTimeOfArrival"></a>
 
-### station.plannedTimeOfArrival ⇒ <code>String</code>
+### station.plannedTimeOfArrival : [<code>pta</code>](#pta)
 gets the planned time of arrival (public facing)
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
@@ -1199,42 +1354,39 @@ gets the planned time of arrival (public facing)
 
 * * *
 
-<a name="Station+plannedTimeOfDeparture"></a>
+<a name="module_openraildata/common+Station+plannedTimeOfDeparture"></a>
 
-### station.plannedTimeOfDeparture ⇒ <code>String</code>
+### station.plannedTimeOfDeparture : [<code>ptd</code>](#ptd)
 gets the planned time of departure (public facing)
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
 **Read only**: true  
-**See**: ptd  
 
 * * *
 
-<a name="Station+workingTimeOfArrival"></a>
+<a name="module_openraildata/common+Station+workingTimeOfArrival"></a>
 
-### station.workingTimeOfArrival ⇒ <code>String</code>
+### station.workingTimeOfArrival : [<code>wta</code>](#wta)
 gets the working time of arrival for the train (hidden form pulic view)
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
 **Read only**: true  
-**See**: wta  
 
 * * *
 
-<a name="Station+workingTimeOfDeparture"></a>
+<a name="module_openraildata/common+Station+workingTimeOfDeparture"></a>
 
-### station.workingTimeOfDeparture ⇒ <code>String</code>
+### station.workingTimeOfDeparture : [<code>wtd</code>](#wtd)
 gets the working time of departure for the train (hidden form pulic view)
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
 **Read only**: true  
-**See**: wtd  
 
 * * *
 
-<a name="Station+operational"></a>
+<a name="module_openraildata/common+Station+operational"></a>
 
-### station.operational ⇒ <code>Boolean</code>
+### station.operational : <code>Boolean</code>
 is the station an operational station
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
@@ -1242,22 +1394,13 @@ is the station an operational station
 
 * * *
 
-<a name="Station+platform"></a>
+<a name="module_openraildata/common+Station+platform"></a>
 
-### station.platform ⇒ <code>String</code>
+### station.platform : [<code>plat</code>](#plat)
 is the platform number (if known)
 
 **Kind**: instance property of [<code>Station</code>](#Station)  
 **Read only**: true  
-
-* * *
-
-<a name="Station..isPlatformSuppressed"></a>
-
-### Station~isPlatformSuppressed() ⇒ <code>Boolean</code>
-determines if the platform is to be suppressed form public view
-
-**Kind**: inner method of [<code>Station</code>](#Station)  
 
 * * *
 
@@ -1517,6 +1660,100 @@ gets all of the locations that this train status applies to
 
 **Kind**: instance property of [<code>TrainStatus</code>](#TrainStatus)  
 **Read only**: true  
+
+* * *
+
+<a name="tpl"></a>
+
+## tpl : <code>String</code>
+A TIPLOC code used to identify a station or line parting.
+For a comprehensive list of TIPLOC codes there is a currently (26/12/2017) activly maintained
+db found at the provided link
+
+**Kind**: global typedef  
+**See**: [http://www.railwaycodes.org.uk/crs/CRS0.shtm](http://www.railwaycodes.org.uk/crs/CRS0.shtm)  
+
+* * *
+
+<a name="act"></a>
+
+## act : <code>String</code>
+An action code is used to determine what kind of action an operation is
+performing. The value is pretty much always 'A', however, under rare circmstances it could be
+a 'C' or a 'D' this should not happen though.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Train_Planning_Data_Structure](http://nrodwiki.rockshore.net/index.php/Train_Planning_Data_Structure)  
+
+* * *
+
+<a name="pta"></a>
+
+## pta : <code>String</code>
+Normaly in the format of HH:MM which represents the Planned Time of Arrival. This
+value is used on timetables as it is when trains are meant to arrive at that position on the
+network.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times](http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times)  
+
+* * *
+
+<a name="ptd"></a>
+
+## ptd : <code>String</code>
+Normaly in the format of HH:MM which represents the Planned Time of Departure. This
+value is used on timetables as it is when trains are meant to depart from that position on the
+network.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times](http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times)  
+
+* * *
+
+<a name="wta"></a>
+
+## wta : <code>String</code>
+Normaly in the format of HH:MM:SS which represents the Working Time of Arrival.
+This value is shows the time in which the train actualy arrived at that point on the network.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times](http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times)  
+
+* * *
+
+<a name="wtd"></a>
+
+## wtd : <code>String</code>
+Normaly in the format of HH:MM:SS which represents the Working Time of Arrival.
+This value is shows the time in which the train actualy arrived at that point on the network.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times](http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Actual_times)  
+
+* * *
+
+<a name="plat"></a>
+
+## plat : <code>String</code>
+The identifier of a platform, this can be a number formatted as a string, a letter
+or a combination of both e.g. '1', '2A', 'C'.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Platform_numbers](http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Platform_numbers)  
+
+* * *
+
+<a name="platsup"></a>
+
+## platsup : <code>Boolean</code>
+A boolean to determine if the platform identifier should be suppressed from public
+view. This is used on the arrival displays as it is used to allow staff to perform train duties
+before allowing the public to know which train to board. If this is set as true then the
+platform identifier should not be displayed to the public.
+
+**Kind**: global typedef  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Platform_numbers](http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Platform_numbers)  
 
 * * *
 
