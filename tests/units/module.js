@@ -19,6 +19,7 @@ const moduleSuite = new Suite('openweathermap-api-nodejs module tests');
 
 // ----- module export tests ----- //
 const exportSuite = new Suite('Export tests');
+exportSuite.timeout(5000);
 
 exportSuite.addTest(new Test('OpenRailData exports class', () => {
   expect(UUT).to.be.an('object', 'module should export an already instanced class');
@@ -75,33 +76,29 @@ exportSuite.addTest(new Test('ORDCommon exports correct getters', () => {
   expect(getters).to.deep.equal(unitModules);
 }));
 
+for (let i = 0, iLength = unitModules.length; i < iLength; i += 1) {
+  const getterSuite = new Suite(`${unitModules[i]} module suite`);
 
-exportSuite.addTest(new Test('ORDCommon getters export functions', () => {
+  getterSuite.addTest(new Test('Exports a constructor', () => {
+    expect(UUT[unitModules[i]]).to.be.an('function');
+    expect(new UUT[unitModules[i]]).to.be.an('object');
+  }));
 
-  const indexJS = rewire('../../index.js');
-  const ORDCommon = indexJS.__get__('ORDCommon');
+  getterSuite.addTest(new Test('Exports a mixer function', (done) => {
+    const mixerName = `${unitModules[i].charAt(0).toLowerCase()}${unitModules[i].slice(1)}Mixer`;
+    expect(UUT[mixerName]).to.be.an('function');
+    expect(UUT[mixerName]((mixer) => {
+      expect(mixer).to.be.an('function');
+      expect(new mixer()).to.be.an('object');
+      expect(mixer.name).to.be.equal(unitModules[i], 'mixer does not return the correct function');
+      done();
+    }))
+  }));
 
-  const getters = Object.getOwnPropertyNames(ORDCommon.prototype)
-    .map((name) => {
-      return Object.getOwnPropertyDescriptor(ORDCommon.prototype, name);
-    })
-    .filter((func) => {
-      return !!func.get;
-    });
-
-  expect(getters).to.all.satisfy((gets) => {
-    const result = gets
-      .map((func) => {
-        return !(typeof(func.get) === 'function');
-      })
-      .reduce((finalResult, currResult) => {
-        finalResult = finalResult || currResult;
-        return finalResult;
-      }, false);
-    return !result;
-  }, 'At least 1 getter is not returing a valid function');
-}));
+  exportSuite.addSuite(getterSuite);
+}
 
 moduleSuite.addSuite(exportSuite);
 
 module.exports = () => { return moduleSuite; };
+

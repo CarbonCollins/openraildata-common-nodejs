@@ -3,7 +3,7 @@
 const Association = require('./lib/association');
 const Location = require('./lib/location');
 const Schedule = require('./lib/schedule');
-const Station =require('./lib/station');
+const Station = require('./lib/station');
 const StationMessage = require('./lib/stationMessage');
 const TrainOrder = require('./lib/trainOrder');
 const TrainStatus = require('./lib/trainStatus');
@@ -170,4 +170,9 @@ class ORDCommon {
   }
 }
 
-module.exports = new ORDCommon();
+const ORD = new ORDCommon();
+
+Schedule.injectStation(ORD.Station); // inject potentialy mixed station object by reference
+TrainStatus.injectStation(ORD.Station); // inject potentialy mixed station object by reference
+
+module.exports = ORD;
