@@ -27,13 +27,13 @@ class ORDCommon {
    * @constructor
    */
   constructor() {
-    this.Association = Association;
-    this.Location = Location;
-    this.Schedule = Schedule;
-    this.Station = Station;
-    this.StationMessage = StationMessage;
-    this.TrainOrder = TrainOrder;
-    this.TrainStatus = TrainStatus;
+    this._Association = Association;
+    this._Location = Location;
+    this._Schedule = Schedule;
+    this._Station = Station;
+    this._StationMessage = StationMessage;
+    this._TrainOrder = TrainOrder;
+    this._TrainStatus = TrainStatus;
   }
 
   /**
@@ -42,7 +42,7 @@ class ORDCommon {
    * @readonly
    */
   get Association() {
-    return this.Association;
+    return this._Association;
   }
 
   /**
@@ -51,7 +51,7 @@ class ORDCommon {
    * @readonly
    */
   get Location() {
-    return this.Location;
+    return this._Location;
   }
 
   /**
@@ -60,7 +60,7 @@ class ORDCommon {
    * @readonly
    */
   get Schedule() {
-    return this.Schedule;
+    return this._Schedule;
   }
 
   /**
@@ -69,7 +69,7 @@ class ORDCommon {
    * @readonly
    */
   get Station() {
-    return this.Station;
+    return this._Station;
   }
 
   /**
@@ -78,7 +78,7 @@ class ORDCommon {
    * @readonly
    */
   get StationMessage() {
-    return this.StationMessage;
+    return this._StationMessage;
   }
 
   /**
@@ -87,7 +87,7 @@ class ORDCommon {
    * @readonly
    */
   get TrainOrder() {
-    return this.TrainOrder;
+    return this._TrainOrder;
   }
 
   /**
@@ -96,7 +96,7 @@ class ORDCommon {
    * @readonly
    */
   get TrainStatus() {
-    return this.TrainStatus;
+    return this._TrainStatus;
   }
 
   /**
@@ -106,7 +106,7 @@ class ORDCommon {
    * @see {@link ./association.md|Association}
    */
   associationMixer(mixin) {
-    this.Association = mixin(this.Association);
+    this._Association = mixin(this._Association);
   }
 
   /**
@@ -116,7 +116,7 @@ class ORDCommon {
    * @see {@link ./location.md|Location}
    */
   locationMixer(mixin) {
-    this.Location = mixin(this.Location);
+    this._Location = mixin(this._Location);
   }
 
   /**
@@ -126,7 +126,7 @@ class ORDCommon {
    * @see {@link ./schedule.md|Schedule}
    */
   scheduleMixer(mixin) {
-    this.Schedule = mixin(this.Schedule);
+    this._Schedule = mixin(this._Schedule);
   }
 
   /**
@@ -136,7 +136,7 @@ class ORDCommon {
    * @see {@link ./station.md|Station}
    */
   stationMixer(mixin) {
-    this.Station = mixin(this.Station);
+    this._Station = mixin(this._Station);
   }
 
   /**
@@ -146,7 +146,7 @@ class ORDCommon {
    * @see {@link ./stationMessage.md|StationMessage}
    */
   stationMessageMixer(mixin) {
-    this.StationMessage = mixin(this.StationMessage);
+    this._StationMessage = mixin(this._StationMessage);
   }
 
   /**
@@ -156,7 +156,7 @@ class ORDCommon {
    * @see {@link ./trainOrder.md|TrainOrder}
    */
   trainOrderMixer(mixin) {
-    this.TrainOrder = mixin(this.TrainOrder);
+    this._TrainOrder = mixin(this._TrainOrder);
   }
 
   /**
@@ -166,7 +166,7 @@ class ORDCommon {
    * @see {@link ./trainStatus.md|TrainStatus}
    */
   trainStatusMixer(mixin) {
-    this.TrainStatus = mixin(this.TrainStatus);
+    this._TrainStatus = mixin(this._TrainStatus);
   }
 }
 

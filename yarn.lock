@@ -768,6 +768,10 @@ diff@3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.3.1.tgz#aa8567a6eed03c531fc89d3f711cd0e5259dec75"
 
+diff@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/diff/-/diff-3.4.0.tgz#b1d85507daf3964828de54b37d0d73ba67dda56c"
+
 dmd@^1.4.1:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/dmd/-/dmd-1.4.2.tgz#b1304b98a5700a6bfe5dcf91be657c981700a4bc"
