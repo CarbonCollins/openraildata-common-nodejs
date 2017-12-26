@@ -6,11 +6,14 @@ const jsdoc2md = require('jsdoc-to-markdown');
 const diff = require('diff');
 const Mocha = require('mocha');
 const Chai = require('chai');
+const rewire = require('rewire');
 
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
 const UUT = require('../../index');
+
+const unitModules = ['Association', 'Location', 'Schedule', 'Station', 'StationMessage', 'TrainOrder', 'TrainStatus']
 
 const moduleSuite = new Suite('openweathermap-api-nodejs module tests');
 
@@ -19,7 +22,7 @@ const exportSuite = new Suite('Export tests');
 
 exportSuite.addTest(new Test('OpenRailData exports class', () => {
   expect(UUT).to.be.an('object', 'module should export an already instanced class');
-  expect(UUT).to.have.all.keys(['_Association', '_Location', '_Schedule', '_Station', '_StationMessage', '_TrainOrder', '_TrainStatus'])
+  expect(UUT).to.have.all.keys(unitModules.slice(0).map((module) => { return `_${module}`; }));
 }));
 
 exportSuite.addTest(new Test('API docs present and up-to-date', (done) => {
@@ -57,6 +60,46 @@ exportSuite.addTest(new Test('API docs present and up-to-date', (done) => {
     .catch((err) => {
       done(err);
     });
+}));
+
+exportSuite.addTest(new Test('ORDCommon exports correct getters', () => {
+
+  const indexJS = rewire('../../index.js');
+  const ORDCommon = indexJS.__get__('ORDCommon');
+
+  const getters = Object.getOwnPropertyNames(ORDCommon.prototype).filter((name) => {
+    const result = Object.getOwnPropertyDescriptor(ORDCommon.prototype, name);
+    return !!result.get;
+  });
+
+  expect(getters).to.deep.equal(unitModules);
+}));
+
+
+exportSuite.addTest(new Test('ORDCommon getters export functions', () => {
+
+  const indexJS = rewire('../../index.js');
+  const ORDCommon = indexJS.__get__('ORDCommon');
+
+  const getters = Object.getOwnPropertyNames(ORDCommon.prototype)
+    .map((name) => {
+      return Object.getOwnPropertyDescriptor(ORDCommon.prototype, name);
+    })
+    .filter((func) => {
+      return !!func.get;
+    });
+
+  expect(getters).to.all.satisfy((gets) => {
+    const result = gets
+      .map((func) => {
+        return !(typeof(func.get) === 'function');
+      })
+      .reduce((finalResult, currResult) => {
+        finalResult = finalResult || currResult;
+        return finalResult;
+      }, false);
+    return !result;
+  }, 'At least 1 getter is not returing a valid function');
 }));
 
 moduleSuite.addSuite(exportSuite);
