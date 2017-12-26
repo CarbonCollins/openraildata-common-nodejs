@@ -60,7 +60,7 @@
 /**
  * @typedef {String} plat
  * @description The identifier of a platform, this can be a number formatted as a string, a letter
- * or a combination of both e.g. '1', '2A', 'C'.
+ * or a combination of both e.g. `1`, `2A`, `C`.
  * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Platform_numbers}
  * @global
  */
@@ -72,4 +72,60 @@
  * before allowing the public to know which train to board. If this is set as true then the
  * platform identifier should not be displayed to the public.
  * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Train_Status_Element#Platform_numbers}
+ * @global
+ */
+
+/**
+ * @typedef {String} category
+ * @description details the type of association between two trains. This value can be either:
+ * `JJ` for join, `VV` for devide, or `NP` for next.
+ * @see {@link http://nrodwiki.rockshore.net/index.php/Association_Records#Association_Record_Fields}
+ */
+
+/**
+ * @typedef {String} uid
+ * @description a unique identifier for a train. Each train will have its own uid which can be used
+ * to identify it on most data from the openraildata servers e.g. getting a schedule for a train.
+ */
+
+/**
+ * @typedef {String} rid
+ * @description an RTTI Train ID. Note that since this is an RID, the service must already exist
+ * within Darwin. RTTI meaning Real Time Train Information
+ */
+
+/**
+ * @typedef {string} toc
+ * @description a Train Operating Company tring itendifier. These are normaly a 2 letter code used
+ * to identify the company e.g. virgin trains `VT` or calledonian sleeper `CS`.
+ * @see {@link http://nrodwiki.rockshore.net/index.php/TOC_Codes}
+ */
+
+/**
+ * @typedef {String} crs
+ * @description the Computer Reservation System code is a 3 letter alpha numeric code used to
+ * identify a station on the network. It was previously known as nrs (National Reservation System)
+ * An example would be Euston station which has a crs of `EUS`.
+ * @see {@link http://nrodwiki.rockshore.net/index.php/CRS}
+ */
+
+/**
+ * @typedef {String} ssd
+ * @description the Service Starting Date details which day the train service will be operating on.
+ * this is in the format of YYYY-MM-DD
+ * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Schedule_Element}
+ */
+
+/**
+ * @typedef {String} stationCategory
+ * @description a catergory for station messages, this can be any of the following: `Train`,
+ * `Station`, `Connections`, `System`, `Misc`, `PriorTrains`, or `PriorOthers`.
+ * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Station_Message_Element#Categories}
+ */
+
+/**
+ * @typedef {Number} severity
+ * @description a severity rating to detail how severe a message is. This value can be:
+ * 0 for normal, 1 for minor, 2 for major, and 3 for severe
+ * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Station_Message_Element#Severities}
  */
