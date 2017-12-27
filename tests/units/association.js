@@ -9,7 +9,7 @@ const { expect } = Chai;
 const UUT = require('../../lib/association');
 const testData = require('../templates/association.json');
 
-const moduleSuite = new Suite('association module tests');
+const moduleSuite = new Suite('Association module tests');
 
 moduleSuite.addTest(new Test('Exports class constructor', () => {
   expect(UUT.name).to.be.equal('Association');

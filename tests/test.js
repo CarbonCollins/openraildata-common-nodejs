@@ -5,6 +5,7 @@ const Mocha = require('mocha');
 const moduleUnitTests = require('./units/module');
 
 const associationUnitTests = require('./units/association');
+const locationUnitTests = require('./units/location');
 
 const mocha = new Mocha();
 const { Suite } = Mocha;
@@ -15,6 +16,8 @@ Promise.resolve()
   .then(() => { return moduleUnitTests(); })
   .then((suite) => { return fullSuite.addSuite(suite); })
   .then(() => { return associationUnitTests(); })
+  .then((suite) => { return fullSuite.addSuite(suite); })
+  .then(() => { return locationUnitTests(); })
   .then((suite) => { return fullSuite.addSuite(suite); })
   .then(() => {
     return mocha.run((failures) => {

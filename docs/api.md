@@ -140,7 +140,6 @@ classes to be identical wherever they are used.
                 * [~isNextTrain()](#module_openraildata/common+Association..isNextTrain) ⇒ <code>Boolean</code>
         * [.Location](#module_openraildata/common+Location) : [<code>Location</code>](#module_openraildata/common+Location)
             * _instance_
-                * [.locname](#module_openraildata/common+Location+locname) : <code>String</code>
                 * [.tiploc](#module_openraildata/common+Location+tiploc) : [<code>tpl</code>](#tpl)
                 * [.trainOperatingCompany](#module_openraildata/common+Location+trainOperatingCompany) : [<code>toc</code>](#toc)
                 * [.computerReservationSystem](#module_openraildata/common+Location+computerReservationSystem) : [<code>crs</code>](#crs)
@@ -327,7 +326,6 @@ checks to see if the association is a next train type
 
 * [.Location](#module_openraildata/common+Location) : [<code>Location</code>](#module_openraildata/common+Location)
     * _instance_
-        * [.locname](#module_openraildata/common+Location+locname) : <code>String</code>
         * [.tiploc](#module_openraildata/common+Location+tiploc) : [<code>tpl</code>](#tpl)
         * [.trainOperatingCompany](#module_openraildata/common+Location+trainOperatingCompany) : [<code>toc</code>](#toc)
         * [.computerReservationSystem](#module_openraildata/common+Location+computerReservationSystem) : [<code>crs</code>](#crs)
@@ -335,16 +333,6 @@ checks to see if the association is a next train type
     * _inner_
         * [~updateLocation(location)](#module_openraildata/common+Location..updateLocation)
 
-
-* * *
-
-<a name="module_openraildata/common+Location+locname"></a>
-
-#### location.locname : <code>String</code>
-returns the location name
-
-**Kind**: instance property of [<code>Location</code>](#module_openraildata/common+Location)  
-**Read only**: true  
 
 * * *
 
@@ -1089,7 +1077,6 @@ A class for location information along with helpful functions
 
 * [Location](#Location) ⇐ [<code>Location</code>](#module_openraildata/common+Location)
     * [new Location(loc)](#new_Location_new)
-    * [.locname](#module_openraildata/common+Location+locname) : <code>String</code>
     * [.tiploc](#module_openraildata/common+Location+tiploc) : [<code>tpl</code>](#tpl)
     * [.trainOperatingCompany](#module_openraildata/common+Location+trainOperatingCompany) : [<code>toc</code>](#toc)
     * [.computerReservationSystem](#module_openraildata/common+Location+computerReservationSystem) : [<code>crs</code>](#crs)
@@ -1106,16 +1093,6 @@ A class for location information along with helpful functions
 | --- | --- | --- |
 | loc | <code>Object</code> | the raw location object to be parsed |
 
-
-* * *
-
-<a name="module_openraildata/common+Location+locname"></a>
-
-### location.locname : <code>String</code>
-returns the location name
-
-**Kind**: instance property of [<code>Location</code>](#Location)  
-**Read only**: true  
 
 * * *
 
