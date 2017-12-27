@@ -59,5 +59,47 @@ moduleSuite.addTest(new Test('assocTrainId', () => {
   expect(IUUT.assocTrainId).to.be.equal('assocrid');
 }));
 
+moduleSuite.addTest(new Test('isJoin false', () => {
+  const IUUT = new UUT(testData);
+  expect(IUUT.isJoin).to.not.equal(undefined);
+  expect(IUUT.isJoin).to.be.an('function');
+  expect(IUUT.isJoin()).to.be.equal(false);
+}));
+
+moduleSuite.addTest(new Test('isJoin true', () => {
+  const IUUT = new UUT(Object.assign({}, testData, { category: 'JJ' }));
+  expect(IUUT.isJoin).to.not.equal(undefined);
+  expect(IUUT.isJoin).to.be.an('function');
+  expect(IUUT.isJoin()).to.be.equal(true);
+}));
+
+moduleSuite.addTest(new Test('isSplit false', () => {
+  const IUUT = new UUT(testData);
+  expect(IUUT.isSplit).to.not.equal(undefined);
+  expect(IUUT.isSplit).to.be.an('function');
+  expect(IUUT.isSplit()).to.be.equal(false);
+}));
+
+moduleSuite.addTest(new Test('isSplit true', () => {
+  const IUUT = new UUT(Object.assign({}, testData, { category: 'VV' }));
+  expect(IUUT.isSplit).to.not.equal(undefined);
+  expect(IUUT.isSplit).to.be.an('function');
+  expect(IUUT.isSplit()).to.be.equal(true);
+}));
+
+moduleSuite.addTest(new Test('isNextTrain false', () => {
+  const IUUT = new UUT(testData);
+  expect(IUUT.isNextTrain).to.not.equal(undefined);
+  expect(IUUT.isNextTrain).to.be.an('function');
+  expect(IUUT.isNextTrain()).to.be.equal(false);
+}));
+
+moduleSuite.addTest(new Test('isNextTrain true', () => {
+  const IUUT = new UUT(Object.assign({}, testData, { category: 'NP' }));
+  expect(IUUT.isNextTrain).to.not.equal(undefined);
+  expect(IUUT.isNextTrain).to.be.an('function');
+  expect(IUUT.isNextTrain()).to.be.equal(true);
+}));
+
 module.exports = () => { return moduleSuite; };
 
