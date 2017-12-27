@@ -1,0 +1,19 @@
+{
+  "crs": "crs",
+  "platform": "platform",
+  "tiploc": "tiploc",
+  "set": {
+    "first": {
+      "value": "first"
+    },
+    "second": {
+      "value": "first"
+    },
+    "third": {
+      "value": "first"
+    }
+  },
+  "clear": {
+    "value": "clear"
+  }
+}
