@@ -174,5 +174,6 @@ const ORD = new ORDCommon();
 
 Schedule.injectStation(ORD.Station); // inject potentialy mixed station object by reference
 TrainStatus.injectStation(ORD.Station); // inject potentialy mixed station object by reference
+StationMessage.injectLocation(ORD.Location); // inject potentialy mixed location object by reference
 
 module.exports = ORD;
