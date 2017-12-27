@@ -17,6 +17,27 @@ moduleSuite.addTest(new Test('Exports class constructor', () => {
   expect(new UUT()).to.be.an('object');
 }));
 
+moduleSuite.addTest(new Test('getRIDFromTrain', () => {
+  const IUUT = new UUT(testData);
+  expect(IUUT.getRIDFromTrain).to.not.equal(undefined);
+  expect(IUUT.getRIDFromTrain).to.be.an('function');
+
+  const IUUTResult = IUUT.getRIDFromTrain({ rid: 'rid' });
+  expect(IUUTResult).to.not.equal(undefined);
+  expect(IUUTResult).to.be.an('string');
+  expect(IUUTResult).to.be.equal('rid');
+}));
+
+moduleSuite.addTest(new Test('getRIDFromTrain null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.getRIDFromTrain).to.not.equal(undefined);
+  expect(IUUT.getRIDFromTrain).to.be.an('function');
+
+  const IUUTResult = IUUT.getRIDFromTrain();
+  expect(IUUTResult).to.not.equal(undefined);
+  expect(IUUTResult).to.be.equal(null);
+}));
+
 moduleSuite.addTest(new Test('tiploc', () => {
   const IUUT = new UUT(testData);
   expect(IUUT.tiploc).to.not.equal(undefined);
