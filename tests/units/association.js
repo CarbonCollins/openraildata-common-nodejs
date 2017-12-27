@@ -24,6 +24,12 @@ moduleSuite.addTest(new Test('tiploc', () => {
   expect(IUUT.tiploc).to.be.equal('tiploc');
 }));
 
+moduleSuite.addTest(new Test('tiploc null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.tiploc).to.not.equal(undefined);
+  expect(IUUT.tiploc).to.be.equal(null);
+}));
+
 moduleSuite.addTest(new Test('category', () => {
   const IUUT = new UUT(testData);
   expect(IUUT.category).to.not.equal(undefined);
@@ -31,11 +37,23 @@ moduleSuite.addTest(new Test('category', () => {
   expect(IUUT.category).to.be.equal('category');
 }));
 
-moduleSuite.addTest(new Test('main', () => {
+moduleSuite.addTest(new Test('category null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.category).to.not.equal(undefined);
+  expect(IUUT.category).to.be.equal(null);
+}));
+
+moduleSuite.addTest(new Test('mainTrain', () => {
   const IUUT = new UUT(testData);
   expect(IUUT.mainTrain).to.not.equal(undefined);
   expect(IUUT.mainTrain).to.be.an('object');
   expect(IUUT.mainTrain).to.be.deep.equal({ rid: 'mainrid' });
+}));
+
+moduleSuite.addTest(new Test('mainTrain null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.mainTrain).to.not.equal(undefined);
+  expect(IUUT.mainTrain).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('mainTrainId', () => {
@@ -45,11 +63,23 @@ moduleSuite.addTest(new Test('mainTrainId', () => {
   expect(IUUT.mainTrainId).to.be.equal('mainrid');
 }));
 
-moduleSuite.addTest(new Test('assoc', () => {
+moduleSuite.addTest(new Test('mainTrainId null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.mainTrainId).to.not.equal(undefined);
+  expect(IUUT.mainTrainId).to.be.equal(null);
+}));
+
+moduleSuite.addTest(new Test('assocTrain', () => {
   const IUUT = new UUT(testData);
   expect(IUUT.assocTrain).to.not.equal(undefined);
   expect(IUUT.assocTrain).to.be.an('object');
   expect(IUUT.assocTrain).to.be.deep.equal({ rid: 'assocrid' });
+}));
+
+moduleSuite.addTest(new Test('assocTrain null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.assocTrain).to.not.equal(undefined);
+  expect(IUUT.assocTrain).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('assocTrainId', () => {
@@ -57,6 +87,12 @@ moduleSuite.addTest(new Test('assocTrainId', () => {
   expect(IUUT.assocTrainId).to.not.equal(undefined);
   expect(IUUT.assocTrainId).to.be.an('string');
   expect(IUUT.assocTrainId).to.be.equal('assocrid');
+}));
+
+moduleSuite.addTest(new Test('assocTrainId null', () => {
+  const IUUT = new UUT();
+  expect(IUUT.assocTrainId).to.not.equal(undefined);
+  expect(IUUT.assocTrainId).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('isJoin false', () => {
