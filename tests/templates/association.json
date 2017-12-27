@@ -1,0 +1,10 @@
+{
+  "tiploc": "tiploc",
+  "category": "category",
+  "main": {
+    "rid": "mainrid"
+  },
+  "assoc": {
+    "rid": "assocrid"
+  }
+}
