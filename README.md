@@ -1,11 +1,11 @@
 # openraildata-common
 
+[![npm](https://img.shields.io/npm/dt/openraildata-common.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/CarbonCollins/openraildata-common-nodejs.svg)](https://github.com/CarbonCollins/openraildata-common-nodejs/issues)
-[![npm](https://img.shields.io/npm/v/openraildata-common.svg)](https://www.npmjs.com/package/openraildata-common)
+[![GitHub release](https://img.shields.io/github/release/CarbonCollins/openraildata-common-nodejs.svg)]()
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CarbonCollins/openraildata-common-nodejs/master/LICENSE)
 [![David](https://img.shields.io/david/CarbonCollins/openraildata-common-nodejs.svg)]()
 [![David](https://img.shields.io/david/dev/CarbonCollins/openraildata-common-nodejs.svg)]()
-[![sheilds](https://img.shields.io/badge/status-WIP-yellow.svg)](https://img.shields.io/badge/status-WIP-yellow.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/d565af9f95f072c98381/maintainability)](https://codeclimate.com/github/CarbonCollins/openraildata-common-nodejs/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d565af9f95f072c98381/test_coverage)](https://codeclimate.com/github/CarbonCollins/openraildata-common-nodejs/test_coverage)
 [![Known Vulnerabilities](https://snyk.io/test/github/carboncollins/openraildata-common-nodejs/badge.svg)](https://snyk.io/test/github/carboncollins/openraildata-common-nodejs)
