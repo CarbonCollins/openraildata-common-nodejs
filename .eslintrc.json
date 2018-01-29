@@ -4,6 +4,7 @@
     "sourceType": "module"
   },
   "extends": [
+    "airbnb-base",
     "eslint:recommended"
   ],
   "env": {
