@@ -11,7 +11,7 @@ const rewire = require('rewire');
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = require('../../index');
+const UUT = rewire('../../index');
 
 const unitModules = ['Association', 'Location', 'Schedule', 'Station', 'StationMessage', 'TrainOrder', 'TrainStatus']
 
@@ -23,7 +23,11 @@ exportSuite.timeout(5000);
 
 exportSuite.addTest(new Test('OpenRailData exports class', () => {
   expect(UUT).to.be.an('object', 'module should export an already instanced class');
-  expect(UUT).to.have.all.keys(unitModules.slice(0).map((module) => { return `_${module}`; }));
+  expect(UUT).to.have.all.keys(unitModules
+    .slice(0)
+    .map((module) => {
+      return UUT.__get__(`s_${module.charAt(0).toLowerCase()}${module.slice(1)}`);
+    }));
 }));
 
 exportSuite.addTest(new Test('API docs present and up-to-date', (done) => {

@@ -8,6 +8,24 @@ const StationMessage = require('./lib/stationMessage');
 const TrainOrder = require('./lib/trainOrder');
 const TrainStatus = require('./lib/trainStatus');
 
+const s_association = Symbol('association');
+const s_location = Symbol('location');
+const s_schedule = Symbol('schedule');
+const s_station = Symbol('station');
+const s_stationMessage = Symbol('stationMessage');
+const s_trainOrder = Symbol('trainOrder');
+const s_trainStatus = Symbol('trainStatus');
+
+/**
+ * @module openraildata/common
+ * @description the openraildata/common module is used to export various data classes used within
+ * many of the openraildata modules. This common package is used to remove duplicate copies of
+ * each of these data classes and so that they are maintained in one place. Because of this there
+ * is not much actual funcitonality within this module. Mixing functions are exposed which allow
+ * other modules to mix extra functionality into the data classes in this module in order for the
+ * classes to be identical wherever they are used.
+ */
+
 /**
  * @module openraildata/common
  * @description the openraildata/common module is used to export various data classes used within
@@ -27,13 +45,13 @@ class ORDCommon {
    * @constructor
    */
   constructor() {
-    this._Association = Association;
-    this._Location = Location;
-    this._Schedule = Schedule;
-    this._Station = Station;
-    this._StationMessage = StationMessage;
-    this._TrainOrder = TrainOrder;
-    this._TrainStatus = TrainStatus;
+    this[s_association] = Association;
+    this[s_location] = Location;
+    this[s_schedule] = Schedule;
+    this[s_station] = Station;
+    this[s_stationMessage] = StationMessage;
+    this[s_trainOrder] = TrainOrder;
+    this[s_trainStatus] = TrainStatus;
   }
 
   /**
@@ -42,7 +60,7 @@ class ORDCommon {
    * @readonly
    */
   get Association() {
-    return this._Association;
+    return this[s_association];
   }
 
   /**
@@ -51,7 +69,7 @@ class ORDCommon {
    * @readonly
    */
   get Location() {
-    return this._Location;
+    return this[s_location];
   }
 
   /**
@@ -60,7 +78,7 @@ class ORDCommon {
    * @readonly
    */
   get Schedule() {
-    return this._Schedule;
+    return this[s_schedule];
   }
 
   /**
@@ -69,7 +87,7 @@ class ORDCommon {
    * @readonly
    */
   get Station() {
-    return this._Station;
+    return this[s_station];
   }
 
   /**
@@ -78,7 +96,7 @@ class ORDCommon {
    * @readonly
    */
   get StationMessage() {
-    return this._StationMessage;
+    return this[s_stationMessage];
   }
 
   /**
@@ -87,7 +105,7 @@ class ORDCommon {
    * @readonly
    */
   get TrainOrder() {
-    return this._TrainOrder;
+    return this[s_trainOrder];
   }
 
   /**
@@ -96,7 +114,7 @@ class ORDCommon {
    * @readonly
    */
   get TrainStatus() {
-    return this._TrainStatus;
+    return this[s_trainStatus];
   }
 
   /**
@@ -106,7 +124,7 @@ class ORDCommon {
    * @see {@link ./association.md|Association}
    */
   associationMixer(mixin) {
-    this._Association = mixin(this._Association);
+    this[s_association] = mixin(this[s_association]);
   }
 
   /**
@@ -116,7 +134,7 @@ class ORDCommon {
    * @see {@link ./location.md|Location}
    */
   locationMixer(mixin) {
-    this._Location = mixin(this._Location);
+    this[s_location] = mixin(this[s_location]);
   }
 
   /**
@@ -126,7 +144,7 @@ class ORDCommon {
    * @see {@link ./schedule.md|Schedule}
    */
   scheduleMixer(mixin) {
-    this._Schedule = mixin(this._Schedule);
+    this[s_schedule] = mixin(this[s_schedule]);
   }
 
   /**
@@ -136,7 +154,7 @@ class ORDCommon {
    * @see {@link ./station.md|Station}
    */
   stationMixer(mixin) {
-    this._Station = mixin(this._Station);
+    this[s_station] = mixin(this[s_station]);
   }
 
   /**
@@ -146,7 +164,7 @@ class ORDCommon {
    * @see {@link ./stationMessage.md|StationMessage}
    */
   stationMessageMixer(mixin) {
-    this._StationMessage = mixin(this._StationMessage);
+    this[s_stationMessage] = mixin(this[s_stationMessage]);
   }
 
   /**
@@ -156,7 +174,7 @@ class ORDCommon {
    * @see {@link ./trainOrder.md|TrainOrder}
    */
   trainOrderMixer(mixin) {
-    this._TrainOrder = mixin(this._TrainOrder);
+    this[s_trainOrder] = mixin(this[s_trainOrder]);
   }
 
   /**
@@ -166,7 +184,7 @@ class ORDCommon {
    * @see {@link ./trainStatus.md|TrainStatus}
    */
   trainStatusMixer(mixin) {
-    this._TrainStatus = mixin(this._TrainStatus);
+    this[s_trainStatus] = mixin(this[s_trainStatus]);
   }
 }
 

@@ -2,11 +2,12 @@
 
 const Mocha = require('mocha');
 const Chai = require('chai');
+const rewire = require('rewire');
 
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = require('../../lib/schedule');
+const UUT = rewire('../../lib/schedule');
 const testData = require('../templates/schedule.json');
 const stationData = require('../templates/station.json');
 
@@ -176,7 +177,7 @@ moduleSuite.addTest(new Test('listMultiStations', () => {
   expect(IUUT.listMultiStations).to.not.equal(undefined);
   expect(IUUT.listMultiStations).to.be.an('function');
   
-  const opip = IUUT.listMultiStations('OPIP');
+  const opip = IUUT.listMultiStations(UUT.__get__('s_OPIP'));
 
   expect(opip).to.be.an('array');
   expect(opip).to.have.lengthOf(2);
@@ -200,7 +201,7 @@ moduleSuite.addTest(new Test('getSingleStation', () => {
   expect(IUUT.getSingleStation).to.not.equal(undefined);
   expect(IUUT.getSingleStation).to.be.an('function');
 
-  const or = IUUT.getSingleStation('OR');
+  const or = IUUT.getSingleStation(UUT.__get__('s_OR'));
 
   expect(or).to.be.an('object');
   expect(or.constructor.name).to.be.equal('Station');
