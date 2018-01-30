@@ -9,6 +9,14 @@ is not much actual funcitonality within this module. Mixing functions are expose
 other modules to mix extra functionality into the data classes in this module in order for the
 classes to be identical wherever they are used.</p>
 </dd>
+<dt><a href="#module_openraildata/common">openraildata/common</a></dt>
+<dd><p>the openraildata/common module is used to export various data classes used within
+many of the openraildata modules. This common package is used to remove duplicate copies of
+each of these data classes and so that they are maintained in one place. Because of this there
+is not much actual funcitonality within this module. Mixing functions are exposed which allow
+other modules to mix extra functionality into the data classes in this module in order for the
+classes to be identical wherever they are used.</p>
+</dd>
 </dl>
 
 ## Classes
@@ -976,6 +984,869 @@ gets all of the locations that this train status applies to
 
 * * *
 
+<a name="module_openraildata/common"></a>
+
+## openraildata/common
+the openraildata/common module is used to export various data classes used within
+many of the openraildata modules. This common package is used to remove duplicate copies of
+each of these data classes and so that they are maintained in one place. Because of this there
+is not much actual funcitonality within this module. Mixing functions are exposed which allow
+other modules to mix extra functionality into the data classes in this module in order for the
+classes to be identical wherever they are used.
+
+
+* [openraildata/common](#module_openraildata/common)
+    * _instance_
+        * [.Association](#module_openraildata/common+Association) : [<code>Association</code>](#module_openraildata/common+Association)
+            * _instance_
+                * [.tiploc](#module_openraildata/common+Association+tiploc) : [<code>tpl</code>](#tpl)
+                * [.category](#module_openraildata/common+Association+category) : [<code>category</code>](#category)
+                * [.mainTrain](#module_openraildata/common+Association+mainTrain) : <code>Object</code>
+                * [.mainTrainId](#module_openraildata/common+Association+mainTrainId) : [<code>rid</code>](#rid)
+                * [.associatedTrain](#module_openraildata/common+Association+associatedTrain) : <code>Object</code>
+                * [.associatedTrainId](#module_openraildata/common+Association+associatedTrainId) : [<code>rid</code>](#rid)
+            * _inner_
+                * [~isJoin()](#module_openraildata/common+Association..isJoin) ⇒ <code>Boolean</code>
+                * [~isSplit()](#module_openraildata/common+Association..isSplit) ⇒ <code>Boolean</code>
+                * [~isNextTrain()](#module_openraildata/common+Association..isNextTrain) ⇒ <code>Boolean</code>
+        * [.Location](#module_openraildata/common+Location) : [<code>Location</code>](#module_openraildata/common+Location)
+            * _instance_
+                * [.tiploc](#module_openraildata/common+Location+tiploc) : [<code>tpl</code>](#tpl)
+                * [.trainOperatingCompany](#module_openraildata/common+Location+trainOperatingCompany) : [<code>toc</code>](#toc)
+                * [.computerReservationSystem](#module_openraildata/common+Location+computerReservationSystem) : [<code>crs</code>](#crs)
+                * [.locationName](#module_openraildata/common+Location+locationName) : <code>String</code>
+            * _inner_
+                * [~updateLocation(location)](#module_openraildata/common+Location..updateLocation)
+        * [.Schedule](#module_openraildata/common+Schedule) : [<code>Schedule</code>](#module_openraildata/common+Schedule)
+            * [.rid](#module_openraildata/common+Schedule+rid) : <code>String</code>
+            * [.serviceStartingDate](#module_openraildata/common+Schedule+serviceStartingDate) : [<code>ssd</code>](#ssd)
+            * [.trainOperatingCompany](#module_openraildata/common+Schedule+trainOperatingCompany) : [<code>toc</code>](#toc)
+            * [.trainId](#module_openraildata/common+Schedule+trainId) : <code>String</code>
+            * [.uniqueID](#module_openraildata/common+Schedule+uniqueID) : [<code>uid</code>](#uid)
+            * [.origin](#module_openraildata/common+Schedule+origin) : [<code>Station</code>](#Station)
+            * [.passingPoints](#module_openraildata/common+Schedule+passingPoints) : [<code>Array.&lt;Station&gt;</code>](#Station)
+            * [.intermediatePoints](#module_openraildata/common+Schedule+intermediatePoints) : [<code>Array.&lt;Station&gt;</code>](#Station)
+            * [.operationalStops](#module_openraildata/common+Schedule+operationalStops) : [<code>Array.&lt;Station&gt;</code>](#Station)
+            * [.destination](#module_openraildata/common+Schedule+destination) : [<code>Station</code>](#Station)
+        * [.Station](#module_openraildata/common+Station) : [<code>Station</code>](#Station)
+            * _instance_
+                * [.tiploc](#module_openraildata/common+Station+tiploc) : [<code>tpl</code>](#tpl)
+                * [.action](#module_openraildata/common+Station+action) : [<code>act</code>](#act)
+                * [.plannedTimeOfArrival](#module_openraildata/common+Station+plannedTimeOfArrival) : [<code>pta</code>](#pta)
+                * [.plannedTimeOfDeparture](#module_openraildata/common+Station+plannedTimeOfDeparture) : [<code>ptd</code>](#ptd)
+                * [.workingTimeOfArrival](#module_openraildata/common+Station+workingTimeOfArrival) : [<code>wta</code>](#wta)
+                * [.workingTimeOfDeparture](#module_openraildata/common+Station+workingTimeOfDeparture) : [<code>wtd</code>](#wtd)
+                * [.operational](#module_openraildata/common+Station+operational) : <code>Boolean</code>
+                * [.platform](#module_openraildata/common+Station+platform) : [<code>plat</code>](#plat)
+            * _inner_
+                * [~isPlatformSuppressed()](#module_openraildata/common+Station..isPlatformSuppressed) ⇒ <code>Boolean</code>
+        * [.StationMessage](#module_openraildata/common+StationMessage) : [<code>StationMessage</code>](#StationMessage)
+            * [.id](#module_openraildata/common+StationMessage+id) : <code>String</code>
+            * [.category](#module_openraildata/common+StationMessage+category) : [<code>stationCategory</code>](#stationCategory)
+            * [.message](#module_openraildata/common+StationMessage+message) : <code>String</code>
+            * [.severity](#module_openraildata/common+StationMessage+severity) : <code>Number</code>
+            * [.severityString](#module_openraildata/common+StationMessage+severityString) : <code>String</code>
+            * [.stations](#module_openraildata/common+StationMessage+stations) : [<code>Array.&lt;Location&gt;</code>](#Location)
+        * [.TrainOrder](#module_openraildata/common+TrainOrder) : [<code>TrainOrder</code>](#TrainOrder)
+            * _instance_
+                * [.computerReservationSystem](#module_openraildata/common+TrainOrder+computerReservationSystem) : [<code>crs</code>](#crs)
+                * [.platform](#module_openraildata/common+TrainOrder+platform) : [<code>plat</code>](#plat)
+                * [.tiploc](#module_openraildata/common+TrainOrder+tiploc) : [<code>tpl</code>](#tpl)
+                * [.set](#module_openraildata/common+TrainOrder+set) : <code>Object</code>
+                * [.first](#module_openraildata/common+TrainOrder+first) : <code>Object</code>
+                * [.second](#module_openraildata/common+TrainOrder+second) : <code>Object</code>
+                * [.third](#module_openraildata/common+TrainOrder+third) : <code>Object</code>
+                * [.clear](#module_openraildata/common+TrainOrder+clear) : <code>Object</code>
+            * _inner_
+                * [~isSet()](#module_openraildata/common+TrainOrder..isSet) ⇒ <code>Boolean</code>
+                * [~isClear()](#module_openraildata/common+TrainOrder..isClear) ⇒ <code>Boolean</code>
+        * [.TrainStatus](#module_openraildata/common+TrainStatus) : [<code>TrainStatus</code>](#TrainStatus)
+            * [.rid](#module_openraildata/common+TrainStatus+rid) : [<code>rid</code>](#rid)
+            * [.uniqueID](#module_openraildata/common+TrainStatus+uniqueID) : [<code>uid</code>](#uid)
+            * [.serviceStartingDate](#module_openraildata/common+TrainStatus+serviceStartingDate) : [<code>ssd</code>](#ssd)
+            * [.allLocations](#module_openraildata/common+TrainStatus+allLocations) : [<code>Array.&lt;Station&gt;</code>](#Station)
+    * _inner_
+        * [~associationMixer(mixin)](#module_openraildata/common..associationMixer)
+        * [~locationMixer(mixin)](#module_openraildata/common..locationMixer)
+        * [~scheduleMixer(mixin)](#module_openraildata/common..scheduleMixer)
+        * [~stationMixer(mixin)](#module_openraildata/common..stationMixer)
+        * [~stationMessageMixer(mixin)](#module_openraildata/common..stationMessageMixer)
+        * [~trainOrderMixer(mixin)](#module_openraildata/common..trainOrderMixer)
+        * [~trainStatusMixer(mixin)](#module_openraildata/common..trainStatusMixer)
+
+
+* * *
+
+<a name="module_openraildata/common+Association"></a>
+
+### openraildata/common.Association : [<code>Association</code>](#module_openraildata/common+Association)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.Association](#module_openraildata/common+Association) : [<code>Association</code>](#module_openraildata/common+Association)
+    * _instance_
+        * [.tiploc](#module_openraildata/common+Association+tiploc) : [<code>tpl</code>](#tpl)
+        * [.category](#module_openraildata/common+Association+category) : [<code>category</code>](#category)
+        * [.mainTrain](#module_openraildata/common+Association+mainTrain) : <code>Object</code>
+        * [.mainTrainId](#module_openraildata/common+Association+mainTrainId) : [<code>rid</code>](#rid)
+        * [.associatedTrain](#module_openraildata/common+Association+associatedTrain) : <code>Object</code>
+        * [.associatedTrainId](#module_openraildata/common+Association+associatedTrainId) : [<code>rid</code>](#rid)
+    * _inner_
+        * [~isJoin()](#module_openraildata/common+Association..isJoin) ⇒ <code>Boolean</code>
+        * [~isSplit()](#module_openraildata/common+Association..isSplit) ⇒ <code>Boolean</code>
+        * [~isNextTrain()](#module_openraildata/common+Association..isNextTrain) ⇒ <code>Boolean</code>
+
+
+* * *
+
+<a name="module_openraildata/common+Association+tiploc"></a>
+
+#### association.tiploc : [<code>tpl</code>](#tpl)
+gets the association tiploc code
+
+**Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Association+category"></a>
+
+#### association.category : [<code>category</code>](#category)
+gets the association category
+
+**Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Association+mainTrain"></a>
+
+#### association.mainTrain : <code>Object</code>
+gets the main train information
+
+**Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Association+mainTrainId"></a>
+
+#### association.mainTrainId : [<code>rid</code>](#rid)
+gets the main train rid
+
+**Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Association+associatedTrain"></a>
+
+#### association.associatedTrain : <code>Object</code>
+gets the assoc train information
+
+**Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Association+associatedTrainId"></a>
+
+#### association.associatedTrainId : [<code>rid</code>](#rid)
+gets the assoc train rid
+
+**Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Association..isJoin"></a>
+
+#### Association~isJoin() ⇒ <code>Boolean</code>
+checks to see if the association is a train join type
+
+**Kind**: inner method of [<code>Association</code>](#module_openraildata/common+Association)  
+**See**: category  
+
+* * *
+
+<a name="module_openraildata/common+Association..isSplit"></a>
+
+#### Association~isSplit() ⇒ <code>Boolean</code>
+checks to see if the association is a train split type
+
+**Kind**: inner method of [<code>Association</code>](#module_openraildata/common+Association)  
+**See**: category  
+
+* * *
+
+<a name="module_openraildata/common+Association..isNextTrain"></a>
+
+#### Association~isNextTrain() ⇒ <code>Boolean</code>
+checks to see if the association is a next train type
+
+**Kind**: inner method of [<code>Association</code>](#module_openraildata/common+Association)  
+**See**: category  
+
+* * *
+
+<a name="module_openraildata/common+Location"></a>
+
+### openraildata/common.Location : [<code>Location</code>](#module_openraildata/common+Location)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.Location](#module_openraildata/common+Location) : [<code>Location</code>](#module_openraildata/common+Location)
+    * _instance_
+        * [.tiploc](#module_openraildata/common+Location+tiploc) : [<code>tpl</code>](#tpl)
+        * [.trainOperatingCompany](#module_openraildata/common+Location+trainOperatingCompany) : [<code>toc</code>](#toc)
+        * [.computerReservationSystem](#module_openraildata/common+Location+computerReservationSystem) : [<code>crs</code>](#crs)
+        * [.locationName](#module_openraildata/common+Location+locationName) : <code>String</code>
+    * _inner_
+        * [~updateLocation(location)](#module_openraildata/common+Location..updateLocation)
+
+
+* * *
+
+<a name="module_openraildata/common+Location+tiploc"></a>
+
+#### location.tiploc : [<code>tpl</code>](#tpl)
+returns the locations tiploc code
+
+**Kind**: instance property of [<code>Location</code>](#module_openraildata/common+Location)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Location+trainOperatingCompany"></a>
+
+#### location.trainOperatingCompany : [<code>toc</code>](#toc)
+returns the locations operating company
+
+**Kind**: instance property of [<code>Location</code>](#module_openraildata/common+Location)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Location+computerReservationSystem"></a>
+
+#### location.computerReservationSystem : [<code>crs</code>](#crs)
+returns the locations crs (Computer Reservation System)
+
+**Kind**: instance property of [<code>Location</code>](#module_openraildata/common+Location)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Location+locationName"></a>
+
+#### location.locationName : <code>String</code>
+the name of the location in a human readable format e.g. `Euston`
+
+**Kind**: instance property of [<code>Location</code>](#module_openraildata/common+Location)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Location..updateLocation"></a>
+
+#### Location~updateLocation(location)
+Updates the location wiht a new raw data
+
+**Kind**: inner method of [<code>Location</code>](#module_openraildata/common+Location)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| location | <code>Object</code> | the raw location object to be parsed |
+
+
+* * *
+
+<a name="module_openraildata/common+Schedule"></a>
+
+### openraildata/common.Schedule : [<code>Schedule</code>](#module_openraildata/common+Schedule)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.Schedule](#module_openraildata/common+Schedule) : [<code>Schedule</code>](#module_openraildata/common+Schedule)
+    * [.rid](#module_openraildata/common+Schedule+rid) : <code>String</code>
+    * [.serviceStartingDate](#module_openraildata/common+Schedule+serviceStartingDate) : [<code>ssd</code>](#ssd)
+    * [.trainOperatingCompany](#module_openraildata/common+Schedule+trainOperatingCompany) : [<code>toc</code>](#toc)
+    * [.trainId](#module_openraildata/common+Schedule+trainId) : <code>String</code>
+    * [.uniqueID](#module_openraildata/common+Schedule+uniqueID) : [<code>uid</code>](#uid)
+    * [.origin](#module_openraildata/common+Schedule+origin) : [<code>Station</code>](#Station)
+    * [.passingPoints](#module_openraildata/common+Schedule+passingPoints) : [<code>Array.&lt;Station&gt;</code>](#Station)
+    * [.intermediatePoints](#module_openraildata/common+Schedule+intermediatePoints) : [<code>Array.&lt;Station&gt;</code>](#Station)
+    * [.operationalStops](#module_openraildata/common+Schedule+operationalStops) : [<code>Array.&lt;Station&gt;</code>](#Station)
+    * [.destination](#module_openraildata/common+Schedule+destination) : [<code>Station</code>](#Station)
+
+
+* * *
+
+<a name="module_openraildata/common+Schedule+rid"></a>
+
+#### schedule.rid : <code>String</code>
+gets the trains rid
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+serviceStartingDate"></a>
+
+#### schedule.serviceStartingDate : [<code>ssd</code>](#ssd)
+gets the trains ssd
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+trainOperatingCompany"></a>
+
+#### schedule.trainOperatingCompany : [<code>toc</code>](#toc)
+gets the trains toc
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+trainId"></a>
+
+#### schedule.trainId : <code>String</code>
+gets the trains trainId
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+uniqueID"></a>
+
+#### schedule.uniqueID : [<code>uid</code>](#uid)
+gets the schedule train uid
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+origin"></a>
+
+#### schedule.origin : [<code>Station</code>](#Station)
+returns the origin or the operational origin
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+passingPoints"></a>
+
+#### schedule.passingPoints : [<code>Array.&lt;Station&gt;</code>](#Station)
+returns all of the passing points in which the train passes
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+intermediatePoints"></a>
+
+#### schedule.intermediatePoints : [<code>Array.&lt;Station&gt;</code>](#Station)
+returns all intermediate passenger stops
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+operationalStops"></a>
+
+#### schedule.operationalStops : [<code>Array.&lt;Station&gt;</code>](#Station)
+returns all operational intermediate stops
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Schedule+destination"></a>
+
+#### schedule.destination : [<code>Station</code>](#Station)
+returns the destination or operational destination
+
+**Kind**: instance property of [<code>Schedule</code>](#module_openraildata/common+Schedule)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station"></a>
+
+### openraildata/common.Station : [<code>Station</code>](#Station)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.Station](#module_openraildata/common+Station) : [<code>Station</code>](#Station)
+    * _instance_
+        * [.tiploc](#module_openraildata/common+Station+tiploc) : [<code>tpl</code>](#tpl)
+        * [.action](#module_openraildata/common+Station+action) : [<code>act</code>](#act)
+        * [.plannedTimeOfArrival](#module_openraildata/common+Station+plannedTimeOfArrival) : [<code>pta</code>](#pta)
+        * [.plannedTimeOfDeparture](#module_openraildata/common+Station+plannedTimeOfDeparture) : [<code>ptd</code>](#ptd)
+        * [.workingTimeOfArrival](#module_openraildata/common+Station+workingTimeOfArrival) : [<code>wta</code>](#wta)
+        * [.workingTimeOfDeparture](#module_openraildata/common+Station+workingTimeOfDeparture) : [<code>wtd</code>](#wtd)
+        * [.operational](#module_openraildata/common+Station+operational) : <code>Boolean</code>
+        * [.platform](#module_openraildata/common+Station+platform) : [<code>plat</code>](#plat)
+    * _inner_
+        * [~isPlatformSuppressed()](#module_openraildata/common+Station..isPlatformSuppressed) ⇒ <code>Boolean</code>
+
+
+* * *
+
+<a name="module_openraildata/common+Station+tiploc"></a>
+
+#### station.tiploc : [<code>tpl</code>](#tpl)
+gets the TIPLOC code for this station
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+action"></a>
+
+#### station.action : [<code>act</code>](#act)
+gets the action at this station
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+plannedTimeOfArrival"></a>
+
+#### station.plannedTimeOfArrival : [<code>pta</code>](#pta)
+gets the planned time of arrival (public facing)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+plannedTimeOfDeparture"></a>
+
+#### station.plannedTimeOfDeparture : [<code>ptd</code>](#ptd)
+gets the planned time of departure (public facing)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+workingTimeOfArrival"></a>
+
+#### station.workingTimeOfArrival : [<code>wta</code>](#wta)
+gets the working time of arrival for the train (hidden form pulic view)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+workingTimeOfDeparture"></a>
+
+#### station.workingTimeOfDeparture : [<code>wtd</code>](#wtd)
+gets the working time of departure for the train (hidden form pulic view)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+operational"></a>
+
+#### station.operational : <code>Boolean</code>
+is the station an operational station
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station+platform"></a>
+
+#### station.platform : [<code>plat</code>](#plat)
+is the platform number (if known)
+
+**Kind**: instance property of [<code>Station</code>](#module_openraildata/common+Station)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+Station..isPlatformSuppressed"></a>
+
+#### Station~isPlatformSuppressed() ⇒ <code>Boolean</code>
+determines if the platform is to be suppressed form public view
+
+**Kind**: inner method of [<code>Station</code>](#module_openraildata/common+Station)  
+
+* * *
+
+<a name="module_openraildata/common+StationMessage"></a>
+
+### openraildata/common.StationMessage : [<code>StationMessage</code>](#StationMessage)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.StationMessage](#module_openraildata/common+StationMessage) : [<code>StationMessage</code>](#StationMessage)
+    * [.id](#module_openraildata/common+StationMessage+id) : <code>String</code>
+    * [.category](#module_openraildata/common+StationMessage+category) : [<code>stationCategory</code>](#stationCategory)
+    * [.message](#module_openraildata/common+StationMessage+message) : <code>String</code>
+    * [.severity](#module_openraildata/common+StationMessage+severity) : <code>Number</code>
+    * [.severityString](#module_openraildata/common+StationMessage+severityString) : <code>String</code>
+    * [.stations](#module_openraildata/common+StationMessage+stations) : [<code>Array.&lt;Location&gt;</code>](#Location)
+
+
+* * *
+
+<a name="module_openraildata/common+StationMessage+id"></a>
+
+#### stationMessage.id : <code>String</code>
+gets the id of the station message
+
+**Kind**: instance property of [<code>StationMessage</code>](#module_openraildata/common+StationMessage)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+StationMessage+category"></a>
+
+#### stationMessage.category : [<code>stationCategory</code>](#stationCategory)
+gets the id of the station message
+
+**Kind**: instance property of [<code>StationMessage</code>](#module_openraildata/common+StationMessage)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+StationMessage+message"></a>
+
+#### stationMessage.message : <code>String</code>
+gets the message of the station message
+
+**Kind**: instance property of [<code>StationMessage</code>](#module_openraildata/common+StationMessage)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+StationMessage+severity"></a>
+
+#### stationMessage.severity : <code>Number</code>
+gets the numerical severity of the station message
+
+**Kind**: instance property of [<code>StationMessage</code>](#module_openraildata/common+StationMessage)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+StationMessage+severityString"></a>
+
+#### stationMessage.severityString : <code>String</code>
+get the readable format of the severity of the station message
+
+**Kind**: instance property of [<code>StationMessage</code>](#module_openraildata/common+StationMessage)  
+**Read only**: true  
+**See**: [http://nrodwiki.rockshore.net/index.php/Darwin:Station_Message_Element#Severities](http://nrodwiki.rockshore.net/index.php/Darwin:Station_Message_Element#Severities)  
+
+* * *
+
+<a name="module_openraildata/common+StationMessage+stations"></a>
+
+#### stationMessage.stations : [<code>Array.&lt;Location&gt;</code>](#Location)
+gets the list of stations that the station message applied too
+
+**Kind**: instance property of [<code>StationMessage</code>](#module_openraildata/common+StationMessage)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder"></a>
+
+### openraildata/common.TrainOrder : [<code>TrainOrder</code>](#TrainOrder)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.TrainOrder](#module_openraildata/common+TrainOrder) : [<code>TrainOrder</code>](#TrainOrder)
+    * _instance_
+        * [.computerReservationSystem](#module_openraildata/common+TrainOrder+computerReservationSystem) : [<code>crs</code>](#crs)
+        * [.platform](#module_openraildata/common+TrainOrder+platform) : [<code>plat</code>](#plat)
+        * [.tiploc](#module_openraildata/common+TrainOrder+tiploc) : [<code>tpl</code>](#tpl)
+        * [.set](#module_openraildata/common+TrainOrder+set) : <code>Object</code>
+        * [.first](#module_openraildata/common+TrainOrder+first) : <code>Object</code>
+        * [.second](#module_openraildata/common+TrainOrder+second) : <code>Object</code>
+        * [.third](#module_openraildata/common+TrainOrder+third) : <code>Object</code>
+        * [.clear](#module_openraildata/common+TrainOrder+clear) : <code>Object</code>
+    * _inner_
+        * [~isSet()](#module_openraildata/common+TrainOrder..isSet) ⇒ <code>Boolean</code>
+        * [~isClear()](#module_openraildata/common+TrainOrder..isClear) ⇒ <code>Boolean</code>
+
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+computerReservationSystem"></a>
+
+#### trainOrder.computerReservationSystem : [<code>crs</code>](#crs)
+gets the crs (computer reservation system) code
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+platform"></a>
+
+#### trainOrder.platform : [<code>plat</code>](#plat)
+gets the platform identifier
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+tiploc"></a>
+
+#### trainOrder.tiploc : [<code>tpl</code>](#tpl)
+gets the tiploc code
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+set"></a>
+
+#### trainOrder.set : <code>Object</code>
+gets all of the set information for the train order
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+first"></a>
+
+#### trainOrder.first : <code>Object</code>
+gets the first train in the set object
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+second"></a>
+
+#### trainOrder.second : <code>Object</code>
+gets the first train in the set object
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+third"></a>
+
+#### trainOrder.third : <code>Object</code>
+gets the first train in the set object
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder+clear"></a>
+
+#### trainOrder.clear : <code>Object</code>
+gets all of the clear information for the train order
+
+**Kind**: instance property of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder..isSet"></a>
+
+#### TrainOrder~isSet() ⇒ <code>Boolean</code>
+determines if the train order is a set type
+
+**Kind**: inner method of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainOrder..isClear"></a>
+
+#### TrainOrder~isClear() ⇒ <code>Boolean</code>
+determines if the train order is a clear type
+
+**Kind**: inner method of [<code>TrainOrder</code>](#module_openraildata/common+TrainOrder)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainStatus"></a>
+
+### openraildata/common.TrainStatus : [<code>TrainStatus</code>](#TrainStatus)
+**Kind**: instance property of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Read only**: true  
+
+* [.TrainStatus](#module_openraildata/common+TrainStatus) : [<code>TrainStatus</code>](#TrainStatus)
+    * [.rid](#module_openraildata/common+TrainStatus+rid) : [<code>rid</code>](#rid)
+    * [.uniqueID](#module_openraildata/common+TrainStatus+uniqueID) : [<code>uid</code>](#uid)
+    * [.serviceStartingDate](#module_openraildata/common+TrainStatus+serviceStartingDate) : [<code>ssd</code>](#ssd)
+    * [.allLocations](#module_openraildata/common+TrainStatus+allLocations) : [<code>Array.&lt;Station&gt;</code>](#Station)
+
+
+* * *
+
+<a name="module_openraildata/common+TrainStatus+rid"></a>
+
+#### trainStatus.rid : [<code>rid</code>](#rid)
+gets the rid of the train
+
+**Kind**: instance property of [<code>TrainStatus</code>](#module_openraildata/common+TrainStatus)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainStatus+uniqueID"></a>
+
+#### trainStatus.uniqueID : [<code>uid</code>](#uid)
+gets the schedule uid of the train
+
+**Kind**: instance property of [<code>TrainStatus</code>](#module_openraildata/common+TrainStatus)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainStatus+serviceStartingDate"></a>
+
+#### trainStatus.serviceStartingDate : [<code>ssd</code>](#ssd)
+gets the ssd of the train
+
+**Kind**: instance property of [<code>TrainStatus</code>](#module_openraildata/common+TrainStatus)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common+TrainStatus+allLocations"></a>
+
+#### trainStatus.allLocations : [<code>Array.&lt;Station&gt;</code>](#Station)
+gets all of the locations that this train status applies to
+
+**Kind**: instance property of [<code>TrainStatus</code>](#module_openraildata/common+TrainStatus)  
+**Read only**: true  
+
+* * *
+
+<a name="module_openraildata/common..associationMixer"></a>
+
+### openraildata/common~associationMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>Association</code>](#Association)  
+**See**: [Association](./association.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the Association model |
+
+
+* * *
+
+<a name="module_openraildata/common..locationMixer"></a>
+
+### openraildata/common~locationMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>Location</code>](#Location)  
+**See**: [Location](./location.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the Location model |
+
+
+* * *
+
+<a name="module_openraildata/common..scheduleMixer"></a>
+
+### openraildata/common~scheduleMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>Schedule</code>](#Schedule)  
+**See**: [Schedule](./schedule.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the Schedule model |
+
+
+* * *
+
+<a name="module_openraildata/common..stationMixer"></a>
+
+### openraildata/common~stationMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>Station</code>](#Station)  
+**See**: [Station](./station.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the Station model |
+
+
+* * *
+
+<a name="module_openraildata/common..stationMessageMixer"></a>
+
+### openraildata/common~stationMessageMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>StationMessage</code>](#StationMessage)  
+**See**: [StationMessage](./stationMessage.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the StationMessage model |
+
+
+* * *
+
+<a name="module_openraildata/common..trainOrderMixer"></a>
+
+### openraildata/common~trainOrderMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>TrainOrder</code>](#TrainOrder)  
+**See**: [TrainOrder](./trainOrder.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the TrainOrder model |
+
+
+* * *
+
+<a name="module_openraildata/common..trainStatusMixer"></a>
+
+### openraildata/common~trainStatusMixer(mixin)
+**Kind**: inner method of [<code>openraildata/common</code>](#module_openraildata/common)  
+**Mixes**: [<code>TrainStatus</code>](#TrainStatus)  
+**See**: [TrainStatus](./trainStatus.md)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| mixin | <code>function</code> | a mixin function to apply to the TrainStatus model |
+
+
+* * *
+
 <a name="Association"></a>
 
 ## Association ⇐ [<code>Association</code>](#module_openraildata/common+Association)
@@ -1003,6 +1874,7 @@ A class for association data and helpful functions
 | Param | Type | Description |
 | --- | --- | --- |
 | payload | <code>Object</code> | the raw json association message object |
+
 
 * * *
 
