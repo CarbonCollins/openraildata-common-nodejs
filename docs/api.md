@@ -132,8 +132,8 @@ classes to be identical wherever they are used.
                 * [.category](#module_openraildata/common+Association+category) : [<code>category</code>](#category)
                 * [.mainTrain](#module_openraildata/common+Association+mainTrain) : <code>Object</code>
                 * [.mainTrainId](#module_openraildata/common+Association+mainTrainId) : [<code>rid</code>](#rid)
-                * [.assocTrain](#module_openraildata/common+Association+assocTrain) : <code>Object</code>
-                * [.assocTrainId](#module_openraildata/common+Association+assocTrainId) : [<code>rid</code>](#rid)
+                * [.associatedTrain](#module_openraildata/common+Association+associatedTrain) : <code>Object</code>
+                * [.associatedTrainId](#module_openraildata/common+Association+associatedTrainId) : [<code>rid</code>](#rid)
             * _inner_
                 * [~isJoin()](#module_openraildata/common+Association..isJoin) ⇒ <code>Boolean</code>
                 * [~isSplit()](#module_openraildata/common+Association..isSplit) ⇒ <code>Boolean</code>
@@ -218,8 +218,8 @@ classes to be identical wherever they are used.
         * [.category](#module_openraildata/common+Association+category) : [<code>category</code>](#category)
         * [.mainTrain](#module_openraildata/common+Association+mainTrain) : <code>Object</code>
         * [.mainTrainId](#module_openraildata/common+Association+mainTrainId) : [<code>rid</code>](#rid)
-        * [.assocTrain](#module_openraildata/common+Association+assocTrain) : <code>Object</code>
-        * [.assocTrainId](#module_openraildata/common+Association+assocTrainId) : [<code>rid</code>](#rid)
+        * [.associatedTrain](#module_openraildata/common+Association+associatedTrain) : <code>Object</code>
+        * [.associatedTrainId](#module_openraildata/common+Association+associatedTrainId) : [<code>rid</code>](#rid)
     * _inner_
         * [~isJoin()](#module_openraildata/common+Association..isJoin) ⇒ <code>Boolean</code>
         * [~isSplit()](#module_openraildata/common+Association..isSplit) ⇒ <code>Boolean</code>
@@ -268,9 +268,9 @@ gets the main train rid
 
 * * *
 
-<a name="module_openraildata/common+Association+assocTrain"></a>
+<a name="module_openraildata/common+Association+associatedTrain"></a>
 
-#### association.assocTrain : <code>Object</code>
+#### association.associatedTrain : <code>Object</code>
 gets the assoc train information
 
 **Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
@@ -278,9 +278,9 @@ gets the assoc train information
 
 * * *
 
-<a name="module_openraildata/common+Association+assocTrainId"></a>
+<a name="module_openraildata/common+Association+associatedTrainId"></a>
 
-#### association.assocTrainId : [<code>rid</code>](#rid)
+#### association.associatedTrainId : [<code>rid</code>](#rid)
 gets the assoc train rid
 
 **Kind**: instance property of [<code>Association</code>](#module_openraildata/common+Association)  
@@ -985,24 +985,24 @@ A class for association data and helpful functions
 **Extends**: [<code>Association</code>](#module_openraildata/common+Association)  
 
 * [Association](#Association) ⇐ [<code>Association</code>](#module_openraildata/common+Association)
-    * [new Association(assoc)](#new_Association_new)
+    * [new Association(payload)](#new_Association_new)
     * [.tiploc](#module_openraildata/common+Association+tiploc) : [<code>tpl</code>](#tpl)
     * [.category](#module_openraildata/common+Association+category) : [<code>category</code>](#category)
     * [.mainTrain](#module_openraildata/common+Association+mainTrain) : <code>Object</code>
     * [.mainTrainId](#module_openraildata/common+Association+mainTrainId) : [<code>rid</code>](#rid)
-    * [.assocTrain](#module_openraildata/common+Association+assocTrain) : <code>Object</code>
-    * [.assocTrainId](#module_openraildata/common+Association+assocTrainId) : [<code>rid</code>](#rid)
+    * [.associatedTrain](#module_openraildata/common+Association+associatedTrain) : <code>Object</code>
+    * [.associatedTrainId](#module_openraildata/common+Association+associatedTrainId) : [<code>rid</code>](#rid)
 
 
 * * *
 
 <a name="new_Association_new"></a>
 
-### new Association(assoc)
+### new Association(payload)
 
 | Param | Type | Description |
 | --- | --- | --- |
-| assoc | <code>Object</code> | the raw json association message object |
+| payload | <code>Object</code> | the raw json association message object |
 
 
 * * *
@@ -1047,9 +1047,9 @@ gets the main train rid
 
 * * *
 
-<a name="module_openraildata/common+Association+assocTrain"></a>
+<a name="module_openraildata/common+Association+associatedTrain"></a>
 
-### association.assocTrain : <code>Object</code>
+### association.associatedTrain : <code>Object</code>
 gets the assoc train information
 
 **Kind**: instance property of [<code>Association</code>](#Association)  
@@ -1057,9 +1057,9 @@ gets the assoc train information
 
 * * *
 
-<a name="module_openraildata/common+Association+assocTrainId"></a>
+<a name="module_openraildata/common+Association+associatedTrainId"></a>
 
-### association.assocTrainId : [<code>rid</code>](#rid)
+### association.associatedTrainId : [<code>rid</code>](#rid)
 gets the assoc train rid
 
 **Kind**: instance property of [<code>Association</code>](#Association)  

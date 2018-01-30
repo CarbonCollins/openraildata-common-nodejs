@@ -90,30 +90,30 @@ moduleSuite.addTest(new Test('mainTrainId null', () => {
   expect(IUUT.mainTrainId).to.be.equal(null);
 }));
 
-moduleSuite.addTest(new Test('assocTrain', () => {
+moduleSuite.addTest(new Test('associatedTrain', () => {
   const IUUT = new UUT(testData);
-  expect(IUUT.assocTrain).to.not.equal(undefined);
-  expect(IUUT.assocTrain).to.be.an('object');
-  expect(IUUT.assocTrain).to.be.deep.equal({ rid: 'assocrid' });
+  expect(IUUT.associatedTrain).to.not.equal(undefined);
+  expect(IUUT.associatedTrain).to.be.an('object');
+  expect(IUUT.associatedTrain).to.be.deep.equal({ rid: 'assocrid' });
 }));
 
-moduleSuite.addTest(new Test('assocTrain null', () => {
+moduleSuite.addTest(new Test('associatedTrain null', () => {
   const IUUT = new UUT();
-  expect(IUUT.assocTrain).to.not.equal(undefined);
-  expect(IUUT.assocTrain).to.be.equal(null);
+  expect(IUUT.associatedTrain).to.not.equal(undefined);
+  expect(IUUT.associatedTrain).to.be.equal(null);
 }));
 
-moduleSuite.addTest(new Test('assocTrainId', () => {
+moduleSuite.addTest(new Test('associatedTrainId', () => {
   const IUUT = new UUT(testData);
-  expect(IUUT.assocTrainId).to.not.equal(undefined);
-  expect(IUUT.assocTrainId).to.be.an('string');
-  expect(IUUT.assocTrainId).to.be.equal('assocrid');
+  expect(IUUT.associatedTrainId).to.not.equal(undefined);
+  expect(IUUT.associatedTrainId).to.be.an('string');
+  expect(IUUT.associatedTrainId).to.be.equal('assocrid');
 }));
 
-moduleSuite.addTest(new Test('assocTrainId null', () => {
+moduleSuite.addTest(new Test('associatedTrainId null', () => {
   const IUUT = new UUT();
-  expect(IUUT.assocTrainId).to.not.equal(undefined);
-  expect(IUUT.assocTrainId).to.be.equal(null);
+  expect(IUUT.associatedTrainId).to.not.equal(undefined);
+  expect(IUUT.associatedTrainId).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('isJoin false', () => {
