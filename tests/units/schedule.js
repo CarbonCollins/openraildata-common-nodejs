@@ -11,8 +11,6 @@ const UUT = rewire('../../lib/schedule');
 const testData = require('../templates/schedule.json');
 const stationData = require('../templates/station.json');
 
-// const scheduleSource = rewire('../../lib/schedule');
-
 const moduleSuite = new Suite('Schedule module tests');
 
 moduleSuite.addTest(new Test('Exports class constructor', () => {

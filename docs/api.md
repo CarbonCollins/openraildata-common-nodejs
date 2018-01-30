@@ -1004,7 +1004,6 @@ A class for association data and helpful functions
 | --- | --- | --- |
 | payload | <code>Object</code> | the raw json association message object |
 
-
 * * *
 
 <a name="module_openraildata/common+Association+tiploc"></a>
