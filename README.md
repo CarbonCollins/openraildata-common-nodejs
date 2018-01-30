@@ -15,7 +15,10 @@ A package for common files and functions between the various openraildata packag
 # usage
 
 To use the openraildata-common package you need to import the required classes and functions in which your application needs, this can be done as follows:
-
+```
+const { Location, Station } = require('openraildata-common');
+```
+or this for everything:
 ```
 const common = require('openraildata-common');
 
@@ -24,17 +27,17 @@ const common = require('openraildata-common');
 the currently available classes that can be used are listed below
 
 - [Association](./docs/api.md#module_openraildata/common+Association)
-- [Location](./docs/location.md#module_openraildata/common+Location)
-- [Schedule](./docs/schedule.md#module_openraildata/common+Schedule)
-- [Station](./docs/station.md#module_openraildata/common+Station)
-- [StationMessage](./docs/stationMessage.md#module_openraildata/common+StationMessage)
-- [TrainOrder](./docs/trainOrder.md#module_openraildata/common+TrainOrder)
-- [TrainStatus](./docs/trainStatus.md#module_openraildata/common+TrainStatus)
+- [Location](./docs/api.md#module_openraildata/common+Location)
+- [Schedule](./docs/api.md#module_openraildata/common+Schedule)
+- [Station](./docs/api.md#module_openraildata/common+Station)
+- [StationMessage](./docs/api.md#module_openraildata/common+StationMessage)
+- [TrainOrder](./docs/api.md#module_openraildata/common+TrainOrder)
+- [TrainStatus](./docs/api.md#module_openraildata/common+TrainStatus)
 
 an example of using the classes are:
 
 ```
-const station = new common.Station(stationRefDataJSON);
+const station = new Station(stationRefDataJSON);
 
 console.log(station.plannedTimeOfArrival);
 ```
