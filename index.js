@@ -35,13 +35,13 @@ class ORDCommon {
    * @constructor
    */
   constructor() {
-    this[s_association] = Association;
-    this[s_location] = Location;
-    this[s_schedule] = Schedule;
-    this[s_station] = Station;
-    this[s_stationMessage] = StationMessage;
-    this[s_trainOrder] = TrainOrder;
-    this[s_trainStatus] = TrainStatus;
+    this[s_association] = Association.class;
+    this[s_location] = Location.class;
+    this[s_schedule] = Schedule.class;
+    this[s_station] = Station.class;
+    this[s_stationMessage] = StationMessage.class;
+    this[s_trainOrder] = TrainOrder.class;
+    this[s_trainStatus] = TrainStatus.class;
   }
 
   /**
@@ -124,7 +124,7 @@ class ORDCommon {
    * @see {@link ./location.md|Location}
    */
   locationMixer(mixin) {
-    this[s_location] = mixin(this[s_location]);
+    this[s_location] = mixin(this[s_location], Location.symbols);
   }
 
   /**
@@ -134,7 +134,7 @@ class ORDCommon {
    * @see {@link ./schedule.md|Schedule}
    */
   scheduleMixer(mixin) {
-    this[s_schedule] = mixin(this[s_schedule]);
+    this[s_schedule] = mixin(this[s_schedule], Schedule.symbols);
   }
 
   /**
@@ -144,7 +144,7 @@ class ORDCommon {
    * @see {@link ./station.md|Station}
    */
   stationMixer(mixin) {
-    this[s_station] = mixin(this[s_station]);
+    this[s_station] = mixin(this[s_station], Station.symbols);
   }
 
   /**
@@ -154,7 +154,7 @@ class ORDCommon {
    * @see {@link ./stationMessage.md|StationMessage}
    */
   stationMessageMixer(mixin) {
-    this[s_stationMessage] = mixin(this[s_stationMessage]);
+    this[s_stationMessage] = mixin(this[s_stationMessage], StationMessage.symbols);
   }
 
   /**
@@ -164,7 +164,7 @@ class ORDCommon {
    * @see {@link ./trainOrder.md|TrainOrder}
    */
   trainOrderMixer(mixin) {
-    this[s_trainOrder] = mixin(this[s_trainOrder]);
+    this[s_trainOrder] = mixin(this[s_trainOrder], TrainOrder.symbols);
   }
 
   /**
@@ -174,7 +174,7 @@ class ORDCommon {
    * @see {@link ./trainStatus.md|TrainStatus}
    */
   trainStatusMixer(mixin) {
-    this[s_trainStatus] = mixin(this[s_trainStatus]);
+    this[s_trainStatus] = mixin(this[s_trainStatus], TrainStatus.symbols);
   }
 }
 

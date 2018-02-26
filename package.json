@@ -1,6 +1,6 @@
 {
   "name": "openraildata-common",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A package for common files and functions between the various openraildata packages",
   "keywords": [
     "openraildata",
