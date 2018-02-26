@@ -13,52 +13,54 @@ const stationData = require('../templates/station.json');
 const moduleSuite = new Suite('TrainStatus module tests');
 
 moduleSuite.addTest(new Test('Exports class constructor', () => {
-  expect(UUT.name).to.be.equal('TrainStatus');
-  expect(UUT).to.be.an('function');
-  expect(new UUT()).to.be.an('object');
+  expect(UUT).to.be.an('object');
+  expect(UUT.symbols).to.be.an('object');
+  expect(UUT.class.name).to.be.equal('TrainStatus');
+  expect(UUT.class).to.be.an('function');
+  expect(new UUT.class()).to.be.an('object');
 }));
 
 moduleSuite.addTest(new Test('rid', () => {
-  const IUUT = new UUT(testData);
+  const IUUT = new UUT.class(testData);
   expect(IUUT.rid).to.not.equal(undefined);
   expect(IUUT.rid).to.be.an('string');
   expect(IUUT.rid).to.be.equal('rid');
 }));
 
 moduleSuite.addTest(new Test('rid null', () => {
-  const IUUT = new UUT();
+  const IUUT = new UUT.class();
   expect(IUUT.rid).to.not.equal(undefined);
   expect(IUUT.rid).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('uniqueID', () => {
-  const IUUT = new UUT(testData);
+  const IUUT = new UUT.class(testData);
   expect(IUUT.uniqueID).to.not.equal(undefined);
   expect(IUUT.uniqueID).to.be.an('string');
   expect(IUUT.uniqueID).to.be.equal('uid');
 }));
 
 moduleSuite.addTest(new Test('uniqueID null', () => {
-  const IUUT = new UUT();
+  const IUUT = new UUT.class();
   expect(IUUT.uniqueID).to.not.equal(undefined);
   expect(IUUT.uniqueID).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('serviceStartingDate', () => {
-  const IUUT = new UUT(testData);
+  const IUUT = new UUT.class(testData);
   expect(IUUT.serviceStartingDate).to.not.equal(undefined);
   expect(IUUT.serviceStartingDate).to.be.an('string');
   expect(IUUT.serviceStartingDate).to.be.equal('ssd');
 }));
 
 moduleSuite.addTest(new Test('serviceStartingDate null', () => {
-  const IUUT = new UUT();
+  const IUUT = new UUT.class();
   expect(IUUT.serviceStartingDate).to.not.equal(undefined);
   expect(IUUT.serviceStartingDate).to.be.equal(null);
 }));
 
 moduleSuite.addTest(new Test('allLocations', () => {
-  const IUUT = new UUT(Object.assign({}, testData, { locations: [stationData, stationData] }));
+  const IUUT = new UUT.class(Object.assign({}, testData, { locations: [stationData, stationData] }));
   expect(IUUT.allLocations).to.not.equal(undefined);
   expect(IUUT.allLocations).to.be.an('array');
   expect(IUUT.allLocations).to.have.lengthOf(2);
@@ -69,7 +71,7 @@ moduleSuite.addTest(new Test('allLocations', () => {
 }));
 
 moduleSuite.addTest(new Test('allLocations noplat', () => {
-  const IUUT = new UUT(Object.assign({}, testData, { locations: [Object.assign({}, stationData, { plat: undefined })] }));
+  const IUUT = new UUT.class(Object.assign({}, testData, { locations: [Object.assign({}, stationData, { plat: undefined })] }));
   expect(IUUT.allLocations).to.not.equal(undefined);
   expect(IUUT.allLocations).to.be.an('array');
   expect(IUUT.allLocations).to.have.lengthOf(1);
@@ -78,7 +80,7 @@ moduleSuite.addTest(new Test('allLocations noplat', () => {
 }));
 
 moduleSuite.addTest(new Test('allLocations null', () => {
-  const IUUT = new UUT();
+  const IUUT = new UUT.class();
   expect(IUUT.allLocations).to.not.equal(undefined);
   expect(IUUT.allLocations).to.be.an('array');
   expect(IUUT.allLocations).to.have.lengthOf(0);

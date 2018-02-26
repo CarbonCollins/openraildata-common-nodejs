@@ -27,16 +27,6 @@ const s_trainStatus = Symbol('trainStatus');
  */
 
 /**
- * @module openraildata/common
- * @description the openraildata/common module is used to export various data classes used within
- * many of the openraildata modules. This common package is used to remove duplicate copies of
- * each of these data classes and so that they are maintained in one place. Because of this there
- * is not much actual funcitonality within this module. Mixing functions are exposed which allow
- * other modules to mix extra functionality into the data classes in this module in order for the
- * classes to be identical wherever they are used.
- */
-
-/**
  * @class
  * @private
  */
@@ -45,13 +35,13 @@ class ORDCommon {
    * @constructor
    */
   constructor() {
-    this[s_association] = Association;
-    this[s_location] = Location;
-    this[s_schedule] = Schedule;
-    this[s_station] = Station;
-    this[s_stationMessage] = StationMessage;
-    this[s_trainOrder] = TrainOrder;
-    this[s_trainStatus] = TrainStatus;
+    this[s_association] = Association.class;
+    this[s_location] = Location.class;
+    this[s_schedule] = Schedule.class;
+    this[s_station] = Station.class;
+    this[s_stationMessage] = StationMessage.class;
+    this[s_trainOrder] = TrainOrder.class;
+    this[s_trainStatus] = TrainStatus.class;
   }
 
   /**
@@ -124,7 +114,7 @@ class ORDCommon {
    * @see {@link ./association.md|Association}
    */
   associationMixer(mixin) {
-    this[s_association] = mixin(this[s_association]);
+    this[s_association] = mixin(this[s_association], Association.symbols);
   }
 
   /**
@@ -134,7 +124,7 @@ class ORDCommon {
    * @see {@link ./location.md|Location}
    */
   locationMixer(mixin) {
-    this[s_location] = mixin(this[s_location]);
+    this[s_location] = mixin(this[s_location], Location.symbols);
   }
 
   /**
@@ -144,7 +134,7 @@ class ORDCommon {
    * @see {@link ./schedule.md|Schedule}
    */
   scheduleMixer(mixin) {
-    this[s_schedule] = mixin(this[s_schedule]);
+    this[s_schedule] = mixin(this[s_schedule], Schedule.symbols);
   }
 
   /**
@@ -154,7 +144,7 @@ class ORDCommon {
    * @see {@link ./station.md|Station}
    */
   stationMixer(mixin) {
-    this[s_station] = mixin(this[s_station]);
+    this[s_station] = mixin(this[s_station], Station.symbols);
   }
 
   /**
@@ -164,7 +154,7 @@ class ORDCommon {
    * @see {@link ./stationMessage.md|StationMessage}
    */
   stationMessageMixer(mixin) {
-    this[s_stationMessage] = mixin(this[s_stationMessage]);
+    this[s_stationMessage] = mixin(this[s_stationMessage], StationMessage.symbols);
   }
 
   /**
@@ -174,7 +164,7 @@ class ORDCommon {
    * @see {@link ./trainOrder.md|TrainOrder}
    */
   trainOrderMixer(mixin) {
-    this[s_trainOrder] = mixin(this[s_trainOrder]);
+    this[s_trainOrder] = mixin(this[s_trainOrder], TrainOrder.symbols);
   }
 
   /**
@@ -184,14 +174,14 @@ class ORDCommon {
    * @see {@link ./trainStatus.md|TrainStatus}
    */
   trainStatusMixer(mixin) {
-    this[s_trainStatus] = mixin(this[s_trainStatus]);
+    this[s_trainStatus] = mixin(this[s_trainStatus], TrainStatus.symbols);
   }
 }
 
 const ORD = new ORDCommon();
 
-Schedule.injectStation(ORD.Station); // inject potentialy mixed station object by reference
-TrainStatus.injectStation(ORD.Station); // inject potentialy mixed station object by reference
-StationMessage.injectLocation(ORD.Location); // inject potentialy mixed location object by reference
+Schedule.injector(ORD.Station); // inject potentialy mixed station object by reference
+TrainStatus.injector(ORD.Station); // inject potentialy mixed station object by reference
+StationMessage.injector(ORD.Location); // inject potentialy mixed location object by reference
 
 module.exports = ORD;
