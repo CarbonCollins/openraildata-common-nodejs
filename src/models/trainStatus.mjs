@@ -1,11 +1,25 @@
-'use strict';
+const stationMap = new Map()
+  .set('tpl', 'tiploc')
+  .set('act', 'action')
+  .set('pta', 'plannedTimeOfArrival')
+  .set('ptd', 'plannedTimeOfDeparture')
+  .set('wta', 'workingTimeOfArrival')
+  .set('wtd', 'workingTimeOfDeparture')
+  .set('operational', 'operational')
+  .set('plat', 'platform')
+  .set('platsup', 'platformSuppressed');
 
-const s_rid = Symbol('rid');
-const s_uid = Symbol('uniqueId');
-const s_ssd = Symbol('serviceStartingDate');
-const s_loc = Symbol('locations');
+export const symbols = new Map()
+  .set('rid', Symbol())
+  .set('uniqueId', Symbol())
+  .set('serviceStartingDate', Symbol())
+  .set('locations', Symbol())
 
 let Station = class Station {}; // placeholder class
+
+export function injectStation(station) {
+  Station = station;
+}
 
 /**
  * @class
@@ -13,16 +27,16 @@ let Station = class Station {}; // placeholder class
  * @augments module:openraildata/common#TrainStatus
  * @instance
  */
-class TrainStatus {
+export class TrainStatus {
   /**
    * @constructor
    * @param {Object} payload the raw train status message
    */
   constructor(payload = {}) {
-    this[s_rid] = payload.rid;
-    this[s_uid] = payload.uid;
-    this[s_ssd] = payload.ssd;
-    this[s_loc] = (payload.locations || [])
+    this[symbols.get('rid')] = payload.rid;
+    this[symbols.get('uniqueId')] = payload.uniqueId;
+    this[symbols.get('serviceStartingDate')] = payload.serviceStartingDate;
+    this[symbols.get('locations')] = (payload.locations || [])
       .map((station) => {
         return new Station({
           pta: station.pta,
@@ -43,7 +57,7 @@ class TrainStatus {
    * @readonly
    */
   get rid() {
-    return this[s_rid] || null;
+    return this[symbols.get('rid')] || null;
   }
 
   /**
@@ -53,7 +67,7 @@ class TrainStatus {
    * @readonly
    */
   get uniqueID() {
-    return this[s_uid] || null;
+    return this[symbols.get('uniqueId')] || null;
   }
 
   /**
@@ -63,7 +77,7 @@ class TrainStatus {
    * @readonly
    */
   get serviceStartingDate() {
-    return this[s_ssd] || null;
+    return this[symbols.get('serviceStartingDate')] || null;
   }
 
   /**
@@ -73,7 +87,7 @@ class TrainStatus {
    * @readonly
    */
   get allLocations() {
-    return this[s_loc] || [];
+    return this[symbols.get('locations')] || [];
   }
 }
 
@@ -83,9 +97,9 @@ module.exports = {
     Station = station;
   },
   symbols: {
-    s_rid,
-    s_uid,
-    s_ssd,
-    s_loc
+    symbols.get('rid'),
+    symbols.get('uniqueId'),
+    symbols.get('serviceStartingDate'),
+    symbols.get('locations')
   }
 };

@@ -1,12 +1,15 @@
-'use strict';
-
-const s_id = Symbol('id');
-const s_cat = Symbol('category');
-const s_msg = Symbol('message');
-const s_sev = Symbol('severity');
-const s_stat = Symbol('stations');
+export const symbols = new Map()
+  .set('id', Symbol())
+  .set('category', Symbol())
+  .set('message', Symbol())
+  .set('severity', Symbol())
+  .set('stations', Symbol());
 
 let Location = class Location {}; // place holder class
+
+export function injectLocation(location) {
+  Location = location;
+}
 
 /**
  * @class
@@ -14,18 +17,20 @@ let Location = class Location {}; // place holder class
  * @augments module:openraildata/common#StationMessage
  * @instance
  */
-class StationMessage {
+export default class StationMessage {
 
   /**
    * @constructor
    * @param {Object} payload a raw object containing the station information
    */
   constructor(payload = {}) {
-    this[s_id] = payload.id;
-    this[s_cat] = payload.cat;
-    this[s_msg] = payload.message
-    this[s_sev] = payload.sev;
-    this[s_stat] = (payload.Station) ? payload.Station.map(station => new Location(station)) : [];
+    this[symbols.get('id')] = payload.id;
+    this[symbols.get('category')] = payload.category;
+    this[symbols.get('message')] = payload.message;
+    this[symbols.get('severity')] = payload.severity;
+    this[symbols.get('stations')] = (payload.Station)
+      ? payload.Station.map(station => new Location(station))
+      : [];
   }
 
   /**
@@ -35,7 +40,7 @@ class StationMessage {
    * @readonly
    */
   get id() {
-    return this[s_id] || null;
+    return this[symbols.get('id')] || null;
   }
 
   /**
@@ -45,7 +50,7 @@ class StationMessage {
    * @readonly
    */
   get category() {
-    return this[s_cat] || null;
+    return this[symbols.get('category')] || null;
   }
 
   /**
@@ -55,7 +60,7 @@ class StationMessage {
    * @readonly
    */
   get message() {
-    return this[s_msg] || null;
+    return this[symbols.get('message')] || null;
   }
 
   /**
@@ -65,8 +70,8 @@ class StationMessage {
    * @readonly
    */
   get severity() {
-    return (this[s_sev] !== undefined && Number.isNaN(this[s_sev]) !== 'NaN')
-      ? Number(this[s_sev])
+    return (this[symbols.get('severity')] !== undefined && Number.isNaN(this[symbols.get('severity')]) !== 'NaN')
+      ? Number(this[symbols.get('severity')])
       : null;
   }
 
@@ -78,8 +83,8 @@ class StationMessage {
    * @readonly
    */
   get severityString() { 
-    if (this[s_sev] !== undefined && Number.isNaN(this[s_sev]) !== 'NaN') {
-      switch (Number(this[s_sev])) {
+    if (this[symbols.get('severity')] !== undefined && Number.isNaN(this[symbols.get('severity')]) !== 'NaN') {
+      switch (Number(this[symbols.get('severity')])) {
         case 0: return 'Situation normal';
         case 1: return 'Minor';
         case 2: return 'Major';
@@ -98,19 +103,6 @@ class StationMessage {
    * @readonly
    */
   get stations() {
-    return this[s_stat] || [];
+    return this[symbols.get('stations')] || [];
   }
 }
-module.exports = {
-  class: StationMessage,
-  injector: (location) => {
-    Location = location;
-  },
-  symbols: {
-    s_id,
-    s_cat,
-    s_msg,
-    s_sev,
-    s_stat
-  }
-};

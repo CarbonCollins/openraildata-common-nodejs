@@ -1,19 +1,22 @@
-'use strict';
-
-const s_rid = Symbol('rid');
-const s_ssd = Symbol('serviceStartingDate');
-const s_toc = Symbol('trainOperatingCompany');
-const s_tid = Symbol('trainId');
-const s_uid = Symbol('uniqueId');
-const s_OR = Symbol('origin');
-const s_DT = Symbol('destination');
-const s_PP = Symbol('passingPoints');
-const s_IP = Symbol('intermediatePoints');
-const s_OPOR = Symbol('operationalOrigin');
-const s_OPDT = Symbol('operationalDestination');
-const s_OPIP = Symbol('operationalIntermediatePoints');
+export const symbols = new Map()
+  .set('rid', Symbol())
+  .set('serviceStartingDate', Symbol())
+  .set('trainOperatingCompany', Symbol())
+  .set('trainId', Symbol())
+  .set('uniqueId', Symbol())
+  .set('origin', Symbol())
+  .set('destination', Symbol())
+  .set('passingPoints', Symbol())
+  .set('intermediatePoints', Symbol())
+  .set('operationalOrigin', Symbol())
+  .set('operationalDestination', Symbol())
+  .set('operationalIntermediatePoints', Symbol());
 
 let Station = class Station {}; // placeholder class
+
+export function injectStation(station) {
+  Station = station;
+}
 
 /**
  * @class
@@ -21,25 +24,25 @@ let Station = class Station {}; // placeholder class
  * @augments module:openraildata/common#Schedule
  * @instance
  */
-class Schedule {
+export default class Schedule {
   /**
    * @constructor
    * @param {Object} payload raw schedule object to be parsed
    */
   constructor(payload = {}) {
-    this[s_rid] = payload.rid;
-    this[s_ssd] = payload.ssd;
-    this[s_toc] = payload.toc;
-    this[s_tid] = payload.trainId;
-    this[s_uid] = payload.uid;
+    this[symbols.get('rid')] = payload.rid;
+    this[symbols.get('serviceStartingDate')] = payload.serviceStartingDate;
+    this[symbols.get('trainOperatingCompany')] = payload.trainOperatingCompany;
+    this[symbols.get('trainId')] = payload.trainId;
+    this[symbols.get('uniqueId')] = payload.uniqueId;
 
-    this[s_OR] = payload.OR;
-    this[s_OPOR] = payload.OPOR;
-    this[s_DT] = payload.DT;
-    this[s_OPDT] = payload.OPDT;
-    this[s_PP] = payload.PP;
-    this[s_IP] = payload.IP;
-    this[s_OPIP] = payload.OPIP;
+    this[symbols.get('origin')] = payload.origin;
+    this[symbols.get('operationalOrigin')] = payload.operationalOrigin;
+    this[symbols.get('destination')] = payload.destination;
+    this[symbols.get('operationalDestination')] = payload.operationalDestination;
+    this[symbols.get('passingPoints')] = payload.passingPoints;
+    this[symbols.get('intermediatePoints')] = payload.intermediatePoints;
+    this[symbols.get('operationalIntermediatePoints')] = payload.operationalIntermediatePoints;
   }
 
   /**
@@ -49,7 +52,7 @@ class Schedule {
    * @readonly
    */
   get rid() {
-    return this[s_rid] || null;
+    return this[symbols.get('rid')] || null;
   }
 
   /**
@@ -59,7 +62,7 @@ class Schedule {
    * @readonly
    */
   get serviceStartingDate() {
-    return this[s_ssd] || null;
+    return this[symbols.get('serviceStartingDate')] || null;
   }
 
   /**
@@ -69,7 +72,7 @@ class Schedule {
    * @readonly
    */
   get trainOperatingCompany() {
-    return this[s_toc] || null;
+    return this[symbols.get('trainOperatingCompany')] || null;
   }
 
   /**
@@ -79,7 +82,7 @@ class Schedule {
    * @readonly
    */
   get trainId() {
-    return this[s_tid] || null;
+    return this[symbols.get('trainId')] || null;
   }
 
   /**
@@ -89,7 +92,7 @@ class Schedule {
    * @readonly
    */
   get uniqueID() {
-    return this[s_uid] || null;
+    return this[symbols.get('uniqueId')] || null;
   }
 
   /**
@@ -100,7 +103,7 @@ class Schedule {
    * @readonly
    */
   get origin() {
-    return this.getSingleStation(s_OR, s_OPOR);
+    return this.getSingleStation(symbols.get('origin'), symbols.get('operationalOrigin'));
   }
 
   /**
@@ -111,7 +114,7 @@ class Schedule {
    * @readonly
    */
   get passingPoints() {
-    return this.listMultiStations(s_PP);
+    return this.listMultiStations(symbols.get('passingPoints'));
   }
 
   /**
@@ -122,7 +125,7 @@ class Schedule {
    * @readonly
    */
   get intermediatePoints() {
-    return this.listMultiStations(s_IP);
+    return this.listMultiStations(symbols.get('intermediatePoints'));
   }
 
   /**
@@ -133,7 +136,7 @@ class Schedule {
    * @readonly
    */
   get operationalStops() {
-    return this.listMultiStations(s_OPIP);
+    return this.listMultiStations(symbols.get('operationalIntermediatePoints'));
   }
 
   /**
@@ -144,7 +147,7 @@ class Schedule {
    * @readonly
    */
   get destination() {
-    return this.getSingleStation(s_DT, s_OPDT);
+    return this.getSingleStation(symbols.get('destination'), symbols.get('operationalDestination'));
   }
 
   /**
@@ -175,27 +178,5 @@ class Schedule {
     return (this[type] || this[operationalType])
       ? new Station(this[type] || this[operationalType])
       : null;
-  }
-
-}
-
-module.exports = {
-  class: Schedule,
-  injector: (station) => {
-    Station = station;
-  },
-  symbols: {
-    s_rid,
-    s_ssd,
-    s_toc,
-    s_tid,
-    s_uid,
-    s_OR,
-    s_DT,
-    s_PP,
-    s_IP,
-    s_OPOR,
-    s_OPDT,
-    s_OPIP
   }
 }

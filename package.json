@@ -1,6 +1,6 @@
 {
   "name": "openraildata-common",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "A package for common files and functions between the various openraildata packages",
   "keywords": [
     "openraildata",
@@ -17,6 +17,7 @@
     "url": "https://carboncollins.uk"
   },
   "main": "index.js",
+  "module": "index.mjs",
   "scripts": {
     "test": "istanbul cover ./tests/test.js"
   },
@@ -24,19 +25,19 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
-    "diff": "^3.4.0",
-    "eslint": "^4.14.0",
+    "diff": "^3.5.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
-    "fs-extra": "^5.0.0",
+    "eslint-plugin-import": "^2.12.0",
+    "fs-extra": "^6.0.1",
     "gulp": "^3.9.1",
     "gulp-jsdoc-to-markdown": "^1.2.2",
-    "gulp-rename": "^1.2.2",
+    "gulp-rename": "^1.2.3",
     "gulp-util": "^3.0.8",
     "istanbul": "^0.4.5",
-    "jsdoc-to-markdown": "^3.0.3",
-    "mocha": "^4.0.1",
-    "rewire": "^3.0.2"
+    "jsdoc-to-markdown": "^4.0.1",
+    "mocha": "^5.2.0",
+    "rewire": "^4.0.1"
   },
   "repository": {
     "type": "github",

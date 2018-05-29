@@ -1,14 +1,13 @@
-'use strict';
-
-const s_tpl = Symbol('tiploc');
-const s_act = Symbol('action');
-const s_pta = Symbol('plannedTimeOfArrival');
-const s_ptd = Symbol('plannedTimeOfDeparture');
-const s_wta = Symbol('workingTimeOfArrival');
-const s_wtd = Symbol('workingTimeOfDeparture');
-const s_op = Symbol('operational');
-const s_plat = Symbol('platform');
-const s_platsup = Symbol('platformSuppressed');
+export const symbols = new Map()
+  .set('tiploc', Symbol())
+  .set('action', Symbol())
+  .set('plannedTimeOfArrival', Symbol())
+  .set('plannedTimeOfDeparture', Symbol())
+  .set('workingTimeOfArrival', Symbol())
+  .set('workingTimeOfDeparture', Symbol())
+  .set('operational', Symbol())
+  .set('platform', Symbol())
+  .set('platformSuppressed', Symbol());
 
 /**
  * @class
@@ -16,22 +15,22 @@ const s_platsup = Symbol('platformSuppressed');
  * @augments module:openraildata/common#Station
  * @instance
  */
-class Station {
+export default class Station {
   /**
    * @constructor
    * @param {Object} payload a raw object containing the station information
    * @param {Boolean} [operational] an optional boolean to specify if the station is an operational stop
    */
   constructor(payload = {}, operational = false) {
-    this[s_tpl] = payload.tpl;
-    this[s_act] = payload.act;
-    this[s_pta] = payload.pta;
-    this[s_ptd] = payload.ptd;
-    this[s_wta] = payload.wta;
-    this[s_wtd] = payload.wtd;
-    this[s_op] = operational;
-    this[s_plat] = payload.plat;
-    this[s_platsup] = payload.platsup;
+    this[symbols.get('tiploc')] = payload.tiploc;
+    this[symbols.get('action')] = payload.action;
+    this[symbols.get('plannedTimeOfArrival')] = payload.plannedTimeOfArrival;
+    this[symbols.get('plannedTimeOfDeparture')] = payload.plannedTimeOfDeparture;
+    this[symbols.get('workingTimeOfArrival')] = payload.workingTimeOfArrival;
+    this[symbols.get('workingTimeOfDeparture')] = payload.workingTimeOfDeparture;
+    this[symbols.get('operational')] = operational;
+    this[symbols.get('platform')] = payload.platform;
+    this[symbols.get('platformSuppressed')] = payload.platformSuppressed;
   }
 
   /**
@@ -41,7 +40,7 @@ class Station {
    * @readonly
    */
   get tiploc() {
-    return this[s_tpl] || null;
+    return this[symbols.get('tiploc')] || null;
   }
 
   /**
@@ -51,7 +50,7 @@ class Station {
    * @readonly
    */
   get action() {
-    return this[s_act] || null;
+    return this[symbols.get('action')] || null;
   }
 
   /**
@@ -61,7 +60,7 @@ class Station {
    * @readonly
    */
   get plannedTimeOfArrival() {
-    return this[s_pta] || null;
+    return this[symbols.get('plannedTimeOfArrival')] || null;
   }
 
   /**
@@ -71,7 +70,7 @@ class Station {
    * @readonly
    */
   get plannedTimeOfDeparture() {
-    return this[s_ptd] || null;
+    return this[symbols.get('plannedTimeOfDeparture')] || null;
   }
 
   /**
@@ -81,7 +80,7 @@ class Station {
    * @readonly
    */
   get workingTimeOfArrival() {
-    return this[s_wta] || null;
+    return this[symbols.get('workingTimeOfArrival')] || null;
   }
 
   /**
@@ -91,7 +90,7 @@ class Station {
    * @readonly
    */
   get workingTimeOfDeparture() {
-    return this[s_wtd] || null;
+    return this[symbols.get('workingTimeOfDeparture')] || null;
   }
 
   /**
@@ -101,7 +100,7 @@ class Station {
    * @readonly
    */
   get operational() {
-    return this[s_op] || false;
+    return this[symbols.get('operational')] || false;
   }
 
   /**
@@ -111,7 +110,7 @@ class Station {
    * @readonly
    */
   get platform() {
-    return this[s_plat] || null;
+    return this[symbols.get('platform')] || null;
   }
 
   /**
@@ -121,21 +120,6 @@ class Station {
    * @returns {Boolean}
    */
   isPlatformSuppressed() {
-    return this[s_platsup] || false;
+    return this[symbols.get('platformSuppressed')] || false;
   }
 }
-
-module.exports = {
-  class: Station,
-  symbols: {
-    s_tpl,
-    s_act,
-    s_pta,
-    s_ptd,
-    s_wta,
-    s_wtd,
-    s_op,
-    s_plat,
-    s_platsup,
-  }
-};

@@ -1,9 +1,8 @@
-'use strict';
-
-const s_tiploc = Symbol('tiploc');
-const s_category = Symbol('category');
-const s_main = Symbol('main');
-const s_association = Symbol('association');
+export const symbols = new Map()
+  .set('tiploc', Symbol())
+  .set('category', Symbol())
+  .set('main', Symbol())
+  .set('association', Symbol());
 
 /**
  * @class
@@ -11,16 +10,16 @@ const s_association = Symbol('association');
  * @augments module:openraildata/common#Association
  * @instance
  */
-class Association {
+export default class Association {
   /**
    * @constructor
    * @param {Object} payload the raw json association message object
    */
   constructor(payload = {}) {
-    this[s_tiploc] = payload.tiploc;
-    this[s_category] = payload.category;
-    this[s_main] = payload.main;
-    this[s_association] = payload.assoc;
+    this[symbols.get('tiploc')] = payload.tiploc;
+    this[symbols.get('category')] = payload.category;
+    this[symbols.get('main')] = payload.main;
+    this[symbols.get('association')] = payload.association;
   }
 
   /**
@@ -41,7 +40,7 @@ class Association {
    * @readonly
    */
   get tiploc() {
-    return this[s_tiploc] || null;
+    return this[symbols.get('tiploc')] || null;
   }
 
   /** 
@@ -52,7 +51,7 @@ class Association {
    * @readonly
    */
   get category() {
-    return this[s_category] || null;
+    return this[symbols.get('category')] || null;
   }
 
   /** 
@@ -63,7 +62,7 @@ class Association {
    * @readonly
    */
   get mainTrain() {
-    return this[s_main] || null;
+    return this[symbols.get('main')] || null;
   }
 
   /** 
@@ -74,7 +73,7 @@ class Association {
    * @readonly
    */
   get mainTrainId() {
-    return this.getRIDFromTrain(this[s_main]);
+    return this.getRIDFromTrain(this[symbols.get('main')]);
   }
 
   /** 
@@ -85,7 +84,7 @@ class Association {
    * @readonly
    */
   get associatedTrain() {
-    return this[s_association] || null;
+    return this[symbols.get('association')] || null;
   }
 
   /** 
@@ -96,7 +95,7 @@ class Association {
    * @readonly
    */
   get associatedTrainId() {
-    return this.getRIDFromTrain(this[s_association]);
+    return this.getRIDFromTrain(this[symbols.get('association')]);
   }
 
   /**
@@ -106,7 +105,7 @@ class Association {
    * @returns {Boolean} 
    */
   isJoin() {
-    return (this[s_category] === 'JJ');
+    return (this[symbols.get('category')] === 'JJ');
   }
 
   /**
@@ -116,7 +115,7 @@ class Association {
    * @returns {Boolean} 
    */
   isSplit() {
-    return (this[s_category] === 'VV');
+    return (this[symbols.get('category')] === 'VV');
   }
 
   /**
@@ -126,16 +125,6 @@ class Association {
    * @returns {Boolean} 
    */
   isNextTrain() {
-    return (this[s_category] === 'NP');
+    return (this[symbols.get('category')] === 'NP');
   }
 }
-
-module.exports = {
-  class: Association,
-  symbols: {
-    s_tiploc,
-    s_category,
-    s_main,
-    s_association
-  }
-};

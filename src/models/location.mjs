@@ -1,9 +1,8 @@
-'use strict';
-
-const s_tpl = Symbol('tiploc');
-const s_crs = Symbol('computerReservationSystem');
-const s_toc = Symbol('trainOperatingCompany');
-const s_locname = Symbol('locationName');
+export const symbols = new Map()
+  .set('tiploc', Symbol())
+  .set('computerReservationSystem', Symbol())
+  .set('trainOperatingCompany', Symbol())
+  .set('locationName', Symbol());
 
 /**
  * @class
@@ -11,16 +10,16 @@ const s_locname = Symbol('locationName');
  * @augments module:openraildata/common#Location
  * @instance
  */
-class Location {
+export default class Location {
   /**
    * @constructor
    * @param {Object} loc the raw location object to be parsed
    */
-  constructor(loc) {
-    this[s_tpl];
-    this[s_crs];
-    this[s_toc];
-    this[s_locname];
+  constructor(options = {}) {
+    this[symbols.get('tiploc')] = options.tiploc;
+    this[symbols.get('computerReservationSystem')] = options.computerReservationSystem;
+    this[symbols.get('trainOperatingCompany')] = options.trainOperatingCompany;
+    this[symbols.get('locationName')] = options.locationName;
 
     this.updateLocation(loc);
   }
@@ -33,7 +32,7 @@ class Location {
    * @readonly
    */
   get tiploc() {
-    return this[s_tpl] || null;
+    return this[symbols.get('tiploc')] || null;
   }
 
   /**
@@ -44,7 +43,7 @@ class Location {
    * @readonly
    */
   get trainOperatingCompany() {
-    return this[s_toc] || null;
+    return this[symbols.get('trainOperatingCompany')] || null;
   }
 
   /**
@@ -55,7 +54,7 @@ class Location {
    * @readonly
    */
   get computerReservationSystem() {
-    return this[s_crs] || null;
+    return this[symbols.get('computerReservationSystem')] || null;
   }
 
   /**
@@ -66,30 +65,19 @@ class Location {
    * @readonly
    */
   get locationName() {
-    return this[s_locname] || null;
+    return this[symbols.get('locationName')] || null;
   }
 
   /**
-   * @method module:openraildata/common#Location~updateLocation
-   * @description Updates the location wiht a new raw data
+   * @member {String} location
+   * @description Updates the location with a new raw data
    * @param {Object} location the raw location object to be parsed
+   * @memberof module:openraildata/common#Location
+   * @instance
    */
-  updateLocation(location) {
-    if (location) {
-      this[s_tpl] = location.tpl;
-      this[s_crs] = location.crs;
-      this[s_toc] = location.toc;
-      this[s_locname] = location.locname;
-    }
+  set location(location = {}) {
+    symbols.forEach((sym, name) => {
+      this[sym] = location[name] || this[sym];
+    });
   }
 }
-
-module.exports = {
-  class: Location,
-  symbols: {
-    s_tpl,
-    s_crs,
-    s_toc,
-    s_locname
-  }
-};
