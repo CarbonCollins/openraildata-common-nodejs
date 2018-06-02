@@ -6,7 +6,7 @@ const Chai = require('chai');
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = require('../../lib/stationMessage');
+const UUT = require('../../src/stationMessage');
 const testData = require('../templates/stationMessage.json');
 const locationData = require('../templates/location.json');
 

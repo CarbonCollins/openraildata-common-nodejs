@@ -6,7 +6,7 @@ const Chai = require('chai');
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = require('../../lib/association');
+const UUT = require('../../src/association');
 const testData = require('../templates/association.json');
 
 const moduleSuite = new Suite('Association module tests');

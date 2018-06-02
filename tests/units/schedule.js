@@ -7,7 +7,7 @@ const rewire = require('rewire');
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = rewire('../../lib/schedule');
+const UUT = rewire('../../src/schedule');
 const testData = require('../templates/schedule.json');
 const stationData = require('../templates/station.json');
 
