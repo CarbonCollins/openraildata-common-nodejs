@@ -1,0 +1,4 @@
+{
+  "plugins": [
+    ["transform-rename-import", { "original": "^(.+?)\\.mjs$", "replacement": "$1.js" }]]
+}

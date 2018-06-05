@@ -21,7 +21,11 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
-    "test": "istanbul cover ./tests/test.js"
+    "prepublishOnly": "gulp generate-lib",
+    "publish-npm": "npm publish --scope=@openrailuk --access=public",
+    "pretest": "gulp generate-lib",
+    "test": "istanbul cover ./tests/test.js",
+    "build": "gulp generate-lib"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "license": "MIT",
@@ -67,5 +71,12 @@
     "doc": "./docs",
     "lib": "./lib",
     "test": "./tests"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-rename-import": "^2.2.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0"
   }
 }
