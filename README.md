@@ -1,7 +1,4 @@
-<span align="center"> 
-<img src="./docs/images/openrailUK.png">
-</span>
-<h2 align="center">common-nodejs</h2>
+![](./docs/images/commonBanner.png)
 
 [![npm](https://img.shields.io/npm/dt/openraildata-common.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/CarbonCollins/openraildata-common-nodejs.svg)](https://github.com/CarbonCollins/openraildata-common-nodejs/issues)
