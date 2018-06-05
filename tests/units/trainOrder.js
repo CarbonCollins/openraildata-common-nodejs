@@ -6,7 +6,7 @@ const Chai = require('chai');
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = require('../../lib/trainOrder');
+const UUT = require('../../src/models/trainOrder');
 const testData = require('../templates/trainOrder.json');
 
 const moduleSuite = new Suite('TrainOrder module tests');

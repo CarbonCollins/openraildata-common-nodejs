@@ -6,7 +6,7 @@ const Chai = require('chai');
 const { Test, Suite } = Mocha;
 const { expect } = Chai;
 
-const UUT = require('../../lib/location');
+const UUT = require('../../src/models/location');
 const testData = require('../templates/location.json');
 
 const moduleSuite = new Suite('Location module tests');

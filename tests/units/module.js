@@ -38,7 +38,7 @@ exportSuite.addTest(new Test('API docs present and up-to-date', (done) => {
         return jsdoc2md.render({
           'no-cache': true,
           separators: true,
-          files: [path.join(__dirname, '../../docs/alias.js'), path.join(__dirname, '../../index.js'), path.join(__dirname, '../../lib/*.js')]
+          files: [path.join(__dirname, '../../docs/alias.js'), path.join(__dirname, '../../index.js'), path.join(__dirname, '../../src/models/*.js')]
           // source: files
         });
       }
