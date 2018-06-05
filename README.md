@@ -1,6 +1,6 @@
-<p align="center"> 
+<span align="center"> 
 <img src="./docs/images/openrailUK.png">
-</p>
+</span>
 <h2 align="center">common-nodejs</h2>
 
 [![npm](https://img.shields.io/npm/dt/openraildata-common.svg)]()
