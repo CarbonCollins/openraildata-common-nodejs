@@ -1,6 +1,0 @@
-[submodule "docs\\wiki"]
-	path = docs\\wiki
-	url = git@gitlab.com:openrail/uk/common-nodejs.wiki.git
-[submodule "docs/wiki"]
-	path = docs/wiki
-	url = git@gitlab.com:openrail/uk/common-nodejs.wiki.git
