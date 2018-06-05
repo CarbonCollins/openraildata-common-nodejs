@@ -1,5 +1,5 @@
 {
-  "name": "@openrail/uk/common",
+  "name": "@openrailuk/common",
   "version": "3.0.0",
   "description": "A package for common files and functions between the various openraildata packages",
   "keywords": [
