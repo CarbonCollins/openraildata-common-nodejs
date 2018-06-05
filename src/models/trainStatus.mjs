@@ -1,4 +1,4 @@
-const stationMap = new Map()
+export const stationMap = new Map()
   .set('tpl', 'tiploc')
   .set('act', 'action')
   .set('pta', 'plannedTimeOfArrival')
@@ -39,13 +39,14 @@ export class TrainStatus {
     this[symbols.get('locations')] = (payload.locations || [])
       .map((station) => {
         return new Station({
-          pta: station.pta,
-          ptd: station.ptd,
-          wta: station.wta,
-          wtd: station.wtd,
-          tpl: station.tpl,
-          plat: (station.plat) ? station.plat.$t : null,
-          platsup: (station.plat) ? station.plat.platsup : false,
+          tiploc: station.tiploc,
+          action: station.action,
+          plannedTimeOfArrival: station.plannedTimeOfArrival,
+          plannedTimeOfDeparture: station.plannedTimeOfDeparture,
+          workingTimeOfArrival: station.workingTimeOfArrival,
+          workingTimeOfDeparture: station.workingTimeOfDeparture,
+          platform: (station.plat) ? station.platform : null,
+          platformSuppressed: (station.platformSuppressed) ? station.platformSuppressed : false,
         });
       });
   }
@@ -90,16 +91,3 @@ export class TrainStatus {
     return this[symbols.get('locations')] || [];
   }
 }
-
-module.exports = {
-  class: TrainStatus,
-  injector: (station) => {
-    Station = station;
-  },
-  symbols: {
-    symbols.get('rid'),
-    symbols.get('uniqueId'),
-    symbols.get('serviceStartingDate'),
-    symbols.get('locations')
-  }
-};

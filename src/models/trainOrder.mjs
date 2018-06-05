@@ -1,10 +1,9 @@
-'use strict';
-
-const s_crs = Symbol('computerReservationSystem');
-const s_plt = Symbol('platform');
-const s_tpl = Symbol('tiploc');
-const s_set = Symbol('set');
-const s_clr = Symbol('clear');
+export const symbols = new Map()
+  .set('computerReservationSystem', Symbol())
+  .set('platform', Symbol())
+  .set('tiploc', Symbol())
+  .set('set', Symbol())
+  .set('clear', Symbol());
 
 /**
  * @class
@@ -12,17 +11,17 @@ const s_clr = Symbol('clear');
  * @augments module:openraildata/common#TrainOrder
  * @instance
  */
-class TrainOrder {
+export default class TrainOrder {
   /**
    * @constructor
    * @param {Object} payload a raw object containing the station information
    */
   constructor(payload = {}) {
-    this[s_crs] = payload.crs;
-    this[s_plt] = payload.platform;
-    this[s_tpl] = payload.tiploc;
-    this[s_set] = payload.set;
-    this[s_clr] = payload.clear;
+    this[symbols.get('computerReservationSystem')] = payload.computerReservationSystem;
+    this[symbols.get('platform')] = payload.platform;
+    this[symbols.get('tiploc')] = payload.tiploc;
+    this[symbols.get('set')] = payload.set;
+    this[symbols.get('clear')] = payload.clear;
   }
 
   /**
@@ -32,7 +31,7 @@ class TrainOrder {
    * @readonly
    */
   get computerReservationSystem() {
-    return this[s_crs] || null;
+    return this[symbols.get('computerReservationSystem')] || null;
   }
 
   /**
@@ -42,7 +41,7 @@ class TrainOrder {
    * @readonly
    */
   get platform() {
-    return this[s_plt] || null;
+    return this[symbols.get('platform')] || null;
   }
 
   /**
@@ -52,7 +51,7 @@ class TrainOrder {
    * @readonly
    */
   get tiploc() {
-    return this[s_tpl] || null;
+    return this[symbols.get('tiploc')] || null;
   }
 
   /**
@@ -62,7 +61,7 @@ class TrainOrder {
    * @readonly
    */
   get sets() {
-    return this[s_set] || null;
+    return this[symbols.get('set')] || null;
   }
 
   /**
@@ -102,7 +101,7 @@ class TrainOrder {
    * @readonly
    */
   get clears() {
-    return this[s_clr] || null;
+    return this[symbols.get('clear')] || null;
   }
 
   /**
@@ -113,7 +112,7 @@ class TrainOrder {
    * @readonly
    */
   isSet() {
-    return !!this[s_set] || false;
+    return !!this[symbols.get('set')] || false;
   }
 
   /**
@@ -124,7 +123,7 @@ class TrainOrder {
    * @readonly
    */
   isClear() {
-    return !!this[s_clr] || false;
+    return !!this[symbols.get('clear')] || false;
   }
 
   /**
@@ -134,19 +133,8 @@ class TrainOrder {
    * @private
    */
   getSetTrain(type) {
-    return (this[s_set] && this[s_set][type])
-      ? this[s_set][type]
+    return (this[symbols.get('set')] && this[symbols.get('set')][type])
+      ? this[symbols.get('set')][type]
       : null;
   }
 }
-
-module.exports = {
-  class: TrainOrder,
-  symbols: {
-    s_crs,
-    s_plt,
-    s_tpl,
-    s_set,
-    s_clr
-  }
-};

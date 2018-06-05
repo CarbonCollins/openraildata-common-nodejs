@@ -1,4 +1,4 @@
-# openraildata-common
+# Open Rail UK - Common - Node.JS
 
 [![npm](https://img.shields.io/npm/dt/openraildata-common.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/CarbonCollins/openraildata-common-nodejs.svg)](https://github.com/CarbonCollins/openraildata-common-nodejs/issues)
@@ -10,17 +10,17 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/d565af9f95f072c98381/test_coverage)](https://codeclimate.com/github/CarbonCollins/openraildata-common-nodejs/test_coverage)
 [![Known Vulnerabilities](https://snyk.io/test/github/carboncollins/openraildata-common-nodejs/badge.svg)](https://snyk.io/test/github/carboncollins/openraildata-common-nodejs)
 
-A package for common files and functions between the various openraildata packages
+A package for common files and functions between the various open rail UK packages
 
 # usage
 
-To use the openraildata-common package you need to import the required classes and functions in which your application needs, this can be done as follows:
+To use the common-nodejs package you need to import the required classes and functions in which your application needs, this can be done as follows:
 ```
-const { Location, Station } = require('openraildata-common');
+import { Location, Station } from '@openrailuk/common';
 ```
 or this for everything:
 ```
-const common = require('openraildata-common');
+import * as common from '@openrailuk/common');
 
 ```
 

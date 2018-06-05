@@ -1,8 +1,10 @@
 {
-  "name": "openraildata-common",
+  "name": "@openrail/uk/common",
   "version": "3.0.0",
   "description": "A package for common files and functions between the various openraildata packages",
   "keywords": [
+    "openrail",
+    "openrailuk",
     "openraildata",
     "national",
     "network",
@@ -21,7 +23,7 @@
   "scripts": {
     "test": "istanbul cover ./tests/test.js"
   },
-  "homepage": "https://carboncollins.uk/npm/openraildata-common-nodejs",
+  "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.1.2",
@@ -40,14 +42,22 @@
     "rewire": "^4.0.1"
   },
   "repository": {
-    "type": "github",
-    "url": "https://github.com/CarbonCollins/openraildata-common-nodejs"
+    "type": "gitlab",
+    "url": "https://gitlab.com/openrail/uk/common-nodejs"
   },
   "bugs": {
-    "url": "https://github.com/CarbonCollins/openraildata-common-nodejs/issues"
+    "url": "https://gitlab.com/openrail/uk/common-nodejs/issues"
   },
+  "badges": [
+    "https://img.shields.io/badge/license-MIT-blue.svg",
+    "https://img.shields.io/badge/country-UK-blue.svg",
+    "https://img.shields.io/badge/status-WIP-yellow.svg"
+  ],
+  "displayName": "Open Rail UK Common",
+  "markdown": "standard",
+  "publisher": "npm",
   "engines": {
-    "node": ">=6.x"
+    "node": ">=4.x"
   },
   "readmeFilename": "README.md",
   "publishConfig": {
