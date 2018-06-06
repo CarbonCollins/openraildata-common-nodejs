@@ -12,7 +12,7 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc a class for storing data about a station and to supply helpful functions for manipulating the data
- * @augments module:openraildata/common#Station
+ * @augments module:openrailuk/common#Station
  * @instance
  */
 export default class Station {
@@ -35,7 +35,7 @@ export default class Station {
 
   /**
    * @member {tpl} tiploc gets the TIPLOC code for this station
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -45,7 +45,7 @@ export default class Station {
 
   /**
    * @member {act} action gets the action at this station
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -55,7 +55,7 @@ export default class Station {
 
   /**
    * @member {pta} plannedTimeOfArrival gets the planned time of arrival (public facing)
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -65,7 +65,7 @@ export default class Station {
 
   /**
    * @member {ptd} plannedTimeOfDeparture gets the planned time of departure (public facing)
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -75,7 +75,7 @@ export default class Station {
 
   /**
    * @member {wta} workingTimeOfArrival gets the working time of arrival for the train (hidden form pulic view)
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -85,7 +85,7 @@ export default class Station {
 
   /**
    * @member {wtd} workingTimeOfDeparture gets the working time of departure for the train (hidden form pulic view)
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -95,7 +95,7 @@ export default class Station {
 
   /**
    * @member {Boolean} operational is the station an operational station
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -105,7 +105,7 @@ export default class Station {
 
   /**
    * @member {plat} platform is the platform number (if known)
-   * @memberof module:openraildata/common#Station
+   * @memberof module:openrailuk/common#Station
    * @instance
    * @readonly
    */
@@ -114,7 +114,7 @@ export default class Station {
   }
 
   /**
-   * @method module:openraildata/common#Station~isPlatformSuppressed
+   * @method module:openrailuk/common#Station~isPlatformSuppressed
    * @description determines if the platform is to be suppressed form public view
    * @alias platsup
    * @returns {Boolean}

@@ -1,7 +1,7 @@
 /**
  * @name alias.js
  * @description This file is being used to describe all of the various aliases and terms used by
- * the openraildata packages. 
+ * the openrailuk packages. 
  * @private
  */
 
@@ -85,7 +85,7 @@
 /**
  * @typedef {String} uid
  * @description a unique identifier for a train. Each train will have its own uid which can be used
- * to identify it on most data from the openraildata servers e.g. getting a schedule for a train.
+ * to identify it on most data from the open rail data servers e.g. getting a schedule for a train.
  */
 
 /**

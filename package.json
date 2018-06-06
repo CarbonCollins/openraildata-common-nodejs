@@ -1,7 +1,7 @@
 {
   "name": "@openrailuk/common",
   "version": "3.0.0",
-  "description": "A package for common files and functions between the various openraildata packages",
+  "description": "A package for common files and functions between the various @openrailuk packages",
   "keywords": [
     "openrail",
     "openrailuk",
@@ -25,7 +25,8 @@
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
     "pretest": "gulp generateLib",
     "test": "istanbul cover ./tests/test.js",
-    "build": "gulp generateLib"
+    "build": "gulp generateLib",
+    "generateDocs": "gulp generateDocs"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "license": "MIT",

@@ -26,13 +26,13 @@ import * as common from '@openrailuk/common');
 
 the currently available classes that can be used are listed below
 
-- [Association](./docs/api.md#module_openraildata/common+Association)
-- [Location](./docs/api.md#module_openraildata/common+Location)
-- [Schedule](./docs/api.md#module_openraildata/common+Schedule)
-- [Station](./docs/api.md#module_openraildata/common+Station)
-- [StationMessage](./docs/api.md#module_openraildata/common+StationMessage)
-- [TrainOrder](./docs/api.md#module_openraildata/common+TrainOrder)
-- [TrainStatus](./docs/api.md#module_openraildata/common+TrainStatus)
+- [Association](./docs/api.md#module_openrailuk/common+Association)
+- [Location](./docs/api.md#module_openrailuk/common+Location)
+- [Schedule](./docs/api.md#module_openrailuk/common+Schedule)
+- [Station](./docs/api.md#module_openrailuk/common+Station)
+- [StationMessage](./docs/api.md#module_openrailuk/common+StationMessage)
+- [TrainOrder](./docs/api.md#module_openrailuk/common+TrainOrder)
+- [TrainStatus](./docs/api.md#module_openrailuk/common+TrainStatus)
 
 an example of using the classes are:
 

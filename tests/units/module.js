@@ -21,7 +21,7 @@ const moduleSuite = new Suite('openweathermap-api-nodejs module tests');
 const exportSuite = new Suite('Export tests');
 exportSuite.timeout(5000);
 
-exportSuite.addTest(new Test('OpenRailData exports class', () => {
+exportSuite.addTest(new Test('@openrailuk/common exports class', () => {
   expect(UUT).to.be.an('object', 'module should export an already instanced class');
   expect(UUT).to.have.all.keys(unitModules
     .slice(0)

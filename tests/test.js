@@ -15,7 +15,7 @@ const trainStatusUnitTests = require('./units/trainStatus');
 const mocha = new Mocha();
 const { Suite } = Mocha;
 
-const fullSuite = Suite.create(mocha.suite, 'openraildata-common-nodejs full test suite');
+const fullSuite = Suite.create(mocha.suite, '@openrailuk/common-nodejs full test suite');
 
 Promise.resolve()
   .then(() => { return moduleUnitTests(); })

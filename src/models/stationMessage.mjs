@@ -14,7 +14,7 @@ export function injectLocation(location) {
 /**
  * @class
  * @classdesc A class for housing station messages
- * @augments module:openraildata/common#StationMessage
+ * @augments module:openrailuk/common#StationMessage
  * @instance
  */
 export default class StationMessage {
@@ -35,7 +35,7 @@ export default class StationMessage {
 
   /**
    * @member {String} id gets the id of the station message
-   * @memberof module:openraildata/common#StationMessage
+   * @memberof module:openrailuk/common#StationMessage
    * @instance
    * @readonly
    */
@@ -45,7 +45,7 @@ export default class StationMessage {
 
   /**
    * @member {stationCategory} category gets the id of the station message
-   * @memberof module:openraildata/common#StationMessage
+   * @memberof module:openrailuk/common#StationMessage
    * @instance
    * @readonly
    */
@@ -55,7 +55,7 @@ export default class StationMessage {
 
   /**
    * @member {String} message gets the message of the station message
-   * @memberof module:openraildata/common#StationMessage
+   * @memberof module:openrailuk/common#StationMessage
    * @instance
    * @readonly
    */
@@ -65,7 +65,7 @@ export default class StationMessage {
 
   /**
    * @member {Number} severity gets the numerical severity of the station message
-   * @memberof module:openraildata/common#StationMessage
+   * @memberof module:openrailuk/common#StationMessage
    * @instance
    * @readonly
    */
@@ -77,7 +77,7 @@ export default class StationMessage {
 
   /**
    * @member {String} severityString get the readable format of the severity of the station message
-   * @memberof module:openraildata/common#StationMessage
+   * @memberof module:openrailuk/common#StationMessage
    * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Station_Message_Element#Severities}
    * @instance
    * @readonly
@@ -98,7 +98,7 @@ export default class StationMessage {
 
   /**
    * @member {Location[]} stations gets the list of stations that the station message applied too
-   * @memberof module:openraildata/common#StationMessage
+   * @memberof module:openrailuk/common#StationMessage
    * @instance
    * @readonly
    */

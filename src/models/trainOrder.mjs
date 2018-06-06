@@ -8,7 +8,7 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc a class for storing trainOrder message and to provide helpfull functions
- * @augments module:openraildata/common#TrainOrder
+ * @augments module:openrailuk/common#TrainOrder
  * @instance
  */
 export default class TrainOrder {
@@ -26,7 +26,7 @@ export default class TrainOrder {
 
   /**
    * @member {crs} computerReservationSystem gets the crs (computer reservation system) code
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -36,7 +36,7 @@ export default class TrainOrder {
 
   /**
    * @member {plat} platform gets the platform identifier
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -46,7 +46,7 @@ export default class TrainOrder {
 
   /**
    * @member {tpl} tiploc gets the tiploc code
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -56,7 +56,7 @@ export default class TrainOrder {
 
   /**
    * @member {Object} set gets all of the set information for the train order
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -66,7 +66,7 @@ export default class TrainOrder {
 
   /**
    * @member {Object} first gets the first train in the set object
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -76,7 +76,7 @@ export default class TrainOrder {
 
   /**
    * @member {Object} second gets the first train in the set object
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -86,7 +86,7 @@ export default class TrainOrder {
 
   /**
    * @member {Object} third gets the first train in the set object
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -96,7 +96,7 @@ export default class TrainOrder {
 
   /**
    * @member {Object} clear gets all of the clear information for the train order
-   * @memberof module:openraildata/common#TrainOrder
+   * @memberof module:openrailuk/common#TrainOrder
    * @instance
    * @readonly
    */
@@ -105,7 +105,7 @@ export default class TrainOrder {
   }
 
   /**
-   * @method module:openraildata/common#TrainOrder~isSet
+   * @method module:openrailuk/common#TrainOrder~isSet
    * @description determines if the train order is a set type
    * @returns {Boolean}
    * @instance
@@ -116,7 +116,7 @@ export default class TrainOrder {
   }
 
   /**
-   * @method module:openraildata/common#TrainOrder~isClear
+   * @method module:openrailuk/common#TrainOrder~isClear
    * @description determines if the train order is a clear type
    * @returns {Boolean}
    * @instance
@@ -127,7 +127,7 @@ export default class TrainOrder {
   }
 
   /**
-   * @method module:openraildata/common#TrainOrder~getSetTrain
+   * @method module:openrailuk/common#TrainOrder~getSetTrain
    * @description gets a train set: `first`, `second`, or `third`
    * @returns {Object}
    * @private

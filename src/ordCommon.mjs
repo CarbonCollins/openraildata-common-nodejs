@@ -15,9 +15,9 @@ const s_trainOrder = Symbol('trainOrder');
 const s_trainStatus = Symbol('trainStatus');
 
 /**
- * @module openraildata/common
- * @description the openraildata/common module is used to export various data classes used within
- * many of the openraildata modules. This common package is used to remove duplicate copies of
+ * @module openrailuk/common
+ * @description the openrailuk/common module is used to export various data classes used within
+ * many of the openrailuk modules. This common package is used to remove duplicate copies of
  * each of these data classes and so that they are maintained in one place. Because of this there
  * is not much actual funcitonality within this module. Mixing functions are exposed which allow
  * other modules to mix extra functionality into the data classes in this module in order for the
@@ -43,7 +43,7 @@ class ORDCommon {
   }
 
   /**
-   * @member {module:openraildata/common#Association} Association
+   * @member {module:openrailuk/common#Association} Association
    * @instance
    * @readonly
    */
@@ -52,7 +52,7 @@ class ORDCommon {
   }
 
   /**
-   * @member {module:openraildata/common#Location} Location
+   * @member {module:openrailuk/common#Location} Location
    * @instance
    * @readonly
    */
@@ -61,7 +61,7 @@ class ORDCommon {
   }
 
   /**
-   * @member {module:openraildata/common#Schedule} Schedule
+   * @member {module:openrailuk/common#Schedule} Schedule
    * @instance
    * @readonly
    */
@@ -106,7 +106,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~associationMixer
+   * @method module:openrailuk/common~associationMixer
    * @param {Function} mixin a mixin function to apply to the Association model
    * @mixes Association
    * @see {@link ./association.md|Association}
@@ -116,7 +116,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~locationMixer
+   * @method module:openrailuk/common~locationMixer
    * @param {Function} mixin a mixin function to apply to the Location model
    * @mixes Location
    * @see {@link ./location.md|Location}
@@ -126,7 +126,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~scheduleMixer
+   * @method module:openrailuk/common~scheduleMixer
    * @param {Function} mixin a mixin function to apply to the Schedule model
    * @mixes Schedule
    * @see {@link ./schedule.md|Schedule}
@@ -136,7 +136,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~stationMixer
+   * @method module:openrailuk/common~stationMixer
    * @param {Function} mixin a mixin function to apply to the Station model
    * @mixes Station
    * @see {@link ./station.md|Station}
@@ -146,7 +146,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~stationMessageMixer
+   * @method module:openrailuk/common~stationMessageMixer
    * @param {Function} mixin a mixin function to apply to the StationMessage model
    * @mixes StationMessage
    * @see {@link ./stationMessage.md|StationMessage}
@@ -156,7 +156,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~trainOrderMixer
+   * @method module:openrailuk/common~trainOrderMixer
    * @param {Function} mixin a mixin function to apply to the TrainOrder model
    * @mixes TrainOrder
    * @see {@link ./trainOrder.md|TrainOrder}
@@ -166,7 +166,7 @@ class ORDCommon {
   }
 
   /**
-   * @method module:openraildata/common~trainStatusMixer
+   * @method module:openrailuk/common~trainStatusMixer
    * @param {Function} mixin a mixin function to apply to the TrainStatus model
    * @mixes TrainStatus
    * @see {@link ./trainStatus.md|TrainStatus}

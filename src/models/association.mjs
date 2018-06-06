@@ -7,7 +7,7 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc A class for association data and helpful functions
- * @augments module:openraildata/common#Association
+ * @augments module:openrailuk/common#Association
  * @instance
  */
 export default class Association {
@@ -23,7 +23,7 @@ export default class Association {
   }
 
   /**
-   * @method module:openraildata/common#Association~getRIDFromTrain
+   * @method module:openrailuk/common#Association~getRIDFromTrain
    * @description gets the id of a specific type of train
    * @param {Object} train the train object to get the rid from
    * @private
@@ -34,7 +34,7 @@ export default class Association {
 
   /** 
    * @member {tpl} tiploc
-   * @memberof module:openraildata/common#Association
+   * @memberof module:openrailuk/common#Association
    * @description gets the association tiploc code
    * @instance
    * @readonly
@@ -45,7 +45,7 @@ export default class Association {
 
   /** 
    * @member {category} category
-   * @memberof module:openraildata/common#Association
+   * @memberof module:openrailuk/common#Association
    * @description gets the association category
    * @instance
    * @readonly
@@ -56,7 +56,7 @@ export default class Association {
 
   /** 
    * @member {Object} mainTrain
-   * @memberof module:openraildata/common#Association
+   * @memberof module:openrailuk/common#Association
    * @description gets the main train information
    * @instance
    * @readonly
@@ -67,7 +67,7 @@ export default class Association {
 
   /** 
    * @member {rid} mainTrainId
-   * @memberof module:openraildata/common#Association
+   * @memberof module:openrailuk/common#Association
    * @description gets the main train rid
    * @instance
    * @readonly
@@ -78,7 +78,7 @@ export default class Association {
 
   /** 
    * @member {Object} associatedTrain an object containing all of the assoc trains information or null
-   * @memberof module:openraildata/common#Association
+   * @memberof module:openrailuk/common#Association
    * @description gets the assoc train information
    * @instance
    * @readonly
@@ -89,7 +89,7 @@ export default class Association {
 
   /** 
    * @member {rid} associatedTrainId the associated train rid
-   * @memberof module:openraildata/common#Association
+   * @memberof module:openrailuk/common#Association
    * @description gets the assoc train rid
    * @instance
    * @readonly
@@ -99,7 +99,7 @@ export default class Association {
   }
 
   /**
-   * @method module:openraildata/common#Association~isJoin
+   * @method module:openrailuk/common#Association~isJoin
    * @description checks to see if the association is a train join type
    * @see category
    * @returns {Boolean} 
@@ -109,7 +109,7 @@ export default class Association {
   }
 
   /**
-   * @method module:openraildata/common#Association~isSplit
+   * @method module:openrailuk/common#Association~isSplit
    * @description checks to see if the association is a train split type
    * @see category
    * @returns {Boolean} 
@@ -119,7 +119,7 @@ export default class Association {
   }
 
   /**
-   * @method module:openraildata/common#Association~isNextTrain
+   * @method module:openrailuk/common#Association~isNextTrain
    * @description checks to see if the association is a next train type
    * @see category
    * @returns {Boolean} 

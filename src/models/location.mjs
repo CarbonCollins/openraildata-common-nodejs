@@ -7,7 +7,7 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc A class for location information along with helpful functions
- * @augments module:openraildata/common#Location
+ * @augments module:openrailuk/common#Location
  * @instance
  */
 export default class Location {
@@ -26,7 +26,7 @@ export default class Location {
 
   /**
    * @member {tpl} tiploc the tiploc code
-   * @memberof module:openraildata/common#Location
+   * @memberof module:openrailuk/common#Location
    * @description returns the locations tiploc code
    * @instance
    * @readonly
@@ -37,7 +37,7 @@ export default class Location {
 
   /**
    * @member {toc} trainOperatingCompany the toc code
-   * @memberof module:openraildata/common#Location
+   * @memberof module:openrailuk/common#Location
    * @description returns the locations operating company
    * @instance
    * @readonly
@@ -48,7 +48,7 @@ export default class Location {
 
   /**
    * @member {crs} computerReservationSystem the crs code
-   * @memberof module:openraildata/common#Location
+   * @memberof module:openrailuk/common#Location
    * @description returns the locations crs (Computer Reservation System)
    * @instance
    * @readonly
@@ -60,7 +60,7 @@ export default class Location {
   /**
    * @member {String} locationName readable location name
    * @description the name of the location in a human readable format e.g. `Euston`
-   * @memberof module:openraildata/common#Location
+   * @memberof module:openrailuk/common#Location
    * @instance
    * @readonly
    */
@@ -72,7 +72,7 @@ export default class Location {
    * @member {String} location
    * @description Updates the location with a new raw data
    * @param {Object} location the raw location object to be parsed
-   * @memberof module:openraildata/common#Location
+   * @memberof module:openrailuk/common#Location
    * @instance
    */
   set location(location = {}) {
