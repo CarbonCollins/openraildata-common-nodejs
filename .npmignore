@@ -58,3 +58,6 @@ typings/
 .env
 
 src/
+coverage/
+./nyc_output/
+tests.old/

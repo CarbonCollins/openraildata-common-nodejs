@@ -1,1 +1,1 @@
-export * from './lib/es6/ordCommon';
+export * from './lib/es6/common';

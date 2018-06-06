@@ -10,7 +10,7 @@ export const symbols = new Map()
  * @augments module:openrailuk/common#Location
  * @instance
  */
-export default class Location {
+export class Location {
   /**
    * @constructor
    * @param {Object} loc the raw location object to be parsed
@@ -21,7 +21,7 @@ export default class Location {
     this[symbols.get('trainOperatingCompany')] = options.trainOperatingCompany;
     this[symbols.get('locationName')] = options.locationName;
 
-    this.updateLocation(loc);
+    // this.updateLocation(loc);
   }
 
   /**

@@ -24,7 +24,7 @@ export function injectStation(station) {
  * @augments module:openrailuk/common#Schedule
  * @instance
  */
-export default class Schedule {
+export class Schedule {
   /**
    * @constructor
    * @param {Object} payload raw schedule object to be parsed

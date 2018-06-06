@@ -10,7 +10,7 @@ export const symbols = new Map()
  * @augments module:openrailuk/common#Association
  * @instance
  */
-export default class Association {
+export class Association {
   /**
    * @constructor
    * @param {Object} payload the raw json association message object

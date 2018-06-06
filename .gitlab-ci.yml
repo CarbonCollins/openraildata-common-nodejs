@@ -2,16 +2,6 @@ stages:
  - build
  - test
 
-build:
-  image: node:latest
-  stage: build
-  cache:
-    paths:
-    - node_modules/
-  script:
-   - yarn install
-   - yarn build
-
 test:
   image: node:latest
   stage: build
@@ -20,4 +10,4 @@ test:
     - node_modules/
   script:
    - yarn install
-   - yarn test
+   - yarn coverage

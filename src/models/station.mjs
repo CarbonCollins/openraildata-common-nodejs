@@ -15,7 +15,7 @@ export const symbols = new Map()
  * @augments module:openrailuk/common#Station
  * @instance
  */
-export default class Station {
+export class Station {
   /**
    * @constructor
    * @param {Object} payload a raw object containing the station information

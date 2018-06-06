@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('./lib/es5/ordCommon');
+module.exports = require('./lib/es5/common');

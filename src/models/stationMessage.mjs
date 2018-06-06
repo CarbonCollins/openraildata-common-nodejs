@@ -17,7 +17,7 @@ export function injectLocation(location) {
  * @augments module:openrailuk/common#StationMessage
  * @instance
  */
-export default class StationMessage {
+export class StationMessage {
 
   /**
    * @constructor

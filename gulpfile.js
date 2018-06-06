@@ -35,9 +35,9 @@ gulp.task('copy-source', ['clean-lib-es6'], () => {
     .pipe(gulp.dest('lib/es6'));
 });
 
-gulp.task('generateES5', ['clean-lib-es5', 'transpile']);
-gulp.task('generateES6', ['clean-lib-es6', 'copy-source']);
-gulp.task('generateLib', ['generateES5', 'generateES6']);
+gulp.task('compileES5', ['clean-lib-es5', 'transpile']);
+gulp.task('compileES6', ['clean-lib-es6', 'copy-source']);
+gulp.task('compile', ['compileES5', 'compileES6']);
 gulp.task('generateDocs', () => {
   return fs.ensureDir(path.join(__dirname, './docs'))
     .then(() => {

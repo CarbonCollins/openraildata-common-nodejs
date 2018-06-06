@@ -21,11 +21,12 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
-    "prepublishOnly": "gulp generateLib",
+    "prepublishOnly": "gulp compile",
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
-    "pretest": "gulp generateLib",
-    "test": "istanbul cover ./tests/test.js",
-    "build": "gulp generateLib",
+    "pretest": "gulp compile",
+    "test": "mocha ./tests/test.all.js",
+    "coverage": "nyc yarn test",
+    "compile": "gulp compile",
     "generateDocs": "gulp generateDocs"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
@@ -36,6 +37,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-mocha": "^5.0.0",
     "fs-extra": "^6.0.1",
     "gulp": "^3.9.1",
     "gulp-jsdoc-to-markdown": "^1.2.2",
@@ -78,6 +80,7 @@
     "babel-plugin-transform-rename-import": "^2.2.0",
     "babel-preset-env": "^1.7.0",
     "gulp-babel": "^7.0.1",
-    "gulp-clean": "^0.4.0"
+    "gulp-clean": "^0.4.0",
+    "nyc": "^12.0.2"
   }
 }
