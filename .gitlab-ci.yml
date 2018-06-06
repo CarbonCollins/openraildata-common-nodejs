@@ -1,6 +1,5 @@
 stages:
  - test
- - code_quality
 
 test:
   image: node:latest
@@ -11,9 +10,3 @@ test:
   script:
    - yarn install
    - yarn coverage
-
-code_quality:
-  image: node:latest
-  allow_failure: true
-  artifacts:
-    paths: [gl-code-quality-report.json]
