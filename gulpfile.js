@@ -42,12 +42,11 @@ gulp.task('generateDocs', () => {
   return fs.ensureDir(path.join(__dirname, './docs'))
     .then(() => {
       return jsdoc2md.render({
-        'no-cache': true,
-        separators: true,
-        files: ['./docs/alias.js', './index.js', './lib/*.js']
+        files: ['./docs/alias.js', './src/ordCommon.mjs', './src/models/*.mjs'],
+        configure: './.jsdoc.json'
       });
     })
     .then((output) => {
-      return fs.writeFile('docs/api.md', output);
+      return fs.writeFile('docs/devDoc.md', output);
     });
 });
