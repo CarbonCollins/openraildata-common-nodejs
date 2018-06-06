@@ -11,7 +11,8 @@
     "rail",
     "nationalrail",
     "networkrail",
-    "api"
+    "api",
+    "common"
   ],
   "author": {
     "name": "Steven Collins",
