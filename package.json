@@ -55,10 +55,13 @@
   "bugs": {
     "url": "https://gitlab.com/openrail/uk/common-nodejs/issues"
   },
+  "icon": "https://gitlab.com/openrail/uk/common-nodejs/raw/master/docs/images/openrailUK.png",
   "badges": [
     "https://img.shields.io/badge/license-MIT-blue.svg",
     "https://img.shields.io/badge/country-UK-blue.svg",
-    "https://img.shields.io/badge/status-WIP-yellow.svg"
+    "https://img.shields.io/badge/status-WIP-yellow.svg",
+    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg",
+    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg"
   ],
   "displayName": "Open Rail UK Common",
   "markdown": "standard",
