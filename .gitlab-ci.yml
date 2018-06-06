@@ -1,13 +1,19 @@
 stages:
- - build
  - test
+ - code_quality
 
 test:
   image: node:latest
-  stage: build
+  stage: test
   cache:
     paths:
     - node_modules/
   script:
    - yarn install
    - yarn coverage
+
+code_quality:
+  image: node:latest
+  allow_failure: true
+  artifacts:
+    paths: [gl-code-quality-report.json]
