@@ -21,11 +21,11 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
-    "prepublishOnly": "gulp generate-lib",
+    "prepublishOnly": "gulp generateLib",
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
-    "pretest": "gulp generate-lib",
+    "pretest": "gulp generateLib",
     "test": "istanbul cover ./tests/test.js",
-    "build": "gulp generate-lib"
+    "build": "gulp generateLib"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "license": "MIT",
