@@ -26,7 +26,7 @@
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
     "pretest": "gulp compile",
     "test": "mocha ./tests/test.all.js",
-    "coverage": "nyc yarn test",
+    "coverage": "nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
     "compile": "gulp compile",
     "generateDocs": "gulp generateDocs"
   },
@@ -86,6 +86,7 @@
     "babel-preset-env": "^1.7.0",
     "gulp-babel": "^7.0.1",
     "gulp-clean": "^0.4.0",
+    "mochawesome": "^3.0.2",
     "nyc": "^12.0.2"
   }
 }

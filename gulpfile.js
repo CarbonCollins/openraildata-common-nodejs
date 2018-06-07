@@ -23,7 +23,7 @@ gulp.task('clean-lib-es6', () => {
 });
 
 gulp.task('transpile', ['clean-lib-es5'], () => {
-  return gulp.src(['./src/**/*.mjs'])
+  return gulp.src(['src/**/*.mjs'])
     .pipe(babel({
       presets: ['env']
     }))
@@ -31,7 +31,7 @@ gulp.task('transpile', ['clean-lib-es5'], () => {
 });
 
 gulp.task('copy-source', ['clean-lib-es6'], () => {
-  return gulp.src(['./src/**/*.mjs'])
+  return gulp.src(['src/**/*.mjs'])
     .pipe(gulp.dest('lib/es6'));
 });
 
@@ -42,8 +42,8 @@ gulp.task('generateDocs', () => {
   return fs.ensureDir(path.join(__dirname, './docs'))
     .then(() => {
       return jsdoc2md.render({
-        files: ['./docs/alias.js', './src/ordCommon.mjs', './src/models/*.mjs'],
-        configure: './.jsdoc.json'
+        files: ['docs/alias.js', 'src/common.mjs', 'src/models/*.mjs'],
+        configure: '.jsdoc.json'
       });
     })
     .then((output) => {

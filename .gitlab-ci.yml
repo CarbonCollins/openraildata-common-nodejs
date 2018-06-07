@@ -1,5 +1,5 @@
 stages:
- - test
+  - test
 
 test:
   image: node:latest
@@ -8,5 +8,9 @@ test:
     paths:
     - node_modules/
   script:
-   - yarn install
-   - yarn coverage
+    - yarn install
+    - yarn coverage
+  artifacts:
+    paths:
+      - mochawesome-report/mochawesome.html
+      - mochawesome-report/mochawesome.json

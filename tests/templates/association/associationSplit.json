@@ -1,0 +1,10 @@
+{
+  "tiploc": "tiploc",
+  "category": "VV",
+  "main": {
+    "rid": "mainTrain"
+  },
+  "association": {
+    "rid": "assocTrain"
+  }
+}

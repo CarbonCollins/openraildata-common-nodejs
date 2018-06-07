@@ -61,3 +61,4 @@ lib/
 coverage/
 ./nyc_output/
 tests.old/
+mochawesome-report/
