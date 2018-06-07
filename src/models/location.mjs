@@ -76,8 +76,10 @@ export class Location {
    * @instance
    */
   set location(location = {}) {
-    symbols.forEach((sym, name) => {
-      this[sym] = location[name] || this[sym];
-    });
+    if (location && typeof location === typeof {}) {
+      symbols.forEach((sym, name) => {
+        this[sym] = location[name] || this[sym];
+      });
+    }
   }
 }

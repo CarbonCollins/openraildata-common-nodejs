@@ -1,7 +1,7 @@
 'use strict';
 const { expect } = require('chai');
 
-const association = require('../../lib/es5/models/association');
+const model = require('../../lib/es5/models/association');
 
 const joinConfig = require('../templates/association/associationJoin.json');
 const splitConfig = require('../templates/association/associationSplit.json');
@@ -11,22 +11,29 @@ const nextTrainConfig = require('../templates/association/associationNextTrain.j
 module.exports = function () {
   describe('Value suite', function () {
     it('Should construct with no input', function() {
-      const unit = new association.Association();
+      const unit = new model.Association();
 
       expect(unit).to.be.an('object');
-      expect(unit).to.be.an.instanceOf(association.Association);
+      expect(unit).to.be.an.instanceOf(model.Association);
+
+      expect(unit.tiploc).to.be.equal(null);
+      expect(unit.category).to.be.equal(null);
+      expect(unit.mainTrain).to.be.equal(null);
+      expect(unit.mainTrainId).to.be.equal(null);
+      expect(unit.associatedTrain).to.be.equal(null);
+      expect(unit.associatedTrainId).to.be.equal(null);
     });
 
     it('Should have the required properties', function() {
-      const unit = new association.Association();
+      const unit = new model.Association();
 
-      expect(unit).to.be.an.instanceOf(association.Association);
+      expect(unit).to.be.an.instanceOf(model.Association);
       expect(unit).to.have.all.keys(['tiploc', 'category', 'main', 'association']
         .map((key) => {
-          return association.symbols.get(key)
+          return model.symbols.get(key)
         }));
 
-      // expect(association.Association.prototype).to.have.all.keys(['associatedTrain']);
+      // expect(model.Association.prototype).to.have.all.keys(['associatedTrain']);
 
       // const propertyDescriptors = Object.getOwnPropertyDescriptors(association.Association.prototype)
       //   .filter((descriptor) => {
@@ -37,9 +44,9 @@ module.exports = function () {
     });
 
     it('Should create a valid instance', function () {
-      const unit = new association.Association(joinConfig);
+      const unit = new model.Association(joinConfig);
 
-      expect(unit).to.be.an.instanceOf(association.Association);
+      expect(unit).to.be.an.instanceOf(model.Association);
 
       expect(unit.tiploc).to.be.equal(joinConfig.tiploc);
       expect(unit.tiploc).to.be.an('string');
@@ -61,9 +68,9 @@ module.exports = function () {
     });
 
     it('Should be a join instance', function () {
-      const unit = new association.Association(joinConfig);
+      const unit = new model.Association(joinConfig);
 
-      expect(unit).to.be.an.instanceOf(association.Association);
+      expect(unit).to.be.an.instanceOf(model.Association);
 
       expect(unit.isJoin).to.be.an('function');
       expect(unit.isJoin()).to.be.true;
@@ -76,9 +83,9 @@ module.exports = function () {
     });
 
     it('Should be a split instance', function () {
-      const unit = new association.Association(splitConfig);
+      const unit = new model.Association(splitConfig);
 
-      expect(unit).to.be.an.instanceOf(association.Association);
+      expect(unit).to.be.an.instanceOf(model.Association);
 
       expect(unit.isJoin).to.be.an('function');
       expect(unit.isJoin()).to.be.false;
@@ -91,9 +98,9 @@ module.exports = function () {
     });
 
     it('Should be a next train instance', function () {
-      const unit = new association.Association(nextTrainConfig);
+      const unit = new model.Association(nextTrainConfig);
 
-      expect(unit).to.be.an.instanceOf(association.Association);
+      expect(unit).to.be.an.instanceOf(model.Association);
 
       expect(unit.isJoin).to.be.an('function');
       expect(unit.isJoin()).to.be.false;
@@ -106,19 +113,19 @@ module.exports = function () {
     });
 
     it('symbol export should have correct mapping', function () {
-      const tiplocSymbol = association.symbols.get('tiploc');
+      const tiplocSymbol = model.symbols.get('tiploc');
       expect(tiplocSymbol).to.be.an('symbol');
       expect(tiplocSymbol.toString()).to.be.equal('Symbol()');
 
-      const categorySymbol = association.symbols.get('category');
+      const categorySymbol = model.symbols.get('category');
       expect(categorySymbol).to.be.an('symbol');
       expect(categorySymbol.toString()).to.be.equal('Symbol()');
 
-      const mainSymbol = association.symbols.get('main');
+      const mainSymbol = model.symbols.get('main');
       expect(mainSymbol).to.be.an('symbol');
       expect(mainSymbol.toString()).to.be.equal('Symbol()');
 
-      const associationSymbol = association.symbols.get('association');
+      const associationSymbol = model.symbols.get('association');
       expect(associationSymbol).to.be.an('symbol');
       expect(associationSymbol.toString()).to.be.equal('Symbol()');
     });
