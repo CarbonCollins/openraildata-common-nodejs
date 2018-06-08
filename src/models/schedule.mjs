@@ -86,12 +86,12 @@ export class Schedule {
   }
 
   /**
-   * @member {uid} uniqueID gets the schedule train uid
+   * @member {uid} uniqueId gets the schedule train uid
    * @memberof module:openrailuk/common#Schedule
    * @instance
    * @readonly
    */
-  get uniqueID() {
+  get uniqueId() {
     return this[symbols.get('uniqueId')] || null;
   }
 

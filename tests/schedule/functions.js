@@ -1,0 +1,207 @@
+'use strict';
+const { expect } = require('chai');
+
+const model = require('../../lib/es5/models/schedule');
+const { Station } = require('../../lib/es5/models/station');
+
+const standardConfig = require('../templates/schedule/schedule.json');
+
+module.exports = function () {
+  describe('Functional suite', function () {
+    it('injectStation should exist', function () {
+      const unit = model.injectStation;
+
+      expect(unit).to.exist;
+      expect(unit).to.be.an('function');
+    });
+
+    describe('listMultiStations() tests', function () {
+      it('Should exist', function () {
+        const unit = new model.Schedule();
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        expect(unit.listMultiStations).to.exist;
+        expect(unit.listMultiStations).to.be.an('function');
+      });
+
+      it('Should return a list of passing points', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations(model.symbols.get('passingPoints'));
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.satisfy((stations) => {
+          return stations.every((station) => {
+            return station instanceof Station;
+          });
+        });
+        expect(returnedStations).to.have.lengthOf(1);
+        expect(returnedStations[0].tiploc).to.be.equal('PP');
+      });
+
+      it('Should return a list of intermediate points', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations(model.symbols.get('intermediatePoints'));
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.satisfy((stations) => {
+          return stations.every((station) => {
+            return station instanceof Station;
+          });
+        });
+        expect(returnedStations).to.have.lengthOf(1);
+        expect(returnedStations[0].tiploc).to.be.equal('IP');
+      });
+
+      it('Should return a list of operational stops', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations(model.symbols.get('operationalIntermediatePoints'));
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.satisfy((stations) => {
+          return stations.every((station) => {
+            return station instanceof Station;
+          });
+        });
+        expect(returnedStations).to.have.lengthOf(1);
+        expect(returnedStations[0].tiploc).to.be.equal('OPIP');
+      });
+
+      it('Should return an empty array with undefined input', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations(undefined);
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.have.lengthOf(0);
+      });
+
+      it('Should return an empty array with null input', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations(null);
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.have.lengthOf(0);
+      });
+
+      it('Should return an empty array with string input', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations('Random String');
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.have.lengthOf(0);
+      });
+
+      it('Should return an empty array with number input', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStations = unit.listMultiStations(0);
+
+        expect(returnedStations).to.be.an('array');
+        expect(returnedStations).to.have.lengthOf(0);
+      });
+    });
+
+    describe('getSingleStation() tests', function () {
+      it('Should exist', function () {
+        const unit = new model.Schedule();
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        expect(unit.getSingleStation).to.exist;
+        expect(unit.getSingleStation).to.be.an('function');
+      });
+
+      it('Should return an origin station', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStation = unit.getSingleStation(model.symbols.get('origin'));
+
+        expect(returnedStation).to.be.an('object');
+        expect(returnedStation).to.be.an.instanceOf(Station);
+        expect(returnedStation.tiploc).to.be.equal('OR');
+      });
+
+      it('Should return an origin station (with fallback operational argument)', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStation = unit.getSingleStation(model.symbols.get('origin'), model.symbols.get('operationalOrigin'));
+
+        expect(returnedStation).to.be.an('object');
+        expect(returnedStation).to.be.an.instanceOf(Station);
+        expect(returnedStation.tiploc).to.be.equal('OR');
+      });
+
+      it('Should return an operational origin station (Schedule with no standard origin)', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStation = unit.getSingleStation('jeff', model.symbols.get('operationalOrigin'));
+
+        expect(returnedStation).to.be.an('object');
+        expect(returnedStation).to.be.an.instanceOf(Station);
+        expect(returnedStation.tiploc).to.be.equal('OPOR');
+      });
+
+      it('Should return an destination station', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStation = unit.getSingleStation(model.symbols.get('destination'));
+
+        expect(returnedStation).to.be.an('object');
+        expect(returnedStation).to.be.an.instanceOf(Station);
+        expect(returnedStation.tiploc).to.be.equal('DT');
+      });
+
+      it('Should return an destination station (with fallback operational argument)', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStation = unit.getSingleStation(model.symbols.get('destination'), model.symbols.get('operationalDestination'));
+
+        expect(returnedStation).to.be.an('object');
+        expect(returnedStation).to.be.an.instanceOf(Station);
+        expect(returnedStation.tiploc).to.be.equal('DT');
+      });
+
+      it('Should return an operational destination station (Schedule with no standard origin)', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedStation = unit.getSingleStation('bob', model.symbols.get('operationalDestination'));
+
+        expect(returnedStation).to.be.an('object');
+        expect(returnedStation).to.be.an.instanceOf(Station);
+        expect(returnedStation.tiploc).to.be.equal('OPDT');
+      });
+    });
+  });
+};
