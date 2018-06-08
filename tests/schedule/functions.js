@@ -1,20 +1,13 @@
 'use strict';
 const { expect } = require('chai');
 
-const model = require('../../lib/es5/models/schedule');
+let model = require('../../lib/es5/models/schedule');
 const { Station } = require('../../lib/es5/models/station');
 
 const standardConfig = require('../templates/schedule/schedule.json');
 
 module.exports = function () {
   describe('Functional suite', function () {
-    it('injectStation should exist', function () {
-      const unit = model.injectStation;
-
-      expect(unit).to.exist;
-      expect(unit).to.be.an('function');
-    });
-
     describe('listMultiStations() tests', function () {
       it('Should exist', function () {
         const unit = new model.Schedule();
@@ -203,5 +196,130 @@ module.exports = function () {
         expect(returnedStation.tiploc).to.be.equal('OPDT');
       });
     });
+
+    describe('injectStationTests()', function () {
+      beforeEach(function () {
+        delete require.cache[require.resolve('../../lib/es5/models/schedule')]
+        model=require('../../lib/es5/models/schedule')
+      });
+
+      it('injectStation should exist', function () {
+        const unit = model.injectStation;
+  
+        expect(unit).to.exist;
+        expect(unit).to.be.an('function');
+      });
+
+      it('Expect no class injection', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+        expect(unit.rid).to.be.equal('rid');
+        expect(unit.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+      });
+
+      it('Expect a custom class injection (valid class input)', function () {
+        class TestStation {
+          constructor() {
+            this.testParam = true;
+          }
+        }
+        
+        const unitOrig = new model.Schedule(standardConfig);
+
+        expect(unitOrig).to.be.an.instanceOf(model.Schedule);
+        expect(unitOrig.rid).to.be.equal('rid');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+
+        model.injectStation(TestStation);
+
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+        expect(unit.rid).to.be.equal('rid');
+        expect(unit.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.exist;
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.be.equal(true);
+      });
+
+      it('Expect no custom class injection (undefined input)', function () {        
+        const unitOrig = new model.Schedule(standardConfig);
+
+        expect(unitOrig).to.be.an.instanceOf(model.Schedule);
+        expect(unitOrig.rid).to.be.equal('rid');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+
+        model.injectStation(undefined);
+
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+        expect(unit.rid).to.be.equal('rid');
+        expect(unit.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+      });
+
+      it('Expect no custom class injection (null input)', function () {
+        const unitOrig = new model.Schedule(standardConfig);
+
+        expect(unitOrig).to.be.an.instanceOf(model.Schedule);
+        expect(unitOrig.rid).to.be.equal('rid');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+
+        model.injectStation(null);
+
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+        expect(unit.rid).to.be.equal('rid');
+        expect(unit.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+      });
+
+      it('Expect no custom class injection (string input)', function () {
+        const unitOrig = new model.Schedule(standardConfig);
+
+        expect(unitOrig).to.be.an.instanceOf(model.Schedule);
+        expect(unitOrig.rid).to.be.equal('rid');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+
+        model.injectStation('Hello mine turtle');
+
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+        expect(unit.rid).to.be.equal('rid');
+        expect(unit.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+      });
+
+      it('Expect no custom class injection (number input)', function () {
+        const unitOrig = new model.Schedule(standardConfig);
+
+        expect(unitOrig).to.be.an.instanceOf(model.Schedule);
+        expect(unitOrig.rid).to.be.equal('rid');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+
+        model.injectStation(1337);
+
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+        expect(unit.rid).to.be.equal('rid');
+        expect(unit.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
+        expect(unit.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+      });
+
+      afterEach(function () {
+        delete require.cache[require.resolve('../../lib/es5/models/schedule')]
+        model=require('../../lib/es5/models/schedule')
+      });
+    })
   });
 };

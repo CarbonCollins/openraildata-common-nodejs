@@ -15,7 +15,9 @@ export const symbols = new Map()
 let Station = class Station {}; // placeholder class
 
 export function injectStation(station) {
-  Station = station;
+  if (station && typeof station === typeof class Test {}) {
+    Station = station;
+  }
 }
 
 /**
