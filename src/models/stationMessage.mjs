@@ -3,7 +3,7 @@ export const symbols = new Map()
   .set('category', Symbol())
   .set('message', Symbol())
   .set('severity', Symbol())
-  .set('stations', Symbol());
+  .set('locations', Symbol());
 
 let Location = class Location {}; // place holder class
 
@@ -28,8 +28,8 @@ export class StationMessage {
     this[symbols.get('category')] = payload.category;
     this[symbols.get('message')] = payload.message;
     this[symbols.get('severity')] = payload.severity;
-    this[symbols.get('stations')] = (payload.Station)
-      ? payload.Station.map(station => new Location(station))
+    this[symbols.get('locations')] = (payload.locations)
+      ? payload.locations.map(location => new Location(location))
       : [];
   }
 
@@ -97,12 +97,12 @@ export class StationMessage {
   }
 
   /**
-   * @member {Location[]} stations gets the list of stations that the station message applied too
+   * @member {Location[]} locations gets the list of station locations that the station message applied too
    * @memberof module:openrailuk/common#StationMessage
    * @instance
    * @readonly
    */
-  get stations() {
+  get locations() {
     return this[symbols.get('stations')] || [];
   }
 }

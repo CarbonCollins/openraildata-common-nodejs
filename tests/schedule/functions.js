@@ -197,7 +197,7 @@ module.exports = function () {
       });
     });
 
-    describe('injectStationTests()', function () {
+    describe('injectStation() Tests', function () {
       beforeEach(function () {
         delete require.cache[require.resolve('../../lib/es5/models/schedule')]
         model=require('../../lib/es5/models/schedule')
