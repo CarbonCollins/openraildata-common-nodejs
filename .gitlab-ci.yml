@@ -12,12 +12,10 @@ install:
   script:
     - yarn install
 compile:
-  image: node:latest
   stage: compile
   script:
     - yarn compile
 test:
-  image: node:latest
   stage: test
   script:
     - yarn coverage
