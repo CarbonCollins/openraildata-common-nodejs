@@ -28,6 +28,8 @@
     "test": "mocha ./tests/test.all.js",
     "coverage": "nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
     "compile": "gulp compile",
+    "compileES5": "gulp compileES5",
+    "compileES6": "gulp compileES6",
     "generateDocs": "gulp generateDocs"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
