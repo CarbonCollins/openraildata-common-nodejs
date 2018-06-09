@@ -1,5 +1,11 @@
 stages:
+  - compile
   - test
+
+compile:
+  stage: compile
+  script:
+    - yarn compile
 
 test:
   image: node:latest
@@ -13,4 +19,3 @@ test:
   artifacts:
     paths:
       - mochawesome-report/mochawesome.html
-      - mochawesome-report/mochawesome.json
