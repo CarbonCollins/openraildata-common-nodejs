@@ -3,6 +3,7 @@ stages:
   - test
 
 compile:
+  image: node:latest
   stage: compile
   script:
     - yarn compile
