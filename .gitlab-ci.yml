@@ -6,6 +6,7 @@ compile:
   image: node:latest
   stage: compile
   script:
+    - yarn install
     - yarn compile
 
 test:
