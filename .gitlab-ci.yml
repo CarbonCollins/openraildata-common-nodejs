@@ -1,23 +1,27 @@
+image: node:latest
+cache:
+  paths:
+  - node_modules/
+  - lib/
 stages:
+  - install
   - compile
   - test
-
+install:
+  stage: install
+  script:
+    - yarn install
 compile:
   image: node:latest
   stage: compile
   script:
-    - yarn install
     - yarn compile
-
 test:
   image: node:latest
   stage: test
-  cache:
-    paths:
-    - node_modules/
   script:
-    - yarn install
     - yarn coverage
   artifacts:
     paths:
       - mochawesome-report/mochawesome.html
+  coverage: '/^Statements\s*:\s*([^%]+)/'
