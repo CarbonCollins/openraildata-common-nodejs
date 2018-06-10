@@ -1,4 +1,4 @@
-*Should be used if a new feature which was raised from a feature request*
+*Should be used if this is a new feature which was not requested*
 
 ### Description:
 

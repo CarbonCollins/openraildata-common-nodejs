@@ -8,6 +8,7 @@ stages:
   - compile
   - test
   - post test
+  - deploy
 install dependencies:
   stage: prepare
   script:
@@ -16,8 +17,30 @@ compile ES5:
   stage: compile
   script:
     - yarn compile
-test:
+test ES5 Node 4:
   stage: test
+  image: node:4
+  script:
+    - yarn test
+test ES5 Node 6:
+  stage: test
+  image: node:6
+  script:
+    - yarn test
+test ES5 Node 8:
+  stage: test
+  image: node:8
+  script:
+    - yarn test
+test ES5 Node latest:
+  stage: test
+  image: node:latest
+  script:
+    - yarn test
+code coverage:
+  stage: post test
+  image: node:latest
+  allow_failure: true
   script:
     - yarn coverage
   artifacts:
@@ -41,3 +64,12 @@ code quality:
         "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
   artifacts:
     paths: [gl-code-quality-report.json]
+publish NPM:
+  stage: deploy
+  only:
+    - tags
+    - triggers
+  script:
+    - echo 'Not Implemented Yet'
+    # - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    # - npm publish
