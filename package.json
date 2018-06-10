@@ -77,7 +77,7 @@
   "markdown": "standard",
   "publisher": "npm",
   "engines": {
-    "node": ">=4.x",
+    "node": ">=6.x",
     "yarn": ">=1.x"
   },
   "readmeFilename": "README.md",

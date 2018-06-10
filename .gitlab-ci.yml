@@ -17,11 +17,6 @@ compile ES5:
   stage: compile
   script:
     - yarn compile
-test ES5 Node 4:
-  stage: test
-  image: node:4
-  script:
-    - yarn test
 test ES5 Node 6:
   stage: test
   image: node:6
