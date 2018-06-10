@@ -1,0 +1,10 @@
+{
+  "tiploc": "tiploc",
+  "category": "NP",
+  "main": {
+    "rid": "mainTrain"
+  },
+  "association": {
+    "rid": "assocTrain"
+  }
+}

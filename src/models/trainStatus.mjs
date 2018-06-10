@@ -24,7 +24,7 @@ export function injectStation(station) {
 /**
  * @class
  * @classdesc a class for train status messages
- * @augments module:openraildata/common#TrainStatus
+ * @augments module:openrailuk/common#TrainStatus
  * @instance
  */
 export class TrainStatus {
@@ -53,7 +53,7 @@ export class TrainStatus {
 
   /**
    * @member {rid} rid gets the rid of the train
-   * @memberof module:openraildata/common#TrainStatus
+   * @memberof module:openrailuk/common#TrainStatus
    * @instance
    * @readonly
    */
@@ -63,7 +63,7 @@ export class TrainStatus {
 
   /**
    * @member {uid} uniqueID gets the schedule uid of the train
-   * @memberof module:openraildata/common#TrainStatus
+   * @memberof module:openrailuk/common#TrainStatus
    * @instance
    * @readonly
    */
@@ -73,7 +73,7 @@ export class TrainStatus {
 
   /**
    * @member {ssd} serviceStartingDate gets the ssd of the train
-   * @memberof module:openraildata/common#TrainStatus
+   * @memberof module:openrailuk/common#TrainStatus
    * @instance
    * @readonly
    */
@@ -83,7 +83,7 @@ export class TrainStatus {
 
   /**
    * @member {Station[]} allLocations gets all of the locations that this train status applies to
-   * @memberof module:openraildata/common#TrainStatus
+   * @memberof module:openrailuk/common#TrainStatus
    * @instance
    * @readonly
    */

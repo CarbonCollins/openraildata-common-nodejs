@@ -1,0 +1,11 @@
+{
+  "tiploc": "tiploc",
+  "action": "action",
+  "plannedTimeOfArrival": "plannedTimeOfArrival",
+  "plannedTimeOfDeparture": "plannedTimeOfDeparture",
+  "workingTimeOfArrival": "workingTimeOfArrival",
+  "workingTimeOfDeparture": "workingTimeOfDeparture",
+  "operational": true,
+  "platform": "platform",
+  "platformSuppressed": true
+}

@@ -1,0 +1,14 @@
+{
+    "rid": "rid",
+    "serviceStartingDate": "serviceStartingDate",
+    "trainOperatingCompany": "trainOperatingCompany",
+    "trainId": "trainId",
+    "uniqueId": "uniqueId",
+    "origin": { "tiploc": "OR" },
+    "operationalOrigin": { "tiploc": "OPOR" },
+    "destination": { "tiploc": "DT" },
+    "operationalDestination": { "tiploc": "OPDT" },
+    "passingPoints": [{ "tiploc": "PP" }],
+    "intermediatePoints": [{ "tiploc": "IP" }],
+    "operationalIntermediatePoints": [{ "tiploc": "OPIP" }]
+}

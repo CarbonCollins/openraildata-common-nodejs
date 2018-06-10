@@ -1,0 +1,69 @@
+image: node:latest
+cache:
+  paths:
+  - node_modules/
+  - lib/
+stages:
+  - prepare
+  - compile
+  - test
+  - post test
+  - deploy
+install dependencies:
+  stage: prepare
+  script:
+    - yarn install
+compile ES5:
+  stage: compile
+  script:
+    - yarn compile
+test ES5 Node 6:
+  stage: test
+  image: node:6
+  script:
+    - yarn test
+test ES5 Node 8:
+  stage: test
+  image: node:8
+  script:
+    - yarn test
+test ES5 Node latest:
+  stage: test
+  image: node:latest
+  script:
+    - yarn test
+code coverage:
+  stage: post test
+  image: node:latest
+  allow_failure: true
+  script:
+    - yarn coverage
+  artifacts:
+    paths:
+      - mochawesome-report/mochawesome.html
+  coverage: '/^Statements\s*:\s*([^%]+)/'
+code quality:
+  image: docker:stable
+  stage: post test
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  script:
+    - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
+    - docker run
+        --env SOURCE_CODE="$PWD"
+        --volume "$PWD":/code
+        --volume /var/run/docker.sock:/var/run/docker.sock
+        "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
+  artifacts:
+    paths: [gl-code-quality-report.json]
+publish NPM:
+  stage: deploy
+  only:
+    - tags
+    - triggers
+  script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish --scope=@openrailuk --access=public

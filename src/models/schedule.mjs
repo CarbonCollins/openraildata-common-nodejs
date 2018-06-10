@@ -15,16 +15,18 @@ export const symbols = new Map()
 let Station = class Station {}; // placeholder class
 
 export function injectStation(station) {
-  Station = station;
+  if (station && typeof station === typeof class Test {}) {
+    Station = station;
+  }
 }
 
 /**
  * @class
  * @classdesc A class for location information along with helpful functions
- * @augments module:openraildata/common#Schedule
+ * @augments module:openrailuk/common#Schedule
  * @instance
  */
-export default class Schedule {
+export class Schedule {
   /**
    * @constructor
    * @param {Object} payload raw schedule object to be parsed
@@ -47,7 +49,7 @@ export default class Schedule {
 
   /**
    * @member {String} rid gets the trains rid
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @instance
    * @readonly
    */
@@ -57,7 +59,7 @@ export default class Schedule {
 
   /**
    * @member {ssd} serviceStartingDate gets the trains ssd
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @instance
    * @readonly
    */
@@ -67,7 +69,7 @@ export default class Schedule {
 
   /**
    * @member {toc} trainOperatingCompany gets the trains toc
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @instance
    * @readonly
    */
@@ -77,7 +79,7 @@ export default class Schedule {
 
   /**
    * @member {String} trainId gets the trains trainId
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @instance
    * @readonly
    */
@@ -86,18 +88,18 @@ export default class Schedule {
   }
 
   /**
-   * @member {uid} uniqueID gets the schedule train uid
-   * @memberof module:openraildata/common#Schedule
+   * @member {uid} uniqueId gets the schedule train uid
+   * @memberof module:openrailuk/common#Schedule
    * @instance
    * @readonly
    */
-  get uniqueID() {
+  get uniqueId() {
     return this[symbols.get('uniqueId')] || null;
   }
 
   /**
    * @member {Station} origin
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @description returns the origin or the operational origin
    * @instance
    * @readonly
@@ -108,7 +110,7 @@ export default class Schedule {
 
   /**
    * @member {Station[]} passingPoints
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @description returns all of the passing points in which the train passes
    * @instance
    * @readonly
@@ -119,7 +121,7 @@ export default class Schedule {
 
   /**
    * @member {Station[]} intermediatePoints
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @description returns all intermediate passenger stops
    * @instance
    * @readonly
@@ -130,7 +132,7 @@ export default class Schedule {
 
   /**
    * @member {Station[]} operationalStops
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @description returns all operational intermediate stops
    * @instance
    * @readonly
@@ -141,7 +143,7 @@ export default class Schedule {
 
   /**
    * @member {Station} destination
-   * @memberof module:openraildata/common#Schedule
+   * @memberof module:openrailuk/common#Schedule
    * @description returns the destination or operational destination
    * @instance
    * @readonly
@@ -151,7 +153,7 @@ export default class Schedule {
   }
 
   /**
-   * @method module:openraildata/common#Schedule~listMultiStations
+   * @method module:openrailuk/common#Schedule~listMultiStations
    * @desc gets a list of stations from a specificed type in the payload
    * @param {String} type the type of stations to list
    * @returns {Station[]} a list of stations that match that type
@@ -168,7 +170,7 @@ export default class Schedule {
   }
 
   /**
-   * @method module:openraildata/common#Schedule~getSingleStation
+   * @method module:openrailuk/common#Schedule~getSingleStation
    * @desc gets a station and operation station
    * @param {String} type the type of stations to list
    * @returns {Station[]} a list of stations that match that type

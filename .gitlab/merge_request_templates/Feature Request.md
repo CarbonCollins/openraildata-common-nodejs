@@ -1,3 +1,5 @@
+*Should be used if a new feature which was raised from a feature request*
+
 ### Description:
 
 *A description of the new feature*

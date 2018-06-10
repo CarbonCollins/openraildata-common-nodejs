@@ -23,7 +23,7 @@ gulp.task('clean-lib-es6', () => {
 });
 
 gulp.task('transpile', ['clean-lib-es5'], () => {
-  return gulp.src(['./src/**/*.mjs'])
+  return gulp.src(['src/**/*.mjs'])
     .pipe(babel({
       presets: ['env']
     }))
@@ -31,23 +31,22 @@ gulp.task('transpile', ['clean-lib-es5'], () => {
 });
 
 gulp.task('copy-source', ['clean-lib-es6'], () => {
-  return gulp.src(['./src/**/*.mjs'])
+  return gulp.src(['src/**/*.mjs'])
     .pipe(gulp.dest('lib/es6'));
 });
 
-gulp.task('generateES5', ['clean-lib-es5', 'transpile']);
-gulp.task('generateES6', ['clean-lib-es6', 'copy-source']);
-gulp.task('generateLib', ['generateES5', 'generateES6']);
+gulp.task('compileES5', ['clean-lib-es5', 'transpile']);
+gulp.task('compileES6', ['clean-lib-es6', 'copy-source']);
+gulp.task('compile', ['compileES5', 'compileES6']);
 gulp.task('generateDocs', () => {
   return fs.ensureDir(path.join(__dirname, './docs'))
     .then(() => {
       return jsdoc2md.render({
-        'no-cache': true,
-        separators: true,
-        files: ['./docs/alias.js', './index.js', './lib/*.js']
+        files: ['docs/alias.js', 'src/common.mjs', 'src/models/*.mjs'],
+        configure: '.jsdoc.json'
       });
     })
     .then((output) => {
-      return fs.writeFile('docs/api.md', output);
+      return fs.writeFile('docs/devDoc.md', output);
     });
 });

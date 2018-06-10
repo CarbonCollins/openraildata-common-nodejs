@@ -1,4 +1,4 @@
-# Open Rail UK - Common - Node.JS
+![](./docs/images/commonBanner.png)
 
 [![npm](https://img.shields.io/npm/dt/openraildata-common.svg)]()
 [![GitHub issues](https://img.shields.io/github/issues/CarbonCollins/openraildata-common-nodejs.svg)](https://github.com/CarbonCollins/openraildata-common-nodejs/issues)
@@ -15,28 +15,28 @@ A package for common files and functions between the various open rail UK packag
 # usage
 
 To use the common-nodejs package you need to import the required classes and functions in which your application needs, this can be done as follows:
-```
+```javascript
 import { Location, Station } from '@openrailuk/common';
 ```
 or this for everything:
-```
+```javascript
 import * as common from '@openrailuk/common');
 
 ```
 
 the currently available classes that can be used are listed below
 
-- [Association](./docs/api.md#module_openraildata/common+Association)
-- [Location](./docs/api.md#module_openraildata/common+Location)
-- [Schedule](./docs/api.md#module_openraildata/common+Schedule)
-- [Station](./docs/api.md#module_openraildata/common+Station)
-- [StationMessage](./docs/api.md#module_openraildata/common+StationMessage)
-- [TrainOrder](./docs/api.md#module_openraildata/common+TrainOrder)
-- [TrainStatus](./docs/api.md#module_openraildata/common+TrainStatus)
+- [Association](./docs/api.md#module_openrailuk/common+Association)
+- [Location](./docs/api.md#module_openrailuk/common+Location)
+- [Schedule](./docs/api.md#module_openrailuk/common+Schedule)
+- [Station](./docs/api.md#module_openrailuk/common+Station)
+- [StationMessage](./docs/api.md#module_openrailuk/common+StationMessage)
+- [TrainOrder](./docs/api.md#module_openrailuk/common+TrainOrder)
+- [TrainStatus](./docs/api.md#module_openrailuk/common+TrainStatus)
 
 an example of using the classes are:
 
-```
+```javascript
 const station = new Station(stationRefDataJSON);
 
 console.log(station.plannedTimeOfArrival);
@@ -44,13 +44,13 @@ console.log(station.plannedTimeOfArrival);
 
 or if you want to convert a large array of stations 'stationArr' into there respective Station class:
 
-```
+```javascript
 const stations = stationArr.map(station => new common.Station(station));
 ```
 
 Mixins can be applied to all of the base models that this package provides. A sample mixin would be as follows:
 
-```
+```javascript
 const mixin = (SuperClass) => {
   return class StationMix extends SuperClass {
     constructor(payload) { super(payload); }
@@ -62,7 +62,7 @@ const mixin = (SuperClass) => {
 
 and this can be applied by calling (re replacing station with the intended class to apply the mixin too:
 
-```
+```javascript
 const common = require('openraildata-common);
 
 common.stationMixer(mixin);

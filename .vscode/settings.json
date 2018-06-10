@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "tiploc"
-  ]
+  ],
+  "mocha.files.glob": "tests/*.js"
 }

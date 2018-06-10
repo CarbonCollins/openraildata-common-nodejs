@@ -1,7 +1,7 @@
 {
   "name": "@openrailuk/common",
   "version": "3.0.0",
-  "description": "A package for common files and functions between the various openraildata packages",
+  "description": "A package for common files and functions between the various @openrailuk packages",
   "keywords": [
     "openrail",
     "openrailuk",
@@ -11,7 +11,8 @@
     "rail",
     "nationalrail",
     "networkrail",
-    "api"
+    "api",
+    "common"
   ],
   "author": {
     "name": "Steven Collins",
@@ -21,28 +22,40 @@
   "main": "index.js",
   "module": "index.mjs",
   "scripts": {
-    "prepublishOnly": "gulp generate-lib",
+    "prepublishOnly": "gulp compile",
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
-    "pretest": "gulp generate-lib",
-    "test": "istanbul cover ./tests/test.js",
-    "build": "gulp generate-lib"
+    "pretest": "gulp compile",
+    "test": "mocha ./tests/test.all.js",
+    "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
+    "compile": "gulp compile",
+    "compileES5": "gulp compileES5",
+    "compileES6": "gulp compileES6",
+    "generateDocs": "gulp generateDocs"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-rename-import": "^2.2.0",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
     "diff": "^3.5.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-mocha": "^5.0.0",
     "fs-extra": "^6.0.1",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
     "gulp-jsdoc-to-markdown": "^1.2.2",
     "gulp-rename": "^1.2.3",
     "gulp-util": "^3.0.8",
     "istanbul": "^0.4.5",
     "jsdoc-to-markdown": "^4.0.1",
     "mocha": "^5.2.0",
+    "mochawesome": "^3.0.2",
+    "nyc": "^12.0.2",
     "rewire": "^4.0.1"
   },
   "repository": {
@@ -52,16 +65,20 @@
   "bugs": {
     "url": "https://gitlab.com/openrail/uk/common-nodejs/issues"
   },
+  "icon": "https://gitlab.com/openrail/uk/common-nodejs/raw/master/docs/images/openrailUK.png",
   "badges": [
     "https://img.shields.io/badge/license-MIT-blue.svg",
     "https://img.shields.io/badge/country-UK-blue.svg",
-    "https://img.shields.io/badge/status-WIP-yellow.svg"
+    "https://img.shields.io/badge/status-WIP-yellow.svg",
+    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg",
+    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg"
   ],
   "displayName": "Open Rail UK Common",
   "markdown": "standard",
   "publisher": "npm",
   "engines": {
-    "node": ">=4.x"
+    "node": ">=6.x",
+    "yarn": ">=1.x"
   },
   "readmeFilename": "README.md",
   "publishConfig": {
@@ -71,12 +88,5 @@
     "doc": "./docs",
     "lib": "./lib",
     "test": "./tests"
-  },
-  "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-rename-import": "^2.2.0",
-    "babel-preset-env": "^1.7.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-clean": "^0.4.0"
   }
 }
