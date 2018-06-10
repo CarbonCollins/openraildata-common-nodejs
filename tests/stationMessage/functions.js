@@ -25,7 +25,7 @@ module.exports = function () {
         const unit = new model.StationMessage(standardConfig);
 
         expect(unit).to.be.an.instanceOf(model.StationMessage);
-        expect(unit.rid).to.be.equal('rid');
+        expect(unit.id).to.be.equal('id');
         expect(unit.locations).to.be.an('array');
         expect(unit.locations).to.have.lengthOf(1);
         expect(unit.locations[0]).to.exist;
@@ -42,7 +42,7 @@ module.exports = function () {
         const unitOrig = new model.StationMessage(standardConfig);
 
         expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
-        expect(unitOrig.rid).to.be.equal('rid');
+        expect(unitOrig.id).to.be.equal('id');
         expect(unitOrig.locations).to.be.an('array');
         expect(unitOrig.locations).to.have.lengthOf(1);
         expect(unitOrig.locations[0]).to.exist;
@@ -53,7 +53,7 @@ module.exports = function () {
         const unit = new model.StationMessage(standardConfig);
 
         expect(unit).to.be.an.instanceOf(model.StationMessage);
-        expect(unit.rid).to.be.equal('rid');
+        expect(unit.id).to.be.equal('id');
         expect(unit.locations).to.be.an('array');
         expect(unit.locations).to.have.lengthOf(1);
         expect(unit.locations[0]).to.exist;
@@ -61,84 +61,90 @@ module.exports = function () {
         expect(unit.locations[0].testParam).to.be.equal(true);
       });
 
-      it('Expect no custom class injection (undefined input)', function () {        
+      it('Expect no custom class injection (undefined input)', function () {
         const unitOrig = new model.StationMessage(standardConfig);
 
         expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
-        expect(unitOrig.rid).to.be.equal('rid');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
 
         model.injectLocation(undefined);
 
         const unit = new model.StationMessage(standardConfig);
 
-        expect(unit).to.be.an.instanceOf(model.StationMessage);
-        expect(unit.rid).to.be.equal('rid');
-        expect(unit.locations).to.be.an('array');
-        expect(unit.locations).to.have.lengthOf(1);
-        expect(unit.locations[0]).to.exist;
-        expect(unit.locations[0].testParam).to.not.exist;
+        expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
       });
 
       it('Expect no custom class injection (null input)', function () {
         const unitOrig = new model.StationMessage(standardConfig);
 
         expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
-        expect(unitOrig.rid).to.be.equal('rid');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
 
         model.injectLocation(null);
 
-        const unit = new model.StationMessage(standardConfig);
-
-        expect(unit).to.be.an.instanceOf(model.StationMessage);
-        expect(unit.rid).to.be.equal('rid');
-        expect(unit.locations).to.be.an('array');
-        expect(unit.locations).to.have.lengthOf(1);
-        expect(unit.locations[0]).to.exist;
-        expect(unit.locations[0].testParam).to.not.exist;
+        expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
       });
 
       it('Expect no custom class injection (string input)', function () {
         const unitOrig = new model.StationMessage(standardConfig);
 
         expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
-        expect(unitOrig.rid).to.be.equal('rid');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
 
         model.injectLocation('Hello mine turtle');
 
         const unit = new model.StationMessage(standardConfig);
 
-        expect(unit).to.be.an.instanceOf(model.StationMessage);
-        expect(unit.rid).to.be.equal('rid');
-        expect(unit.locations).to.be.an('array');
-        expect(unit.locations).to.have.lengthOf(1);
-        expect(unit.locations[0]).to.exist;
-        expect(unit.locations[0].testParam).to.not.exist;
+        expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
       });
 
       it('Expect no custom class injection (number input)', function () {
         const unitOrig = new model.StationMessage(standardConfig);
 
         expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
-        expect(unitOrig.rid).to.be.equal('rid');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin'))).to.be.an('object');
-        expect(unitOrig.getSingleStation(model.symbols.get('origin')).testParam).to.not.exist;
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
 
         model.injectLocation(1337);
 
         const unit = new model.StationMessage(standardConfig);
 
-        expect(unit).to.be.an.instanceOf(model.StationMessage);
-        expect(unit.rid).to.be.equal('rid');
-        expect(unit.locations).to.be.an('array');
-        expect(unit.locations).to.have.lengthOf(1);
-        expect(unit.locations[0]).to.exist;
-        expect(unit.locations[0].testParam).to.not.exist;
+        expect(unitOrig).to.be.an.instanceOf(model.StationMessage);
+        expect(unitOrig.id).to.be.equal('id');
+        expect(unitOrig.locations).to.be.an('array');
+        expect(unitOrig.locations).to.have.lengthOf(1);
+        expect(unitOrig.locations[0]).to.exist;
+        expect(unitOrig.locations[0].testParam).to.not.exist;
       });
 
       afterEach(function () {

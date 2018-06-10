@@ -8,7 +8,9 @@ export const symbols = new Map()
 let Location = class Location {}; // place holder class
 
 export function injectLocation(location) {
-  Location = location;
+  if (location && typeof location === 'function') {
+    Location = location;
+  }
 }
 
 /**
