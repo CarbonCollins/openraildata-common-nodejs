@@ -35,6 +35,12 @@
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-rename-import": "^2.2.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean": "^0.4.0",
+    "nyc": "^12.0.2",
     "chai": "^4.1.2",
     "diff": "^3.5.0",
     "eslint": "^4.19.1",
@@ -81,14 +87,5 @@
     "doc": "./docs",
     "lib": "./lib",
     "test": "./tests"
-  },
-  "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-rename-import": "^2.2.0",
-    "babel-preset-env": "^1.7.0",
-    "gulp-babel": "^7.0.1",
-    "gulp-clean": "^0.4.0",
-    "mochawesome": "^3.0.2",
-    "nyc": "^12.0.2"
   }
 }
