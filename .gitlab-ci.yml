@@ -1,4 +1,8 @@
 image: node:latest
+cache:
+  paths:
+  - node_modules/
+  - lib/
 stages:
   - install
   - compile
@@ -7,17 +11,10 @@ install:
   stage: install
   script:
     - yarn install
-  cache:
-    paths:
-    - node_modules/
 compile ES5:
   stage: compile
   script:
     - yarn compile
-  cache:
-    paths:
-    - node_modules/
-    - lib/
 test:
   stage: test
   script:
