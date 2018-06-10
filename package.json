@@ -26,7 +26,7 @@
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
     "pretest": "gulp compile",
     "test": "mocha ./tests/test.all.js",
-    "coverage": "nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
+    "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
     "compile": "gulp compile",
     "compileES5": "gulp compileES5",
     "compileES6": "gulp compileES6",
