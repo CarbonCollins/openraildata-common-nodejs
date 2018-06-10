@@ -4,12 +4,12 @@ cache:
   - node_modules/
   - lib/
 stages:
-  - install
+  - prepare
   - compile
   - test
-  - code quality
-install:
-  stage: install
+  - post test
+install dependencies:
+  stage: prepare
   script:
     - yarn install
 compile ES5:
@@ -26,6 +26,7 @@ test:
   coverage: '/^Statements\s*:\s*([^%]+)/'
 code quality:
   image: docker:stable
+  stage: post test
   variables:
     DOCKER_DRIVER: overlay2
   allow_failure: true
