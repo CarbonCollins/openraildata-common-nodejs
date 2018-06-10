@@ -65,6 +65,5 @@ publish NPM:
     - tags
     - triggers
   script:
-    - echo 'Not Implemented Yet'
-    # - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
-    # - npm publish
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - npm publish --scope=@openrailuk --access=public
