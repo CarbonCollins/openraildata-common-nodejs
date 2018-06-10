@@ -2,7 +2,7 @@
   "id": "id",
   "category": "category",
   "message": "message",
-  "severity": "severity",
+  "severity": 5,
   "locations": [
     {
       "tiploc": "tiploc",

@@ -10,10 +10,10 @@ const standardConfig = require('../templates/stationMessage/stationMessage.json'
 module.exports = function () {
   describe('Value suite', function () {
     it('Should construct with no input', function() {
-      const unit = new model.stationMessage();
+      const unit = new model.StationMessage();
 
       expect(unit).to.be.an('object');
-      expect(unit).to.be.an.instanceOf(model.stationMessage);
+      expect(unit).to.be.an.instanceOf(model.StationMessage);
 
       expect(unit.id).to.be.equal(null);
       expect(unit.category).to.be.equal(null);
@@ -24,9 +24,9 @@ module.exports = function () {
     });
 
     it('Should have the required properties', function() {
-      const unit = new model.stationMessage();
+      const unit = new model.StationMessage();
 
-      expect(unit).to.be.an.instanceOf(model.stationMessage);
+      expect(unit).to.be.an.instanceOf(model.StationMessage);
       expect(unit).to.have.all.keys(['id', 'category', 'message', 'severity', 'locations']
         .map((key) => {
           return model.symbols.get(key)
@@ -35,9 +35,9 @@ module.exports = function () {
 
 
     it('Should create a valid instance', function () {
-      const unit = new model.stationMessage(standardConfig);
+      const unit = new model.StationMessage(standardConfig);
 
-      expect(unit).to.be.an.instanceOf(model.stationMessage);
+      expect(unit).to.be.an.instanceOf(model.StationMessage);
 
       expect(unit.id).to.be.an('string')
       expect(unit.id).to.be.equal(standardConfig.id);
@@ -48,7 +48,7 @@ module.exports = function () {
       expect(unit.message).to.be.an('string')
       expect(unit.message).to.be.equal(standardConfig.message);
 
-      expect(unit.severity).to.be.an('string')
+      expect(unit.severity).to.be.an('number')
       expect(unit.severity).to.be.equal(standardConfig.severity);
 
       expect(unit.locations).to.be.an('array')

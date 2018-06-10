@@ -11,7 +11,7 @@ module.exports = function () {
     });
 
     it('Should export StationMessage class', function() {
-      expect(model.Station).to.be.an('function');
+      expect(model.StationMessage).to.be.an('function');
       expect(new model.StationMessage()).to.be.an('object');
     });
 

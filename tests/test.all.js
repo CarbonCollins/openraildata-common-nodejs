@@ -16,5 +16,5 @@ describe('@openrailuk/common test suite', function () {
   locationSuite();
   scheduleSuite();
   stationSuite();
-  // stationMessageSuite();
+  stationMessageSuite();
 });

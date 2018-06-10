@@ -103,6 +103,6 @@ export class StationMessage {
    * @readonly
    */
   get locations() {
-    return this[symbols.get('stations')] || [];
+    return this[symbols.get('locations')] || [];
   }
 }
