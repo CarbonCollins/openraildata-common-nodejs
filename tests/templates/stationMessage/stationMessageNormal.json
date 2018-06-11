@@ -1,0 +1,15 @@
+{
+  "id": "id",
+  "category": "category",
+  "message": "message",
+  "severity": 0,
+  "severityMessage": "Situation normal",
+  "locations": [
+    {
+      "tiploc": "tiploc",
+      "computerReservationSystem": "computerReservationSystem",
+      "trainOperatingCompany": "trainOperatingCompany",
+      "locationName": "locationName"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ const { expect } = require('chai');
 let model = require('../../lib/es5/models/stationMessage');
 const { Location } = require('../../lib/es5/models/location');
 
-const standardConfig = require('../templates/stationMessage/stationMessage.json');
+const standardConfig = require('../templates/stationMessage/stationMessageNormal.json');
 
 module.exports = function () {
   describe('Functional suite', function () {

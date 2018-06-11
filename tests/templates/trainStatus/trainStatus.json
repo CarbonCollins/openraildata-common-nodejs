@@ -1,0 +1,10 @@
+{
+  "rid": "rid",
+  "uniqueId": "uniqueId",
+  "serviceStartingDate": "serviceStartingDate",
+  "stations": [
+    {
+      "tiploc": "tiploc"
+    }
+  ]
+}
