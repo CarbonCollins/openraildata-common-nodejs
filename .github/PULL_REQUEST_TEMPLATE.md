@@ -1,1 +1,0 @@
-Please raise any merge requests on the GitLab repository found at [@OpenRail/UK/common](https://gitlab.com/openrail/uk/common-nodejs)

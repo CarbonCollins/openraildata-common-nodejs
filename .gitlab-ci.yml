@@ -3,6 +3,8 @@ cache:
   paths:
   - node_modules/
   - lib/
+  - coverage/
+  - mochawesome-report
 stages:
   - prepare
   - compile
@@ -41,6 +43,7 @@ code coverage:
   artifacts:
     paths:
       - mochawesome-report/mochawesome.html
+      - coverage/lcov-report/
   coverage: '/^Statements\s*:\s*([^%]+)/'
 code quality:
   image: docker:stable
@@ -54,6 +57,7 @@ code quality:
     - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
     - docker run
         --env SOURCE_CODE="$PWD"
+        --env CODECLIMATE_DEBUG=1
         --volume "$PWD":/code
         --volume /var/run/docker.sock:/var/run/docker.sock
         "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
@@ -65,5 +69,16 @@ publish NPM:
     - tags
     - triggers
   script:
-    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
     - npm publish --scope=@openrailuk --access=public
+coverage report:
+  stage: deploy
+  script:
+    - mv coverage/ public/
+    - mv mochawesome-report/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master

@@ -60,7 +60,7 @@ export class TrainOrder {
    * @instance
    * @readonly
    */
-  get sets() {
+  get set() {
     return this[symbols.get('set')] || null;
   }
 
@@ -100,7 +100,7 @@ export class TrainOrder {
    * @instance
    * @readonly
    */
-  get clears() {
+  get clear() {
     return this[symbols.get('clear')] || null;
   }
 
@@ -133,7 +133,7 @@ export class TrainOrder {
    * @private
    */
   getSetTrain(type) {
-    return (this[symbols.get('set')] && this[symbols.get('set')][type])
+    return (type && typeof type === typeof '' && type !== '' && this[symbols.get('set')] && this[symbols.get('set')][type])
       ? this[symbols.get('set')][type]
       : null;
   }
