@@ -6,3 +6,17 @@ plugins:
     enabled: true
     config:
       config: ./.eslintrc.json
+exclude_patterns:
+  - "lib/*"
+  - "tests/*"
+  - "docs/*"
+  - "vscode/*"
+  - "**/*.md"
+  - "**/*.yml"
+  - "**/*.json"
+  - "**/*.txt"
+  - "babelrc"
+  - ".gitignore"
+  - ".gitmodules"
+  - ".npmignore"
+  - "yarn.lock"

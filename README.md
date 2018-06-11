@@ -12,6 +12,10 @@
 
 A package for common files and functions between the various open rail UK packages
 
+# info
+
+This repository is hosted on [GitLab as common-nodejs](https://gitlab.com/openrail/uk/common-nodejs). The [GitHub repository](https://github.com/CarbonCollins/openraildata-common-nodejs) is a downstream repository where all changes from GitLab are pushed. Please raise any issues or pull requests on the GitLab repository.
+
 # usage
 
 To use the common-nodejs package you need to import the required classes and functions in which your application needs, this can be done as follows:
@@ -63,7 +67,7 @@ const mixin = (SuperClass) => {
 and this can be applied by calling (re replacing station with the intended class to apply the mixin too:
 
 ```javascript
-const common = require('openraildata-common);
+import * as common from '@openrailuk/common';
 
 common.stationMixer(mixin);
 ```
