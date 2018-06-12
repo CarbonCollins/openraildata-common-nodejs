@@ -1,5 +1,8 @@
 # Change Log for common-nodejs
 
+## [v3.0.4](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.4)
+* Added files to .npmignore to remove them from published package
+
 ## [v3.0.3](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.3)
 * Deployment pipeline changes. No changes to actual code
 

@@ -59,7 +59,21 @@ typings/
 
 src/
 coverage/
-./nyc_output/
+nyc_output/
 tests.old/
 mochawesome-report/
 quality/
+.vscode/
+.gitlab/
+tests/
+.babelrc
+.codeclimate.yml
+.eslintrc.json
+.gitignore
+.gitlab-ci.yml
+.gitmodules
+.jsdoc.json
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+gulpfile.js

@@ -1,6 +1,6 @@
 {
   "name": "@openrailuk/common",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "displayName": "Open Rail UK Common",
   "description": "A package for common files and functions between the various @openrailuk packages",
   "license": "MIT",
