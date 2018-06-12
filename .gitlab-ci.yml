@@ -92,15 +92,15 @@ publish NPM:
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - npm publish --scope=@openrailuk --access=public
-# report upload:
-#   stage: deploy
-#   script:
-#     - mv coverage/ public/
-#     - mv mochawesome-report/ public/
-#   artifacts:
-#     paths:
-#       - public
-#     expire_in: 30 days
-#   only:
-#     - master
-#     - tags
+report upload:
+  stage: deploy
+  script:
+    - mv coverage/ public/
+    - mv mochawesome-report/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
+    - tags

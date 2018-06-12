@@ -1,5 +1,8 @@
 # Change Log for common-nodejs
 
+## [v3.0.3](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.3)
+* Deployment pipeline changes. No changes to actual code
+
 ## [v3.0.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.2)
 * Updated CONTRIBUTION.md to reflect new package information
 * Updated GitLab ci pipeline to auto deploy to NPM
