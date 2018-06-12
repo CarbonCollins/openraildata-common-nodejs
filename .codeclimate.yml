@@ -15,7 +15,7 @@ exclude_patterns:
   - "**/*.yml"
   - "**/*.json"
   - "**/*.txt"
-  - "babelrc"
+  - ".babelrc"
   - ".gitignore"
   - ".gitmodules"
   - ".npmignore"
