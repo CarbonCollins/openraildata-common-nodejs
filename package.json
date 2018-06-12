@@ -1,7 +1,13 @@
 {
   "name": "@openrailuk/common",
-  "version": "3.0.1",
+  "version": "3.0.2",
+  "displayName": "Open Rail UK Common",
   "description": "A package for common files and functions between the various @openrailuk packages",
+  "license": "MIT",
+  "icon": "https://gitlab.com/openrail/uk/common-nodejs/uploads/50f97b38ea92856a141a4e9898671491/common.svg",
+  "main": "index.js",
+  "module": "index.mjs",
+  "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "keywords": [
     "openrail",
     "openrailuk",
@@ -19,22 +25,49 @@
     "email": "steven@carboncollins.uk",
     "url": "https://carboncollins.uk"
   },
-  "main": "index.js",
-  "module": "index.mjs",
   "scripts": {
     "prepublishOnly": "gulp compile",
     "publish-npm": "npm publish --scope=@openrailuk --access=public",
     "pretest": "gulp compile",
     "test": "mocha ./tests/test.all.js",
     "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
+    "lint": "eslint src/**",
     "compile": "gulp compile",
     "compileES5": "gulp compileES5",
     "compileES6": "gulp compileES6",
     "compileQuality": "gulp prepCodeQuality",
     "generateDocs": "gulp generateDocs"
   },
-  "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
-  "license": "MIT",
+  "repository": {
+    "type": "gitlab",
+    "url": "https://gitlab.com/openrail/uk/common-nodejs"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/openrail/uk/common-nodejs/issues"
+  },
+  "badges": [
+    "https://img.shields.io/badge/license-MIT-blue.svg",
+    "https://img.shields.io/badge/country-UK-blue.svg",
+    "https://img.shields.io/badge/status-WIP-yellow.svg",
+    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg",
+    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg",
+    "https://img.shields.io/npm/v/@openrailuk/common.svg"
+  ],
+  "markdown": "standard",
+  "publisher": "npm",
+  "engines": {
+    "node": ">=6.x",
+    "yarn": ">=1.x"
+  },
+  "readmeFilename": "README.md",
+  "publishConfig": {
+    "access": "public"
+  },
+  "directories": {
+    "doc": "./docs",
+    "lib": "./lib",
+    "test": "./tests"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-plugin-transform-rename-import": "^2.2.0",
@@ -58,36 +91,5 @@
     "mochawesome": "^3.0.2",
     "nyc": "^12.0.2",
     "rewire": "^4.0.1"
-  },
-  "repository": {
-    "type": "gitlab",
-    "url": "https://gitlab.com/openrail/uk/common-nodejs"
-  },
-  "bugs": {
-    "url": "https://gitlab.com/openrail/uk/common-nodejs/issues"
-  },
-  "icon": "https://gitlab.com/openrail/uk/common-nodejs/raw/master/docs/images/openrailUK.png",
-  "badges": [
-    "https://img.shields.io/badge/license-MIT-blue.svg",
-    "https://img.shields.io/badge/country-UK-blue.svg",
-    "https://img.shields.io/badge/status-WIP-yellow.svg",
-    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg",
-    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg"
-  ],
-  "displayName": "Open Rail UK Common",
-  "markdown": "standard",
-  "publisher": "npm",
-  "engines": {
-    "node": ">=6.x",
-    "yarn": ">=1.x"
-  },
-  "readmeFilename": "README.md",
-  "publishConfig": {
-    "access": "public"
-  },
-  "directories": {
-    "doc": "./docs",
-    "lib": "./lib",
-    "test": "./tests"
   }
 }

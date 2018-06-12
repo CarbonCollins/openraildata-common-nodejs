@@ -1,4 +1,4 @@
-![](./docs/images/commonBanner.png)
+![](https://gitlab.com/openrail/uk/common-nodejs/uploads/93346c225ec30c3d1c0f92edff15af1a/common-banner.svg)
 
 [![country](https://img.shields.io/badge/country-UK-blue.svg)](https://gitlab.com/groups/openrail/uk)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
@@ -25,17 +25,7 @@ import * as common from '@openrailuk/common');
 
 ```
 
-the currently available classes that can be used are listed below
-
-- [Association](./docs/api.md#module_openrailuk/common+Association)
-- [Location](./docs/api.md#module_openrailuk/common+Location)
-- [Schedule](./docs/api.md#module_openrailuk/common+Schedule)
-- [Station](./docs/api.md#module_openrailuk/common+Station)
-- [StationMessage](./docs/api.md#module_openrailuk/common+StationMessage)
-- [TrainOrder](./docs/api.md#module_openrailuk/common+TrainOrder)
-- [TrainStatus](./docs/api.md#module_openrailuk/common+TrainStatus)
-
-an example of using the classes are:
+an example of using the classes:
 
 ```javascript
 const station = new Station(stationRefDataJSON);
@@ -69,4 +59,6 @@ import * as common from '@openrailuk/common';
 common.stationMixer(mixin);
 ```
 
-all the functions for this are documented in the <a href="./docs/api.md">API docs</a>
+# documentation
+
+You might be wondering where to find information about how to use this package, fear not all documentation can be found on the [wiki](https://gitlab.com/openrail/uk/common-nodejs/wikis/home)

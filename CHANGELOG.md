@@ -1,5 +1,12 @@
 # Change Log for common-nodejs
 
+## [v3.0.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.2)
+* Updated CONTRIBUTION.md to reflect new package information
+* Updated GitLab ci pipeline to auto deploy to NPM
+
+## [v3.0.1](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.1)
+* Updated incorrect badges on readme
+
 ## [v3.0.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.0)
 * Changed package structure to fully use ES6 modules
 * Added a babel build to export an ES5 transpiled version of library, his will be discontinues once Node.JS supports ES6 modules without a flag

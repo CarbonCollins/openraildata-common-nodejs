@@ -50,7 +50,7 @@ code coverage:
       - mochawesome-report/mochawesome.html
       - coverage/lcov-report/
   coverage: '/^Statements\s*:\s*([^%]+)/'
-code quality:
+code_quality:
   image: docker:latest
   stage: post test
   variables:
@@ -67,23 +67,40 @@ code quality:
         "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
   artifacts:
     paths: [gl-code-quality-report.json]
+dependency_scanning:
+  image: docker:latest
+  stage: post test
+  variables:
+    DOCKER_DRIVER: overlay2
+  allow_failure: true
+  services:
+    - docker:stable-dind
+  script:
+    - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
+    - docker run
+        --env DEP_SCAN_DISABLE_REMOTE_CHECKS="${DEP_SCAN_DISABLE_REMOTE_CHECKS:-false}"
+        --volume "$PWD:/code"
+        --volume /var/run/docker.sock:/var/run/docker.sock
+        "registry.gitlab.com/gitlab-org/security-products/dependency-scanning:$SP_VERSION" /code
+  artifacts:
+    paths: [gl-dependency-scanning-report.json]
 publish NPM:
   stage: deploy
   only:
     - tags
     - triggers
   script:
-    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n@openrailuk:registry=https://registry.npmjs.org/" > ~/.npmrc'
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - npm publish --scope=@openrailuk --access=public
-coverage report:
-  stage: deploy
-  script:
-    - mv coverage/ public/
-    - mv mochawesome-report/ public/
-  artifacts:
-    paths:
-      - public
-    expire_in: 30 days
-  only:
-    - master
-    - tags
+# report upload:
+#   stage: deploy
+#   script:
+#     - mv coverage/ public/
+#     - mv mochawesome-report/ public/
+#   artifacts:
+#     paths:
+#       - public
+#     expire_in: 30 days
+#   only:
+#     - master
+#     - tags
