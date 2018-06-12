@@ -4,7 +4,8 @@ cache:
   - node_modules/
   - lib/
   - coverage/
-  - mochawesome-report
+  - mochawesome-report/
+  - quality/
 stages:
   - prepare
   - compile
@@ -19,6 +20,10 @@ compile ES5:
   stage: compile
   script:
     - yarn compile
+prepare quality:
+  stage: compile
+  script:
+    - gulp prepCodeQuality
 test ES5 Node 6:
   stage: test
   image: node:6
