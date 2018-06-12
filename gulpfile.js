@@ -53,7 +53,7 @@ gulp.task('compileES5', ['clean-lib-es5', 'transpile']);
 gulp.task('compileES6', ['clean-lib-es6', 'copy-source']);
 gulp.task('compile', ['compileES5', 'compileES6']);
 
-gulp.task('prepCodeQuality', ['copySrcToJs', 'copyCodeclimateYAML']);
+gulp.task('prepCodeQuality', ['copySrcToJs', 'copyQualityConfigs']);
 
 gulp.task('generateDocs', () => {
   return fs.ensureDir(path.join(__dirname, './docs'))
