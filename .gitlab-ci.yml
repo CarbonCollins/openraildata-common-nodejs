@@ -20,10 +20,10 @@ compile ES5:
   stage: compile
   script:
     - yarn compile
-prepare quality:
+compile quality:
   stage: compile
   script:
-    - gulp prepCodeQuality
+    - yarn compileQuality
 test ES5 Node 6:
   stage: test
   image: node:6
@@ -61,7 +61,7 @@ code quality:
   script:
     - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
     - docker run
-        --env SOURCE_CODE="$PWD"
+        --env SOURCE_CODE="$PWD/quality"
         --volume "$PWD":/code
         --volume /var/run/docker.sock:/var/run/docker.sock
         "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code

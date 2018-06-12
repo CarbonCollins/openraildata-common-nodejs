@@ -41,14 +41,19 @@ gulp.task('copySrcToJs', () => {
     .pipe(rename({
       extname: ".js"
     }))
-    .pipe(gulp.dest("./quality"));
+    .pipe(gulp.dest('quality/src'));
+});
+
+gulp.task('copyQualityConfigs', () => {
+  return gulp.src(['.codeclimate.yml', '.eslintrc.json'])
+    .pipe(gulp.dest('quality/'));
 });
 
 gulp.task('compileES5', ['clean-lib-es5', 'transpile']);
 gulp.task('compileES6', ['clean-lib-es6', 'copy-source']);
 gulp.task('compile', ['compileES5', 'compileES6']);
 
-gulp.task('prepCodeQuality', ['copySrcToJs']);
+gulp.task('prepCodeQuality', ['copySrcToJs', 'copyCodeclimateYAML']);
 
 gulp.task('generateDocs', () => {
   return fs.ensureDir(path.join(__dirname, './docs'))

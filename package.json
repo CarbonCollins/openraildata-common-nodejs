@@ -30,6 +30,7 @@
     "compile": "gulp compile",
     "compileES5": "gulp compileES5",
     "compileES6": "gulp compileES6",
+    "compileQuality": "gulp prepCodeQuality",
     "generateDocs": "gulp generateDocs"
   },
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
