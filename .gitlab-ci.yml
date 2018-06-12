@@ -3,6 +3,8 @@ cache:
   paths:
   - node_modules/
   - lib/
+  - coverage/
+  - mochawesome-report
 stages:
   - prepare
   - compile
@@ -41,9 +43,10 @@ code coverage:
   artifacts:
     paths:
       - mochawesome-report/mochawesome.html
+      - coverage/lcov-report/
   coverage: '/^Statements\s*:\s*([^%]+)/'
 code quality:
-  image: docker:stable
+  image: docker:latest
   stage: post test
   variables:
     DOCKER_DRIVER: overlay2
@@ -65,5 +68,16 @@ publish NPM:
     - tags
     - triggers
   script:
-    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}'>.npmrc
+    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
     - npm publish --scope=@openrailuk --access=public
+coverage report:
+  stage: deploy
+  script:
+    - mv coverage/ public/
+    - mv mochawesome-report/ public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master

@@ -1,24 +1,26 @@
-export const stationMap = new Map()
-  .set('tpl', 'tiploc')
-  .set('act', 'action')
-  .set('pta', 'plannedTimeOfArrival')
-  .set('ptd', 'plannedTimeOfDeparture')
-  .set('wta', 'workingTimeOfArrival')
-  .set('wtd', 'workingTimeOfDeparture')
-  .set('operational', 'operational')
-  .set('plat', 'platform')
-  .set('platsup', 'platformSuppressed');
+// export const stationMap = new Map()
+//   .set('tpl', 'tiploc')
+//   .set('act', 'action')
+//   .set('pta', 'plannedTimeOfArrival')
+//   .set('ptd', 'plannedTimeOfDeparture')
+//   .set('wta', 'workingTimeOfArrival')
+//   .set('wtd', 'workingTimeOfDeparture')
+//   .set('operational', 'operational')
+//   .set('plat', 'platform')
+//   .set('platsup', 'platformSuppressed');
 
 export const symbols = new Map()
   .set('rid', Symbol())
   .set('uniqueId', Symbol())
   .set('serviceStartingDate', Symbol())
-  .set('locations', Symbol())
+  .set('stations', Symbol())
 
 let Station = class Station {}; // placeholder class
 
 export function injectStation(station) {
-  Station = station;
+  if (station && typeof station === 'function') {
+    Station = station;
+  }
 }
 
 /**
@@ -36,7 +38,7 @@ export class TrainStatus {
     this[symbols.get('rid')] = payload.rid;
     this[symbols.get('uniqueId')] = payload.uniqueId;
     this[symbols.get('serviceStartingDate')] = payload.serviceStartingDate;
-    this[symbols.get('locations')] = (payload.locations || [])
+    this[symbols.get('stations')] = (payload.stations || [])
       .map((station) => {
         return new Station({
           tiploc: station.tiploc,
@@ -62,12 +64,12 @@ export class TrainStatus {
   }
 
   /**
-   * @member {uid} uniqueID gets the schedule uid of the train
+   * @member {uid} uniqueId gets the schedule uid of the train
    * @memberof module:openrailuk/common#TrainStatus
    * @instance
    * @readonly
    */
-  get uniqueID() {
+  get uniqueId() {
     return this[symbols.get('uniqueId')] || null;
   }
 
@@ -82,12 +84,12 @@ export class TrainStatus {
   }
 
   /**
-   * @member {Station[]} allLocations gets all of the locations that this train status applies to
+   * @member {Station[]} stations gets all of the stations that this train status applies to
    * @memberof module:openrailuk/common#TrainStatus
    * @instance
    * @readonly
    */
-  get allLocations() {
-    return this[symbols.get('locations')] || [];
+  get stations() {
+    return this[symbols.get('stations')] || [];
   }
 }

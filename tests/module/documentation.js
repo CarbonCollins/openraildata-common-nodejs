@@ -11,6 +11,7 @@ const apiDocPath = path.join(__dirname, '../../docs/devDoc.md');
 module.exports = function () {
   describe('Documentation tests', function () {
     it('Should be up to date', function(done) {
+      this.timeout(10000);
       fs.pathExists(apiDocPath)
       .then((exists) => {
         if (exists) {
