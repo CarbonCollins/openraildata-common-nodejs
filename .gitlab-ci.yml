@@ -73,7 +73,7 @@ publish NPM:
     - tags
     - triggers
   script:
-    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc'
+    - 'echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n@openrailuk:registry=https://registry.npmjs.org/" > ~/.npmrc'
     - npm publish --scope=@openrailuk --access=public
 coverage report:
   stage: deploy
@@ -86,3 +86,4 @@ coverage report:
     expire_in: 30 days
   only:
     - master
+    - tags

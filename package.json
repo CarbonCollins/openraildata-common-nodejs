@@ -1,6 +1,6 @@
 {
   "name": "@openrailuk/common",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A package for common files and functions between the various @openrailuk packages",
   "keywords": [
     "openrail",
