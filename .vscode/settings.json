@@ -2,5 +2,6 @@
   "cSpell.words": [
     "tiploc"
   ],
-  "mocha.files.glob": "tests/*.js"
+  "mocha.files.glob": "tests/*.js",
+  "git.enableCommitSigning": true
 }
