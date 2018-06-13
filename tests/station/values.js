@@ -68,39 +68,39 @@ module.exports = function () {
 
       const tiplocSymbol = model.symbols.get('tiploc');
       expect(tiplocSymbol).to.be.an('symbol');
-      expect(tiplocSymbol.toString()).to.be.equal('Symbol()');
+      expect(tiplocSymbol.toString()).to.be.equal('Symbol(tiploc)');
       
       const actionSymbol = model.symbols.get('action');
       expect(actionSymbol).to.be.an('symbol');
-      expect(actionSymbol.toString()).to.be.equal('Symbol()');
+      expect(actionSymbol.toString()).to.be.equal('Symbol(action)');
       
       const plannedTimeOfArrivalSymbol = model.symbols.get('plannedTimeOfArrival');
       expect(plannedTimeOfArrivalSymbol).to.be.an('symbol');
-      expect(plannedTimeOfArrivalSymbol.toString()).to.be.equal('Symbol()');
+      expect(plannedTimeOfArrivalSymbol.toString()).to.be.equal('Symbol(plannedTimeOfArrival)');
       
       const plannedTimeOfDepartureSymbol = model.symbols.get('plannedTimeOfDeparture');
       expect(plannedTimeOfDepartureSymbol).to.be.an('symbol');
-      expect(plannedTimeOfDepartureSymbol.toString()).to.be.equal('Symbol()');
+      expect(plannedTimeOfDepartureSymbol.toString()).to.be.equal('Symbol(plannedTimeOfDeparture)');
       
       const workingTimeOfArrivalSymbol = model.symbols.get('workingTimeOfArrival');
       expect(workingTimeOfArrivalSymbol).to.be.an('symbol');
-      expect(workingTimeOfArrivalSymbol.toString()).to.be.equal('Symbol()');
+      expect(workingTimeOfArrivalSymbol.toString()).to.be.equal('Symbol(workingTimeOfArrival)');
       
       const workingTimeOfDepartureSymbol = model.symbols.get('workingTimeOfDeparture');
       expect(workingTimeOfDepartureSymbol).to.be.an('symbol');
-      expect(workingTimeOfDepartureSymbol.toString()).to.be.equal('Symbol()');
+      expect(workingTimeOfDepartureSymbol.toString()).to.be.equal('Symbol(workingTimeOfDeparture)');
       
       const operationalSymbol = model.symbols.get('operational');
       expect(operationalSymbol).to.be.an('symbol');
-      expect(operationalSymbol.toString()).to.be.equal('Symbol()');
+      expect(operationalSymbol.toString()).to.be.equal('Symbol(operational)');
       
       const platformSymbol = model.symbols.get('platform');
       expect(platformSymbol).to.be.an('symbol');
-      expect(platformSymbol.toString()).to.be.equal('Symbol()');
+      expect(platformSymbol.toString()).to.be.equal('Symbol(platform)');
       
       const platformSuppressedSymbol = model.symbols.get('platformSuppressed');
       expect(platformSuppressedSymbol).to.be.an('symbol');
-      expect(platformSuppressedSymbol.toString()).to.be.equal('Symbol()');
+      expect(platformSuppressedSymbol.toString()).to.be.equal('Symbol(platformSuppressed)');
     });
   });
 };

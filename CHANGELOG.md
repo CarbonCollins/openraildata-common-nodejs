@@ -1,5 +1,11 @@
 # Change Log for common-nodejs
 
+## [v3.1.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.0)
+* Added Via model to package from referencedata-nodejs
+* Updated tests to cover new Via class
+* Altered some tests to check for symbol descriptions
+* Updated existing classes ot add symbol descriptions
+
 ## [v3.0.5](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.0.5)
 * Removed unused dependencies
 

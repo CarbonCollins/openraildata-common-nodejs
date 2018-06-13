@@ -21,15 +21,15 @@ export function injectLocation(location) {
  * @returns {?Location} returns with the location object
  * @private
  */
-function findLocation(key, locationArr) {
-  const location = (typeof key === 'string')
+function findLocation(searchTerm, locationArr) {
+  const location = (typeof searchTerm === 'string')
     ? locationArr
       .find((loc) => {
           return loc.computerReservationSystem === searchTerm
             || loc.locationName === searchTerm
             || loc.tiploc === searchTerm
       })
-    : key;
+    : searchTerm;
 
   if (location) {
     return new Location(location)

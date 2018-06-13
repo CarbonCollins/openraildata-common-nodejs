@@ -1,13 +1,13 @@
 export const symbols = new Map()
-  .set('tiploc', Symbol())
-  .set('action', Symbol())
-  .set('plannedTimeOfArrival', Symbol())
-  .set('plannedTimeOfDeparture', Symbol())
-  .set('workingTimeOfArrival', Symbol())
-  .set('workingTimeOfDeparture', Symbol())
-  .set('operational', Symbol())
-  .set('platform', Symbol())
-  .set('platformSuppressed', Symbol());
+  .set('tiploc', Symbol('tiploc'))
+  .set('action', Symbol('action'))
+  .set('plannedTimeOfArrival', Symbol('plannedTimeOfArrival'))
+  .set('plannedTimeOfDeparture', Symbol('plannedTimeOfDeparture'))
+  .set('workingTimeOfArrival', Symbol('workingTimeOfArrival'))
+  .set('workingTimeOfDeparture', Symbol('workingTimeOfDeparture'))
+  .set('operational', Symbol('operational'))
+  .set('platform', Symbol('platform'))
+  .set('platformSuppressed', Symbol('platformSuppressed'));
 
 /**
  * @class

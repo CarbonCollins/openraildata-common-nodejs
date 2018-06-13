@@ -10,10 +10,10 @@
 //   .set('platsup', 'platformSuppressed');
 
 export const symbols = new Map()
-  .set('rid', Symbol())
-  .set('uniqueId', Symbol())
-  .set('serviceStartingDate', Symbol())
-  .set('stations', Symbol())
+  .set('rid', Symbol('rid'))
+  .set('uniqueId', Symbol('uniqueId'))
+  .set('serviceStartingDate', Symbol('serviceStartingDate'))
+  .set('stations', Symbol('stations'))
 
 let Station = class Station {}; // placeholder class
 

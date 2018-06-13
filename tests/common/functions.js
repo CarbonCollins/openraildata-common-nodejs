@@ -9,6 +9,7 @@ const { Station } = require('../../lib/es5/models/station');
 const { StationMessage } = require('../../lib/es5/models/stationMessage');
 const { TrainOrder } = require('../../lib/es5/models/trainOrder');
 const { TrainStatus } = require('../../lib/es5/models/trainStatus');
+const { Via } = require('../../lib/es5/models/via');
 
 module.exports = function () {
   describe('Functional suite', function () {
@@ -63,36 +64,8 @@ module.exports = function () {
 
         model.locationMixer(mixin);
 
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
-
-        const unit = new model.Location();
-
-        expect(unit).to.be.an.instanceof(Location);
-        expect(unit.testParam).to.exist;
-        expect(unit.testParam).to.be.an('boolean');
-        expect(unit.testParam).to.be.equal(true);
-      });
-
-      it('Should apply a mixin to the Location class', function () {
-        const mixin = (SuperClass) => {
-          return class TestMix extends SuperClass {
-            constructor(payload) {
-              super(payload);
-              this.testParam = true;
-            }
-          };
-        };
-
-        const unitOrig = new model.Location();
-
-        expect(unitOrig).to.be.an.instanceof(Location);
-        expect(unitOrig.testParam).to.not.exist;
-
-        model.locationMixer(mixin);
-
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
+        expect(model.Location).to.exist;
+        expect(model.Location).to.be.an('function');
 
         const unit = new model.Location();
 
@@ -119,8 +92,8 @@ module.exports = function () {
 
         model.scheduleMixer(mixin);
 
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
+        expect(model.Schedule).to.exist;
+        expect(model.Schedule).to.be.an('function');
 
         const unit = new model.Schedule();
 
@@ -147,8 +120,8 @@ module.exports = function () {
 
         model.stationMixer(mixin);
 
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
+        expect(model.Station).to.exist;
+        expect(model.Station).to.be.an('function');
 
         const unit = new model.Station();
 
@@ -175,8 +148,8 @@ module.exports = function () {
 
         model.stationMessageMixer(mixin);
 
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
+        expect(model.StationMessage).to.exist;
+        expect(model.StationMessage).to.be.an('function');
 
         const unit = new model.StationMessage();
 
@@ -203,8 +176,8 @@ module.exports = function () {
 
         model.trainOrderMixer(mixin);
 
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
+        expect(model.TrainOrder).to.exist;
+        expect(model.TrainOrder).to.be.an('function');
 
         const unit = new model.TrainOrder();
 
@@ -231,12 +204,40 @@ module.exports = function () {
 
         model.trainStatusMixer(mixin);
 
-        expect(model.Association).to.exist;
-        expect(model.Association).to.be.an('function');
+        expect(model.TrainStatus).to.exist;
+        expect(model.TrainStatus).to.be.an('function');
 
         const unit = new model.TrainStatus();
 
         expect(unit).to.be.an.instanceof(TrainStatus);
+        expect(unit.testParam).to.exist;
+        expect(unit.testParam).to.be.an('boolean');
+        expect(unit.testParam).to.be.equal(true);
+      });
+
+      it('Should apply a mixin to the Via class', function () {
+        const mixin = (SuperClass) => {
+          return class TestMix extends SuperClass {
+            constructor(payload) {
+              super(payload);
+              this.testParam = true;
+            }
+          };
+        };
+
+        const unitOrig = new model.Via();
+
+        expect(unitOrig).to.be.an.instanceof(Via);
+        expect(unitOrig.testParam).to.not.exist;
+
+        model.viaMixer(mixin);
+
+        expect(model.Via).to.exist;
+        expect(model.Via).to.be.an('function');
+
+        const unit = new model.Via();
+
+        expect(unit).to.be.an.instanceof(Via);
         expect(unit.testParam).to.exist;
         expect(unit.testParam).to.be.an('boolean');
         expect(unit.testParam).to.be.equal(true);

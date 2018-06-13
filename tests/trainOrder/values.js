@@ -87,23 +87,23 @@ module.exports = function () {
     it('symbol export should have correct mapping', function () {
       const computerReservationSystemSymbol = model.symbols.get('computerReservationSystem');
       expect(computerReservationSystemSymbol).to.be.an('symbol');
-      expect(computerReservationSystemSymbol.toString()).to.be.equal('Symbol()');
+      expect(computerReservationSystemSymbol.toString()).to.be.equal('Symbol(computerReservationSystem)');
 
       const platformSymbol = model.symbols.get('platform');
       expect(platformSymbol).to.be.an('symbol');
-      expect(platformSymbol.toString()).to.be.equal('Symbol()');
+      expect(platformSymbol.toString()).to.be.equal('Symbol(platform)');
 
       const tiplocSymbol = model.symbols.get('tiploc');
       expect(tiplocSymbol).to.be.an('symbol');
-      expect(tiplocSymbol.toString()).to.be.equal('Symbol()');
+      expect(tiplocSymbol.toString()).to.be.equal('Symbol(tiploc)');
 
       const setSymbol = model.symbols.get('set');
       expect(setSymbol).to.be.an('symbol');
-      expect(setSymbol.toString()).to.be.equal('Symbol()');
+      expect(setSymbol.toString()).to.be.equal('Symbol(set)');
 
       const clearSymbol = model.symbols.get('clear');
       expect(clearSymbol).to.be.an('symbol');
-      expect(clearSymbol.toString()).to.be.equal('Symbol()');
+      expect(clearSymbol.toString()).to.be.equal('Symbol(clear)');
     });
   });
 };

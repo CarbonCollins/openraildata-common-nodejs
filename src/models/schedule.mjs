@@ -1,16 +1,16 @@
 export const symbols = new Map()
-  .set('rid', Symbol())
-  .set('serviceStartingDate', Symbol())
-  .set('trainOperatingCompany', Symbol())
-  .set('trainId', Symbol())
-  .set('uniqueId', Symbol())
-  .set('origin', Symbol())
-  .set('destination', Symbol())
-  .set('passingPoints', Symbol())
-  .set('intermediatePoints', Symbol())
-  .set('operationalOrigin', Symbol())
-  .set('operationalDestination', Symbol())
-  .set('operationalIntermediatePoints', Symbol());
+  .set('rid', Symbol('rid'))
+  .set('serviceStartingDate', Symbol('serviceStartingDate'))
+  .set('trainOperatingCompany', Symbol('trainOperatingCompany'))
+  .set('trainId', Symbol('trainId'))
+  .set('uniqueId', Symbol('uniqueId'))
+  .set('origin', Symbol('origin'))
+  .set('destination', Symbol('destination'))
+  .set('passingPoints', Symbol('passingPoints'))
+  .set('intermediatePoints', Symbol('intermediatePoints'))
+  .set('operationalOrigin', Symbol('operationalOrigin'))
+  .set('operationalDestination', Symbol('operationalDestination'))
+  .set('operationalIntermediatePoints', Symbol('operationalIntermediatePoints'));
 
 let Station = class Station {}; // placeholder class
 

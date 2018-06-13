@@ -101,51 +101,51 @@ module.exports = function () {
 
       const ridSymbol = model.symbols.get('rid');
       expect(ridSymbol).to.be.an('symbol');
-      expect(ridSymbol.toString()).to.be.equal('Symbol()');
+      expect(ridSymbol.toString()).to.be.equal('Symbol(rid)');
 
       const serviceStartingDateSymbol = model.symbols.get('serviceStartingDate');
       expect(serviceStartingDateSymbol).to.be.an('symbol');
-      expect(serviceStartingDateSymbol.toString()).to.be.equal('Symbol()');
+      expect(serviceStartingDateSymbol.toString()).to.be.equal('Symbol(serviceStartingDate)');
 
       const trainOperatingCompanySymbol = model.symbols.get('trainOperatingCompany');
       expect(trainOperatingCompanySymbol).to.be.an('symbol');
-      expect(trainOperatingCompanySymbol.toString()).to.be.equal('Symbol()');
+      expect(trainOperatingCompanySymbol.toString()).to.be.equal('Symbol(trainOperatingCompany)');
 
       const trainIdSymbol = model.symbols.get('trainId');
       expect(trainIdSymbol).to.be.an('symbol');
-      expect(trainIdSymbol.toString()).to.be.equal('Symbol()');
+      expect(trainIdSymbol.toString()).to.be.equal('Symbol(trainId)');
 
       const uniqueIdSymbol = model.symbols.get('uniqueId');
       expect(uniqueIdSymbol).to.be.an('symbol');
-      expect(uniqueIdSymbol.toString()).to.be.equal('Symbol()');
+      expect(uniqueIdSymbol.toString()).to.be.equal('Symbol(uniqueId)');
 
       const originSymbol = model.symbols.get('origin');
       expect(originSymbol).to.be.an('symbol');
-      expect(originSymbol.toString()).to.be.equal('Symbol()');
+      expect(originSymbol.toString()).to.be.equal('Symbol(origin)');
 
       const destinationSymbol = model.symbols.get('destination');
       expect(destinationSymbol).to.be.an('symbol');
-      expect(destinationSymbol.toString()).to.be.equal('Symbol()');
+      expect(destinationSymbol.toString()).to.be.equal('Symbol(destination)');
 
       const passingPointsSymbol = model.symbols.get('passingPoints');
       expect(passingPointsSymbol).to.be.an('symbol');
-      expect(passingPointsSymbol.toString()).to.be.equal('Symbol()');
+      expect(passingPointsSymbol.toString()).to.be.equal('Symbol(passingPoints)');
 
       const intermediatePointsSymbol = model.symbols.get('intermediatePoints');
       expect(intermediatePointsSymbol).to.be.an('symbol');
-      expect(intermediatePointsSymbol.toString()).to.be.equal('Symbol()');
+      expect(intermediatePointsSymbol.toString()).to.be.equal('Symbol(intermediatePoints)');
 
       const operationalOriginSymbol = model.symbols.get('operationalOrigin');
       expect(operationalOriginSymbol).to.be.an('symbol');
-      expect(operationalOriginSymbol.toString()).to.be.equal('Symbol()');
+      expect(operationalOriginSymbol.toString()).to.be.equal('Symbol(operationalOrigin)');
 
       const operationalDestinationSymbol = model.symbols.get('operationalDestination');
       expect(operationalDestinationSymbol).to.be.an('symbol');
-      expect(operationalDestinationSymbol.toString()).to.be.equal('Symbol()');
+      expect(operationalDestinationSymbol.toString()).to.be.equal('Symbol(operationalDestination)');
 
       const operationalIntermediatePointsSymbol = model.symbols.get('operationalIntermediatePoints');
       expect(operationalIntermediatePointsSymbol).to.be.an('symbol');
-      expect(operationalIntermediatePointsSymbol.toString()).to.be.equal('Symbol()');
+      expect(operationalIntermediatePointsSymbol.toString()).to.be.equal('Symbol(operationalIntermediatePoints)');
     });
   });
 };

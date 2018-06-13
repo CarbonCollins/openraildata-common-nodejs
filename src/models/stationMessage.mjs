@@ -1,9 +1,9 @@
 export const symbols = new Map()
-  .set('id', Symbol())
-  .set('category', Symbol())
-  .set('message', Symbol())
-  .set('severity', Symbol())
-  .set('locations', Symbol());
+  .set('id', Symbol('id'))
+  .set('category', Symbol('category'))
+  .set('message', Symbol('message'))
+  .set('severity', Symbol('severity'))
+  .set('locations', Symbol('locations'));
 
 let Location = class Location {}; // place holder class
 

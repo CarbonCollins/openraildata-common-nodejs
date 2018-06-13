@@ -1,9 +1,9 @@
 export const symbols = new Map()
-  .set('computerReservationSystem', Symbol())
-  .set('platform', Symbol())
-  .set('tiploc', Symbol())
-  .set('set', Symbol())
-  .set('clear', Symbol());
+  .set('computerReservationSystem', Symbol('computerReservationSystem'))
+  .set('platform', Symbol('platform'))
+  .set('tiploc', Symbol('tiploc'))
+  .set('set', Symbol('set'))
+  .set('clear', Symbol('clear'));
 
 /**
  * @class

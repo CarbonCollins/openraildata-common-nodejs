@@ -182,23 +182,23 @@ module.exports = function () {
 
       const idSymbol = model.symbols.get('id');
       expect(idSymbol).to.be.an('symbol');
-      expect(idSymbol.toString()).to.be.equal('Symbol()');
+      expect(idSymbol.toString()).to.be.equal('Symbol(id)');
 
       const categorySymbol = model.symbols.get('category');
       expect(categorySymbol).to.be.an('symbol');
-      expect(categorySymbol.toString()).to.be.equal('Symbol()');
+      expect(categorySymbol.toString()).to.be.equal('Symbol(category)');
 
       const messageSymbol = model.symbols.get('message');
       expect(messageSymbol).to.be.an('symbol');
-      expect(messageSymbol.toString()).to.be.equal('Symbol()');
+      expect(messageSymbol.toString()).to.be.equal('Symbol(message)');
 
       const severitySymbol = model.symbols.get('severity');
       expect(severitySymbol).to.be.an('symbol');
-      expect(severitySymbol.toString()).to.be.equal('Symbol()');
+      expect(severitySymbol.toString()).to.be.equal('Symbol(severity)');
 
       const locationsSymbol = model.symbols.get('locations');
       expect(locationsSymbol).to.be.an('symbol');
-      expect(locationsSymbol.toString()).to.be.equal('Symbol()');
+      expect(locationsSymbol.toString()).to.be.equal('Symbol(locations)');
     });
   });
 };

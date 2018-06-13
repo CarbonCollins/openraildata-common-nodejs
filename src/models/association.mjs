@@ -1,8 +1,8 @@
 export const symbols = new Map()
-  .set('tiploc', Symbol())
-  .set('category', Symbol())
-  .set('main', Symbol())
-  .set('association', Symbol());
+  .set('tiploc', Symbol('tiploc'))
+  .set('category', Symbol('category'))
+  .set('main', Symbol('main'))
+  .set('association', Symbol('association'));
 
 /**
  * @class

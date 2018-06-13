@@ -1,8 +1,8 @@
 export const symbols = new Map()
-  .set('tiploc', Symbol())
-  .set('computerReservationSystem', Symbol())
-  .set('trainOperatingCompany', Symbol())
-  .set('locationName', Symbol());
+  .set('tiploc', Symbol('tiploc'))
+  .set('computerReservationSystem', Symbol('computerReservationSystem'))
+  .set('trainOperatingCompany', Symbol('trainOperatingCompany'))
+  .set('locationName', Symbol('locationName'));
 
 /**
  * @class

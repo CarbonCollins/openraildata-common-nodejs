@@ -115,19 +115,19 @@ module.exports = function () {
     it('symbol export should have correct mapping', function () {
       const tiplocSymbol = model.symbols.get('tiploc');
       expect(tiplocSymbol).to.be.an('symbol');
-      expect(tiplocSymbol.toString()).to.be.equal('Symbol()');
+      expect(tiplocSymbol.toString()).to.be.equal('Symbol(tiploc)');
 
       const categorySymbol = model.symbols.get('category');
       expect(categorySymbol).to.be.an('symbol');
-      expect(categorySymbol.toString()).to.be.equal('Symbol()');
+      expect(categorySymbol.toString()).to.be.equal('Symbol(category)');
 
       const mainSymbol = model.symbols.get('main');
       expect(mainSymbol).to.be.an('symbol');
-      expect(mainSymbol.toString()).to.be.equal('Symbol()');
+      expect(mainSymbol.toString()).to.be.equal('Symbol(main)');
 
       const associationSymbol = model.symbols.get('association');
       expect(associationSymbol).to.be.an('symbol');
-      expect(associationSymbol.toString()).to.be.equal('Symbol()');
+      expect(associationSymbol.toString()).to.be.equal('Symbol(association)');
     });
   });
 };

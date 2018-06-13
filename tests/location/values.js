@@ -60,19 +60,19 @@ module.exports = function () {
     it('symbol export should have correct mapping', function () {
       const tiplocSymbol = model.symbols.get('tiploc');
       expect(tiplocSymbol).to.be.an('symbol');
-      expect(tiplocSymbol.toString()).to.be.equal('Symbol()');
+      expect(tiplocSymbol.toString()).to.be.equal('Symbol(tiploc)');
 
       const computerReservationSystemSymbol = model.symbols.get('computerReservationSystem');
       expect(computerReservationSystemSymbol).to.be.an('symbol');
-      expect(computerReservationSystemSymbol.toString()).to.be.equal('Symbol()');
+      expect(computerReservationSystemSymbol.toString()).to.be.equal('Symbol(computerReservationSystem)');
 
       const trainOperatingCompanySymbol = model.symbols.get('trainOperatingCompany');
       expect(trainOperatingCompanySymbol).to.be.an('symbol');
-      expect(trainOperatingCompanySymbol.toString()).to.be.equal('Symbol()');
+      expect(trainOperatingCompanySymbol.toString()).to.be.equal('Symbol(trainOperatingCompany)');
 
       const locationNameSymbol = model.symbols.get('locationName');
       expect(locationNameSymbol).to.be.an('symbol');
-      expect(locationNameSymbol.toString()).to.be.equal('Symbol()');
+      expect(locationNameSymbol.toString()).to.be.equal('Symbol(locationName)');
     });
   });
 };

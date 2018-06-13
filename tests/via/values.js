@@ -117,19 +117,19 @@ module.exports = function () {
 
       expect(unit.at).to.be.an('object');
       expect(unit.at).to.be.an.instanceOf(Location);
-      expect(unit.at.tiploc).to.be.equal(nameConfig.at.tiploc);
+      expect(unit.at.tiploc).to.be.equal(locationConfig.tiploc);
 
       expect(unit.destination).to.be.an('object');
       expect(unit.destination).to.be.an.instanceOf(Location);
-      expect(unit.destination.tiploc).to.be.equal(nameConfig.destination.tiploc);
+      expect(unit.destination.tiploc).to.be.equal(locationConfig.tiploc);
 
       expect(unit.location1).to.be.an('object');
       expect(unit.location1).to.be.an.instanceOf(Location);
-      expect(unit.location1.tiploc).to.be.equal(nameConfig.location1.tiploc);
+      expect(unit.location1.tiploc).to.be.equal(locationConfig.tiploc);
 
       expect(unit.location2).to.be.an('object');
       expect(unit.location2).to.be.an.instanceOf(Location);
-      expect(unit.location2.tiploc).to.be.equal(nameConfig.location2.tiploc);
+      expect(unit.location2.tiploc).to.be.equal(locationConfig.tiploc);
 
       expect(unit.text).to.be.an('string');
       expect(unit.text).to.be.equal(nameConfig.text);

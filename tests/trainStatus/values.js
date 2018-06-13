@@ -58,19 +58,19 @@ module.exports = function () {
     it('symbol export should have correct mapping', function () {
       const ridSymbol = model.symbols.get('rid');
       expect(ridSymbol).to.be.an('symbol');
-      expect(ridSymbol.toString()).to.be.equal('Symbol()');
+      expect(ridSymbol.toString()).to.be.equal('Symbol(rid)');
 
       const uniqueIdSymbol = model.symbols.get('uniqueId');
       expect(uniqueIdSymbol).to.be.an('symbol');
-      expect(uniqueIdSymbol.toString()).to.be.equal('Symbol()');
+      expect(uniqueIdSymbol.toString()).to.be.equal('Symbol(uniqueId)');
 
       const serviceStartingDateSymbol = model.symbols.get('serviceStartingDate');
       expect(serviceStartingDateSymbol).to.be.an('symbol');
-      expect(serviceStartingDateSymbol.toString()).to.be.equal('Symbol()');
+      expect(serviceStartingDateSymbol.toString()).to.be.equal('Symbol(serviceStartingDate)');
 
-      const locationsSymbol = model.symbols.get('stations');
-      expect(locationsSymbol).to.be.an('symbol');
-      expect(locationsSymbol.toString()).to.be.equal('Symbol()');
+      const stationsSymbol = model.symbols.get('stations');
+      expect(stationsSymbol).to.be.an('symbol');
+      expect(stationsSymbol.toString()).to.be.equal('Symbol(stations)');
     });
   });
 };
