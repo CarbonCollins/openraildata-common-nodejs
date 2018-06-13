@@ -1,5 +1,8 @@
 # Change Log for common-nodejs
 
+## [v3.1.1](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.1)
+* Removed an unused CI job
+
 ## [v3.1.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.0)
 * Added Via model to package from referencedata-nodejs
 * Updated tests to cover new Via class

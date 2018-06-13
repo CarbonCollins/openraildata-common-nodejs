@@ -85,13 +85,13 @@ dependency_scanning:
         "registry.gitlab.com/gitlab-org/security-products/dependency-scanning:$SP_VERSION" /code
   artifacts:
     paths: [gl-dependency-scanning-report.json]
-clean:
-  stage: clean
-  only:
-    - tags
-    - triggers
-  script:
-    - yarn clean
+# clean:
+#   stage: clean
+#   only:
+#     - tags
+#     - triggers
+#   script:
+#     - yarn run clean
 publish NPM:
   stage: deploy
   only:
