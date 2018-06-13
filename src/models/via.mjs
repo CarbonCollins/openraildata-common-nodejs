@@ -39,9 +39,8 @@ function findLocation(searchTerm, locationArr) {
 
 /**
  * @class
- * @memberof module:openraildata/referencedata
- * @augments module:openraildata/referencedata.Via
- * @classdesc A cancellation reason
+ * @augments module:openrailuk/common#Via
+ * @classdesc model for via messages
  */
 export class Via {
   /**
@@ -59,7 +58,7 @@ export class Via {
 
   /**
    * @member {String} at
-   * @memberof module:openraildata/referencedata.Via
+   * @memberof module:openrailuk/common#Via
    * @description at which point this via is in effect
    * @instance
    * @public
@@ -70,7 +69,7 @@ export class Via {
 
   /**
    * @member {String} destination
-   * @memberof module:openraildata/referencedata.Via
+   * @memberof module:openrailuk/common#Via
    * @description at which point this via is no longer in effect
    * @instance
    * @public
@@ -81,7 +80,7 @@ export class Via {
 
   /**
    * @member {String} location1
-   * @memberof module:openraildata/referencedata.Via
+   * @memberof module:openrailuk/common#Via
    * @description the location for the via text
    * @instance
    * @public
@@ -92,7 +91,7 @@ export class Via {
 
   /**
    * @member {String} location2
-   * @memberof module:openraildata/referencedata.Via
+   * @memberof module:openrailuk/common#Via
    * @description a secondary location for the via text
    * @instance
    * @public
@@ -103,7 +102,7 @@ export class Via {
 
   /**
    * @member {String} text
-   * @memberof module:openraildata/referencedata.Via
+   * @memberof module:openrailuk/common#Via
    * @description a human readable via text to be displayed 
    * @instance
    * @public
