@@ -5,6 +5,7 @@ import * as station from './models/station';
 import * as stationMessage from './models/stationMessage';
 import * as trainOrder from './models/trainOrder';
 import * as trainStatus from './models/trainStatus';
+import * as via from './models/via';
 
 export let Association = association.Association;
 export const associationMixer = (mixin) => {
@@ -39,6 +40,11 @@ export const trainOrderMixer = (mixin) => {
 export let TrainStatus = trainStatus.TrainStatus;
 export const trainStatusMixer = (mixin) => {
   TrainStatus = mixin(TrainStatus, trainStatus.symbols);
+}
+
+export let Via = via.Via;
+export const viaMixer = (mixin) => {
+  Via = mixin(Via, via.symbols);
 }
 
 schedule.injectStation(Station); // inject potentialy mixed station object by reference

@@ -10,6 +10,7 @@ const { Station } = require('../../lib/es5/models/station');
 const { StationMessage } = require('../../lib/es5/models/stationMessage');
 const { TrainOrder } = require('../../lib/es5/models/trainOrder');
 const { TrainStatus } = require('../../lib/es5/models/trainStatus');
+const { Via } = require('../../lib/es5/models/via');
 
 
 module.exports = function () {
@@ -17,7 +18,7 @@ module.exports = function () {
     it('Should export', function() {
       expect(model).to.be.an('object');
 
-      expect(model).to.have.all.keys(['Association', 'associationMixer', 'Location', 'locationMixer', 'Schedule', 'scheduleMixer', 'Station', 'stationMixer', 'StationMessage', 'stationMessageMixer', 'TrainOrder', 'trainOrderMixer', 'TrainStatus', 'trainStatusMixer']);
+      expect(model).to.have.all.keys(['Association', 'associationMixer', 'Location', 'locationMixer', 'Schedule', 'scheduleMixer', 'Station', 'stationMixer', 'StationMessage', 'stationMessageMixer', 'TrainOrder', 'trainOrderMixer', 'TrainStatus', 'trainStatusMixer', 'Via', 'viaMixer']);
     });
 
     it('Should export Association Class', function () {
@@ -95,6 +96,17 @@ module.exports = function () {
       expect(unit).to.exist;
       expect(unit).to.be.an('object');
       expect(unit).to.be.an.instanceof(TrainStatus);
+    });
+
+    it('Should export Via Class', function () {
+      expect(model.Via).to.exist;
+      expect(model.Via).to.be.an('function');
+
+      const unit = new model.Via();
+
+      expect(unit).to.exist;
+      expect(unit).to.be.an('object');
+      expect(unit).to.be.an.instanceof(Via);
     });
   });
 };

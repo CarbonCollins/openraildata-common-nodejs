@@ -1,0 +1,27 @@
+{
+  "at": {
+    "tiploc": "at",
+    "computerReservationSystem": "computerReservationSystem",
+    "trainOperatingCompany": "trainOperatingCompany",
+    "locationName": "at"
+  },
+  "destination": {
+    "tiploc": "destination",
+    "computerReservationSystem": "computerReservationSystem",
+    "trainOperatingCompany": "trainOperatingCompany",
+    "locationName": "destination"
+  },
+  "location1": {
+    "tiploc": "location1",
+    "computerReservationSystem": "computerReservationSystem",
+    "trainOperatingCompany": "trainOperatingCompany",
+    "locationName": "location1"
+  },
+  "location2": {
+    "tiploc": "location2",
+    "computerReservationSystem": "computerReservationSystem",
+    "trainOperatingCompany": "trainOperatingCompany",
+    "locationName": "location2"
+  },
+  "text": "testText"
+}

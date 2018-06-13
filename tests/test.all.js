@@ -1,5 +1,3 @@
-const { expect } = require('chai');
-
 const moduleSuite = require('./module/module');
 
 const commonSuite = require('./common/common');
@@ -11,8 +9,7 @@ const stationSuite = require('./station/station');
 const stationMessageSuite = require('./stationMessage/stationMessage');
 const trainOrderSuite = require('./trainOrder/trainOrder');
 const trainStatusSuite = require('./trainStatus/trainStatus');
-
-const Module = require('../index');
+const viaSuite = require('./via/via');
 
 describe('@openrailuk/common test suite', function () {
   moduleSuite();
@@ -24,4 +21,5 @@ describe('@openrailuk/common test suite', function () {
   stationMessageSuite();
   trainOrderSuite();
   trainStatusSuite();
+  viaSuite();
 });
