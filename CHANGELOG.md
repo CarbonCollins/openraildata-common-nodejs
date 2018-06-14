@@ -1,5 +1,8 @@
 # Change Log for common-nodejs
 
+## [v3.1.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.2)
+* Fixed issued [#1](https://gitlab.com/openrail/uk/common-nodejs/issues/1) regarding no default export
+
 ## [v3.1.1](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.1)
 * Removed an unused CI job
 
