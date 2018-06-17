@@ -1,16 +1,17 @@
 export const symbols = new Map()
   .set('rid', Symbol('rid'))
-  .set('serviceStartingDate', Symbol('serviceStartingDate'))
-  .set('trainOperatingCompany', Symbol('trainOperatingCompany'))
-  .set('trainId', Symbol('trainId'))
-  .set('uniqueId', Symbol('uniqueId'))
+  .set('serviceStartingDate', Symbol('service starting date'))
+  .set('trainOperatingCompany', Symbol('train operating company'))
+  .set('trainId', Symbol('train id'))
+  .set('uniqueId', Symbol('unique id'))
   .set('origin', Symbol('origin'))
   .set('destination', Symbol('destination'))
-  .set('passingPoints', Symbol('passingPoints'))
-  .set('intermediatePoints', Symbol('intermediatePoints'))
-  .set('operationalOrigin', Symbol('operationalOrigin'))
-  .set('operationalDestination', Symbol('operationalDestination'))
-  .set('operationalIntermediatePoints', Symbol('operationalIntermediatePoints'));
+  .set('passingPoints', Symbol('passing points'))
+  .set('intermediatePoints', Symbol('intermediate points'))
+  .set('operationalOrigin', Symbol('operational origin'))
+  .set('operationalDestination', Symbol('operational destination'))
+  .set('operationalIntermediatePoints', Symbol('operational intermediate points'))
+  .set('qTrain', Symbol('q train'));
 
 let Station = class Station {}; // placeholder class
 
@@ -45,6 +46,7 @@ export class Schedule {
     this[symbols.get('passingPoints')] = payload.passingPoints;
     this[symbols.get('intermediatePoints')] = payload.intermediatePoints;
     this[symbols.get('operationalIntermediatePoints')] = payload.operationalIntermediatePoints;
+    this[symbols.get('qTrain')] = payload.qTrain;
   }
 
   /**
@@ -131,6 +133,17 @@ export class Schedule {
   }
 
   /**
+   * @description True if this is a Q Train (runs as required) that has not yet been activated.
+   * Note that a Q Train that has been activated before the XML Timetable file has been built will
+   * not have this attribute set true.
+   * @readonly
+   * @memberof Schedule
+   */
+  get qTrain() {
+    return this[symbols.get('qTrain')] || null;
+  }
+
+  /**
    * @member {Station[]} operationalStops
    * @memberof module:openrailuk/common#Schedule
    * @description returns all operational intermediate stops
@@ -180,5 +193,15 @@ export class Schedule {
     return (this[type] || this[operationalType])
       ? new Station(this[type] || this[operationalType])
       : null;
+  }
+
+  /**
+   * @description determins if the train is of q type
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @returns {boolean}
+   * @memberof Schedule
+   */
+  isQTrain() {
+    return (this[symbols.get('qTrain')] && this[symbols.get('qTrain')] === true) || false;
   }
 }
