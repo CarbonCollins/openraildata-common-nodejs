@@ -1,5 +1,9 @@
 # Change Log for common-nodejs
 
+## [v3.2.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.2.0)
+* Added missing values to schedule model. These include `category`, `passengerService`, and `qTrain`
+* Added some accessor functions to schedule model. Thes include `isQTrain` and `isPassengerService`
+
 ## [v3.1.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.2)
 * Fixed issued [#1](https://gitlab.com/openrail/uk/common-nodejs/issues/1) regarding no default export
 
