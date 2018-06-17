@@ -41,6 +41,7 @@ module.exports = function () {
         expect(returnedSet).to.be.equal(true);
       });
     });
+
     describe('isClear() tests', function () {
       it('Should exist', function () {
         const unit = new model.TrainOrder();

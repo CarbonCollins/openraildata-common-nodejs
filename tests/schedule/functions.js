@@ -5,6 +5,7 @@ let model = require('../../lib/es5/models/schedule');
 const { Station } = require('../../lib/es5/models/station');
 
 const standardConfig = require('../templates/schedule/schedule.json');
+const standardConfigQTrain = require('../templates/schedule/scheduleQTrain.json');
 
 module.exports = function () {
   describe('Functional suite', function () {
@@ -321,5 +322,71 @@ module.exports = function () {
         model=require('../../lib/es5/models/schedule')
       });
     })
+
+    describe('isQTrain() tests', function () {
+      it('Should exist', function () {
+        const unit = new model.Schedule();
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        expect(unit.isQTrain).to.exist;
+        expect(unit.isQTrain).to.be.an('function');
+      });
+
+      it('Should return a false boolean', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedQTrain = unit.isQTrain();
+
+        expect(returnedQTrain).to.be.an('boolean');
+        expect(returnedQTrain).to.be.equal(false);
+      });
+
+      it('Should return a true boolean', function () {
+        const unit = new model.Schedule(standardConfigQTrain);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedQTrain = unit.isQTrain();
+
+        expect(returnedQTrain).to.be.an('boolean');
+        expect(returnedQTrain).to.be.equal(true);
+      });
+    });
+
+    describe('isPassengerService() tests', function () {
+      it('Should exist', function () {
+        const unit = new model.Schedule();
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        expect(unit.isPassengerService).to.exist;
+        expect(unit.isPassengerService).to.be.an('function');
+      });
+
+      it('Should return a false boolean', function () {
+        const unit = new model.Schedule(standardConfig);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedQTrain = unit.isPassengerService();
+
+        expect(returnedQTrain).to.be.an('boolean');
+        expect(returnedQTrain).to.be.equal(false);
+      });
+
+      it('Should return a true boolean', function () {
+        const unit = new model.Schedule(standardConfigQTrain);
+
+        expect(unit).to.be.an.instanceOf(model.Schedule);
+
+        const returnedQTrain = unit.isPassengerService();
+
+        expect(returnedQTrain).to.be.an('boolean');
+        expect(returnedQTrain).to.be.equal(true);
+      });
+    });
   });
 };
