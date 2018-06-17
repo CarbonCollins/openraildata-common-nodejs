@@ -11,7 +11,9 @@ export const symbols = new Map()
   .set('operationalOrigin', Symbol('operational origin'))
   .set('operationalDestination', Symbol('operational destination'))
   .set('operationalIntermediatePoints', Symbol('operational intermediate points'))
-  .set('qTrain', Symbol('q train'));
+  .set('qTrain', Symbol('q train'))
+  .set('category', Symbol('category'))
+  .set('passengerService', Symbol('passenger service'));
 
 let Station = class Station {}; // placeholder class
 
@@ -38,6 +40,8 @@ export class Schedule {
     this[symbols.get('trainOperatingCompany')] = payload.trainOperatingCompany;
     this[symbols.get('trainId')] = payload.trainId;
     this[symbols.get('uniqueId')] = payload.uniqueId;
+    this[symbols.get('category')] = payload.category;
+    this[symbols.get('passengerService')] = payload.passengerService;
 
     this[symbols.get('origin')] = payload.origin;
     this[symbols.get('operationalOrigin')] = payload.operationalOrigin;
@@ -46,6 +50,7 @@ export class Schedule {
     this[symbols.get('passingPoints')] = payload.passingPoints;
     this[symbols.get('intermediatePoints')] = payload.intermediatePoints;
     this[symbols.get('operationalIntermediatePoints')] = payload.operationalIntermediatePoints;
+
     this[symbols.get('qTrain')] = payload.qTrain;
   }
 
@@ -144,6 +149,24 @@ export class Schedule {
   }
 
   /**
+   * @description type of service 
+   * @readonly
+   * @memberof Schedule
+   */
+  get category() {
+    return this[symbols.get('category')] || null;
+  }
+
+  /**
+   * @description determins if this chedule is a passenger service or not
+   * @readonly
+   * @memberof Schedule
+   */
+  get passengerService() {
+    return this[symbols.get('passengerService')] || false;
+  }
+
+  /**
    * @member {Station[]} operationalStops
    * @memberof module:openrailuk/common#Schedule
    * @description returns all operational intermediate stops
@@ -203,5 +226,17 @@ export class Schedule {
    */
   isQTrain() {
     return (this[symbols.get('qTrain')] && this[symbols.get('qTrain')] === true) || false;
+  }
+
+  /**
+   * @description determins if this service is a passenger servic or not. General rule of thumb is
+   * if the category is 'OL', 'OO', 'OW', 'XC', 'XD', 'XI', 'XR', 'XX' or 'XZ' then it will be a
+   * passenger service
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @returns {boolean}
+   * @memberof Schedule
+   */
+  isPassengerService() {
+    return (this[symbols.get('passengerService')] && this[symbols.get('passengerService')] === true) || false;
   }
 }
