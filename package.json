@@ -1,11 +1,11 @@
 {
   "name": "@openrailuk/common",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "displayName": "Open Rail UK Common",
   "description": "A package for common files and functions between the various @openrailuk packages",
   "license": "MIT",
   "icon": "https://gitlab.com/openrail/uk/common-nodejs/uploads/50f97b38ea92856a141a4e9898671491/common.svg",
-  "main": "index.js",
+  "main": "index",
   "module": "index.mjs",
   "homepage": "https://gitlab.com/openrail/uk/common-nodejs/wikis/home",
   "keywords": [
