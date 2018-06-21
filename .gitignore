@@ -63,3 +63,5 @@ coverage/
 tests.old/
 mochawesome-report/
 quality/
+.gitmodules
+docs/wiki
