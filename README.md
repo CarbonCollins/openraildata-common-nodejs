@@ -6,6 +6,7 @@
 [![status](https://img.shields.io/badge/status-WIP-yellow.svg)](https://gitlab.com/openrail/uk/common-nodejs)
 [![pipeline](https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg)](https://gitlab.com/openrail/uk/common-nodejs/commits/master)
 [![coverage](https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg)](https://gitlab.com/openrail/uk/common-nodejs/commits/master)
+[![slack](https://open-rail-slack-invite.herokuapp.com/badge.svg)](https://open-rail-slack-invite.herokuapp.com/)
 
 A package for common files and functions between the various open rail UK packages
 
