@@ -1,5 +1,8 @@
 # Change Log for common-nodejs
 
+## [v3.2.3](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.2.3)
+* Added slack badge to readme
+
 ## [v3.2.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.2.2)
 * Removed .gitmodules as its only for dev use
 * Removed docs/wiki as this was a sub module for dev
@@ -12,6 +15,8 @@
 * Added missing values to schedule model. These include `category`, `passengerService`, and `qTrain`
 * Added some accessor functions to schedule model. This include `isQTrain` and `isPassengerService`
 
+* Added slack invite badge to readme
+* 
 ## [v3.1.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.1.2)
 * Fixed issued [#1](https://gitlab.com/openrail/uk/common-nodejs/issues/1) regarding no default export
 
