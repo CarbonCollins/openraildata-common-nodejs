@@ -22,6 +22,9 @@ module.exports = function () {
       expect(unit.uniqueId).to.be.equal(null);
       expect(unit.origin).to.be.equal(null);
       expect(unit.destination).to.be.equal(null);
+      expect(unit.qTrain).to.be.equal(false);
+      expect(unit.category).to.be.equal(null);
+      expect(unit.passengerService).to.be.equal(false);
       expect(unit.passingPoints).to.be.an('array');
       expect(unit.passingPoints).to.have.lengthOf(0);
       expect(unit.intermediatePoints).to.be.an('array');
@@ -85,6 +88,13 @@ module.exports = function () {
       });
       expect(unit.intermediatePoints).to.have.lengthOf(1);
       expect(unit.intermediatePoints[0].tiploc).to.be.equal('IP');
+
+      expect(unit.qTrain).to.be.an('boolean');
+      expect(unit.qTrain).to.be.equal(false);
+      expect(unit.category).to.be.an('string');
+      expect(unit.category).to.be.equal('OO');
+      expect(unit.passengerService).to.be.an('boolean');
+      expect(unit.passengerService).to.be.equal(false);
 
       expect(unit.operationalStops).to.be.an('array');
       expect(unit.operationalStops).to.have.lengthOf(1);

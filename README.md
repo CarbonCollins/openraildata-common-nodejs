@@ -29,6 +29,8 @@ import * as common from '@openrailuk/common');
 an example of using the classes:
 
 ```javascript
+import { Station } from '@openrailuk/common';
+
 const station = new Station(stationRefDataJSON);
 
 console.log(station.plannedTimeOfArrival);
@@ -37,7 +39,9 @@ console.log(station.plannedTimeOfArrival);
 or if you want to convert a large array of stations 'stationArr' into there respective Station class:
 
 ```javascript
-const stations = stationArr.map(station => new common.Station(station));
+import { Station } from '@openrailuk/common';
+
+const stations = stationArr.map(station => new Station(station));
 ```
 
 Mixins can be applied to all of the base models that this package provides. A sample mixin would be as follows:
