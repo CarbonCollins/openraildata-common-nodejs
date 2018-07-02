@@ -10,5 +10,7 @@
     "operationalDestination": { "tiploc": "OPDT" },
     "passingPoints": [{ "tiploc": "PP" }],
     "intermediatePoints": [{ "tiploc": "IP" }],
-    "operationalIntermediatePoints": [{ "tiploc": "OPIP" }]
+    "operationalIntermediatePoints": [{ "tiploc": "OPIP" }],
+    "category": "OO",
+    "qTrain": false
 }
