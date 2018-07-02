@@ -4,7 +4,7 @@ stages:
   - test
   - post_test
   - deploy
-compile_ES5:
+build_commonjs:
   stage: build
   cache:
     key: "${CI_COMMIT_REF_SLUG}"
@@ -18,8 +18,8 @@ compile_ES5:
   script:
     - yarn install
     - ./node_modules/.bin/gulp compileES5
-compile_quality:
-  stage: compile
+build_quality:
+  stage: build
   script:
     - yarn compileQuality
   artifacts:
@@ -27,11 +27,11 @@ compile_quality:
     paths:
       - quality/
     expire_in: 1 hour
-test_ES5_Node_6:
+test_commonjs_Node_6:
   stage: test
   image: node:6
   dependencies:
-    - compile_ES5
+    - build_commonjs
   cache:
     key: "${CI_COMMIT_REF_SLUG}"
     paths:
@@ -40,11 +40,11 @@ test_ES5_Node_6:
   script:
     - yarn install
     - yarn test
-test_ES5_Node_8:
+test_commonjs_Node_8:
   stage: test
   image: node:8
   dependencies:
-    - compile_ES5
+    - build_commonjs
   cache:
     key: "${CI_COMMIT_REF_SLUG}"
     paths:
@@ -53,11 +53,11 @@ test_ES5_Node_8:
   script:
     - yarn install
     - yarn test
-test_ES5_Node_10:
+test_commonjs_Node_10:
   stage: test
   image: node:10
   dependencies:
-    - compile_ES5
+    - build_commonjs
   cache:
     key: "${CI_COMMIT_REF_SLUG}"
     paths:
@@ -66,11 +66,11 @@ test_ES5_Node_10:
   script:
     - yarn install
     - yarn test
-test_ES5_Node_latest:
+test_commonjs_Node_latest:
   stage: test
   image: node:latest
   dependencies:
-    - compile_ES5
+    - build_commonjs
   cache:
     key: "${CI_COMMIT_REF_SLUG}"
     paths:
@@ -94,7 +94,7 @@ code_coverage:
   script:
     - "./node_modules/.bin/nyc report --reporter=\"text-summary\" --reporter=\"lcov\""
   dependencies:
-    - test_ES5_Node_latest
+    - test_commonjs_Node_latest
   artifacts:
     paths:
       - coverage/lcov-report/
@@ -107,7 +107,7 @@ code_quality:
     DOCKER_DRIVER: overlay2
   allow_failure: true
   dependencies:
-    - compile_quality
+    - build_quality
   services:
     - docker:stable-dind
   script:
