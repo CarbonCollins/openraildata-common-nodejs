@@ -12,5 +12,6 @@
     "intermediatePoints": [{ "tiploc": "IP" }],
     "operationalIntermediatePoints": [{ "tiploc": "OPIP" }],
     "qTrain": true,
+    "category": "OO",
     "passengerService": true
 }

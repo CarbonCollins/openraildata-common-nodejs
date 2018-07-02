@@ -1,62 +1,119 @@
 image: node:latest
-cache:
-  paths:
-  - node_modules/
-  - lib/
-  - coverage/
-  - mochawesome-report/
-  - quality/
 stages:
-  - prepare
-  - compile
+  - build
   - test
-  - post test
-  - clean
+  - post_test
   - deploy
-install dependencies:
-  stage: prepare
+build_commonjs:
+  stage: build
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+    - node_modules/
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
+    paths:
+      - lib/
+    expire_in: 1 hour
   script:
     - yarn install
-compile ES5:
-  stage: compile
+    - ./node_modules/.bin/gulp compileES5
+build_quality:
+  stage: build
   script:
-    - yarn compile
-compile quality:
-  stage: compile
-  script:
+    - yarn install
     - yarn compileQuality
-test ES5 Node 6:
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+    - node_modules/
+    policy: pull
+  artifacts:
+    name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME-Quality"
+    paths:
+      - quality/
+    expire_in: 1 hour
+test_commonjs_Node_6:
   stage: test
   image: node:6
+  dependencies:
+    - build_commonjs
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - node_modules/
+    policy: pull
   script:
+    - yarn install
     - yarn test
-test ES5 Node 8:
+test_commonjs_Node_8:
   stage: test
   image: node:8
+  dependencies:
+    - build_commonjs
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - node_modules/
+    policy: pull
   script:
+    - yarn install
     - yarn test
-test ES5 Node latest:
+test_commonjs_Node_10:
+  stage: test
+  image: node:10
+  dependencies:
+    - build_commonjs
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - node_modules/
+    policy: pull
+  script:
+    - yarn install
+    - yarn test
+test_commonjs_Node_latest:
   stage: test
   image: node:latest
+  dependencies:
+    - build_commonjs
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - node_modules/
+    policy: pull
   script:
-    - yarn test
-code coverage:
-  stage: post test
-  image: node:latest
-  allow_failure: true
-  script:
-    - yarn coverage
+    - yarn install
+    - "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" yarn test"
   artifacts:
     paths:
-      - mochawesome-report/mochawesome.html
+      - .nyc_output/
+code_coverage:
+  stage: post_test
+  image: node:latest
+  allow_failure: true
+  cache:
+    key: "${CI_COMMIT_REF_SLUG}"
+    paths:
+      - node_modules/
+    policy: pull
+  script:
+    - "./node_modules/.bin/nyc report --reporter=\"text-summary\" --reporter=\"lcov\""
+  dependencies:
+    - test_commonjs_Node_latest
+  artifacts:
+    paths:
       - coverage/lcov-report/
+    expire_in: 1 day
   coverage: '/^Statements\s*:\s*([^%]+)/'
 code_quality:
   image: docker:latest
-  stage: post test
+  stage: post_test
   variables:
     DOCKER_DRIVER: overlay2
   allow_failure: true
+  dependencies:
+    - build_quality
   services:
     - docker:stable-dind
   script:
@@ -70,7 +127,7 @@ code_quality:
     paths: [gl-code-quality-report.json]
 dependency_scanning:
   image: docker:latest
-  stage: post test
+  stage: post_test
   variables:
     DOCKER_DRIVER: overlay2
   allow_failure: true
@@ -85,14 +142,7 @@ dependency_scanning:
         "registry.gitlab.com/gitlab-org/security-products/dependency-scanning:$SP_VERSION" /code
   artifacts:
     paths: [gl-dependency-scanning-report.json]
-# clean:
-#   stage: clean
-#   only:
-#     - tags
-#     - triggers
-#   script:
-#     - yarn run clean
-publish NPM:
+publish_NPM:
   stage: deploy
   only:
     - tags
@@ -100,15 +150,3 @@ publish NPM:
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - npm publish --scope=@openrailuk --access=public
-# report upload:
-#   stage: deploy
-#   script:
-#     - mv coverage/ public/
-#     - mv mochawesome-report/ public/
-#   artifacts:
-#     paths:
-#       - public
-#     expire_in: 30 days
-#   only:
-#     - master
-#     - tags
