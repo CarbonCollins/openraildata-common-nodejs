@@ -26,7 +26,7 @@ gulp.task('clean-lib-es6', () => {
 gulp.task('transpile', ['clean-lib-es5'], () => {
   return gulp.src(['src/**/*.mjs'])
     .pipe(babel({
-      presets: ['env']
+      presets: ['node6']
     }))
     .pipe(gulp.dest('lib/es5'));
 });

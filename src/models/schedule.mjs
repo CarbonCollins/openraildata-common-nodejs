@@ -145,7 +145,7 @@ export class Schedule {
    * @memberof Schedule
    */
   get qTrain() {
-    return this[symbols.get('qTrain')] || null;
+    return this[symbols.get('qTrain')] || false;
   }
 
   /**
