@@ -1,5 +1,14 @@
 # Change Log for common-nodejs
 
+
+## [v3.3.1](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.1)
+* Fixed issue [#2](https://gitlab.com/openrail/uk/common-nodejs/issues/2)
+* added missing changelog entry for v3.3.0
+
+## [v3.3.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.0)
+* Changes babel preset from env to node6`
+* fixes issues raised in uk/referencedata-nodejs #1
+
 ## [v3.2.3](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.2.3)
 * Added slack badge to readme
 
