@@ -5,6 +5,10 @@ export const symbols = new Map()
   .set('severity', Symbol('severity'))
   .set('locations', Symbol('locations'));
 
+/**
+ * @external Location
+ * @see {@link https://openrail.gitlab.io/docs/uk/common/Location}
+ */
 let Location = class Location {}; // place holder class
 
 export function injectLocation(location) {
@@ -16,8 +20,7 @@ export function injectLocation(location) {
 /**
  * @class
  * @classdesc A class for housing station messages
- * @augments module:openrailuk/common#StationMessage
- * @instance
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class StationMessage {
 
@@ -37,7 +40,8 @@ export class StationMessage {
 
   /**
    * @member {String} id gets the id of the station message
-   * @memberof module:openrailuk/common#StationMessage
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof StationMessage
    * @instance
    * @readonly
    */
@@ -47,7 +51,8 @@ export class StationMessage {
 
   /**
    * @member {stationCategory} category gets the id of the station message
-   * @memberof module:openrailuk/common#StationMessage
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof StationMessage
    * @instance
    * @readonly
    */
@@ -57,7 +62,8 @@ export class StationMessage {
 
   /**
    * @member {String} message gets the message of the station message
-   * @memberof module:openrailuk/common#StationMessage
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof StationMessage
    * @instance
    * @readonly
    */
@@ -67,7 +73,8 @@ export class StationMessage {
 
   /**
    * @member {Number} severity gets the numerical severity of the station message
-   * @memberof module:openrailuk/common#StationMessage
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof StationMessage
    * @instance
    * @readonly
    */
@@ -79,7 +86,8 @@ export class StationMessage {
 
   /**
    * @member {String} severityString get the readable format of the severity of the station message
-   * @memberof module:openrailuk/common#StationMessage
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof StationMessage
    * @see {@link http://nrodwiki.rockshore.net/index.php/Darwin:Station_Message_Element#Severities}
    * @instance
    * @readonly
@@ -99,8 +107,9 @@ export class StationMessage {
   }
 
   /**
-   * @member {Location[]} locations gets the list of station locations that the station message applied too
-   * @memberof module:openrailuk/common#StationMessage
+   * @member {external:Location[]} locations gets the list of station locations that the station message applied too
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof StationMessage
    * @instance
    * @readonly
    */

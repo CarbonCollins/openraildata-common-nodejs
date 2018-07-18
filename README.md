@@ -66,4 +66,4 @@ common.stationMixer(mixin);
 
 # documentation
 
-You might be wondering where to find information about how to use this package, fear not all documentation can be found on the [wiki](https://gitlab.com/openrail/uk/common-nodejs/wikis/home)
+You might be wondering where to find information about how to use this package, fear not all documentation for open rail packages can be found on the [doc site](https://openrail.gitlab.com) and documentation specific to this package can be found under [@openrailuk/common](https://openrail.gitlab.com/docs/uk/common)
