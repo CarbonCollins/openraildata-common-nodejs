@@ -5,6 +5,10 @@ export const symbols = new Map()
   .set('location2', Symbol('location2'))
   .set('text', Symbol('text'));
 
+/**
+ * @external Location
+ * @see {@link https://openrail.gitlab.io/docs/uk/common/Location}
+ */
 let Location = class Location {}; // place holder class
 
 export function injectLocation(location) {
@@ -39,8 +43,8 @@ function findLocation(searchTerm, locationArr) {
 
 /**
  * @class
- * @augments module:openrailuk/common#Via
  * @classdesc model for via messages
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class Via {
   /**
@@ -57,9 +61,10 @@ export class Via {
   }
 
   /**
-   * @member {String} at
-   * @memberof module:openrailuk/common#Via
    * @description at which point this via is in effect
+   * @member {String} at
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Via
    * @instance
    * @public
    */
@@ -68,9 +73,10 @@ export class Via {
   }
 
   /**
-   * @member {String} destination
-   * @memberof module:openrailuk/common#Via
    * @description at which point this via is no longer in effect
+   * @member {String} destination
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Via
    * @instance
    * @public
    */
@@ -79,9 +85,10 @@ export class Via {
   }
 
   /**
-   * @member {String} location1
-   * @memberof module:openrailuk/common#Via
    * @description the location for the via text
+   * @member {String} location1
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Via
    * @instance
    * @public
    */
@@ -90,9 +97,10 @@ export class Via {
   }
 
   /**
-   * @member {String} location2
-   * @memberof module:openrailuk/common#Via
    * @description a secondary location for the via text
+   * @member {String} location2
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Via
    * @instance
    * @public
    */
@@ -101,9 +109,10 @@ export class Via {
   }
 
   /**
-   * @member {String} text
-   * @memberof module:openrailuk/common#Via
    * @description a human readable via text to be displayed 
+   * @member {String} text
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Via
    * @instance
    * @public
    */

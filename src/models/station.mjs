@@ -12,8 +12,7 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc a class for storing data about a station and to supply helpful functions for manipulating the data
- * @augments module:openrailuk/common#Station
- * @instance
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class Station {
   /**
@@ -35,7 +34,8 @@ export class Station {
 
   /**
    * @member {tpl} tiploc gets the TIPLOC code for this station
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -45,7 +45,8 @@ export class Station {
 
   /**
    * @member {act} action gets the action at this station
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -55,7 +56,8 @@ export class Station {
 
   /**
    * @member {pta} plannedTimeOfArrival gets the planned time of arrival (public facing)
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -65,7 +67,8 @@ export class Station {
 
   /**
    * @member {ptd} plannedTimeOfDeparture gets the planned time of departure (public facing)
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -75,7 +78,8 @@ export class Station {
 
   /**
    * @member {wta} workingTimeOfArrival gets the working time of arrival for the train (hidden form pulic view)
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -85,7 +89,8 @@ export class Station {
 
   /**
    * @member {wtd} workingTimeOfDeparture gets the working time of departure for the train (hidden form pulic view)
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -95,7 +100,8 @@ export class Station {
 
   /**
    * @member {Boolean} operational is the station an operational station
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -105,7 +111,8 @@ export class Station {
 
   /**
    * @member {plat} platform is the platform number (if known)
-   * @memberof module:openrailuk/common#Station
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @instance
    * @readonly
    */
@@ -114,9 +121,9 @@ export class Station {
   }
 
   /**
-   * @method module:openrailuk/common#Station~isPlatformSuppressed
    * @description determines if the platform is to be suppressed form public view
-   * @alias platsup
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
    * @returns {Boolean}
    */
   isPlatformSuppressed() {

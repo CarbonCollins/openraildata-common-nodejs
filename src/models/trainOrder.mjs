@@ -8,8 +8,7 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc a class for storing trainOrder message and to provide helpfull functions
- * @augments module:openrailuk/common#TrainOrder
- * @instance
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class TrainOrder {
   /**
@@ -26,7 +25,8 @@ export class TrainOrder {
 
   /**
    * @member {crs} computerReservationSystem gets the crs (computer reservation system) code
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -36,7 +36,8 @@ export class TrainOrder {
 
   /**
    * @member {plat} platform gets the platform identifier
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -46,7 +47,8 @@ export class TrainOrder {
 
   /**
    * @member {tpl} tiploc gets the tiploc code
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -56,7 +58,8 @@ export class TrainOrder {
 
   /**
    * @member {Object} set gets all of the set information for the train order
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -66,7 +69,8 @@ export class TrainOrder {
 
   /**
    * @member {Object} first gets the first train in the set object
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -76,7 +80,8 @@ export class TrainOrder {
 
   /**
    * @member {Object} second gets the first train in the set object
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -86,7 +91,8 @@ export class TrainOrder {
 
   /**
    * @member {Object} third gets the first train in the set object
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -96,7 +102,8 @@ export class TrainOrder {
 
   /**
    * @member {Object} clear gets all of the clear information for the train order
-   * @memberof module:openrailuk/common#TrainOrder
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @instance
    * @readonly
    */
@@ -105,8 +112,9 @@ export class TrainOrder {
   }
 
   /**
-   * @method module:openrailuk/common#TrainOrder~isSet
    * @description determines if the train order is a set type
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @returns {Boolean}
    * @instance
    * @readonly
@@ -116,8 +124,9 @@ export class TrainOrder {
   }
 
   /**
-   * @method module:openrailuk/common#TrainOrder~isClear
    * @description determines if the train order is a clear type
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @returns {Boolean}
    * @instance
    * @readonly
@@ -127,8 +136,9 @@ export class TrainOrder {
   }
 
   /**
-   * @method module:openrailuk/common#TrainOrder~getSetTrain
    * @description gets a train set: `first`, `second`, or `third`
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainOrder
    * @returns {Object}
    * @private
    */
