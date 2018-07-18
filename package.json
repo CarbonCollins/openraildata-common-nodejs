@@ -27,7 +27,8 @@
   },
   "scripts": {
     "prepublishOnly": "gulp compile",
-    "publish-npm": "npm publish --scope=@openrailuk --access=public",
+    "publish:npm": "npm publish --scope=@openrailuk --access=public",
+    "publish:npm:next": "npm publish --scope=@openrailuk --access=public --tag=next",
     "pretest": "gulp compile",
     "test": "mocha ./tests/test.all.js",
     "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
