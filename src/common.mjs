@@ -1,3 +1,9 @@
+
+/**
+ * @module openrailuk/common
+ * @description A package for common files and functions between the various open rail UK packages
+ */
+
 import * as association from './models/association';
 import * as location from './models/location';
 import * as schedule from './models/schedule';
@@ -50,4 +56,3 @@ export const viaMixer = (mixin) => {
 schedule.injectStation(Station); // inject potentialy mixed station object by reference
 trainStatus.injectStation(Station); // inject potentialy mixed station object by reference
 stationMessage.injectLocation(Location); // inject potentialy mixed location object by reference
-via.injectLocation(Location); // inject potentialy mixed location object by reference

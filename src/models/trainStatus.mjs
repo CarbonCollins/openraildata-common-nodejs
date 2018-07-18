@@ -15,6 +15,11 @@ export const symbols = new Map()
   .set('serviceStartingDate', Symbol('serviceStartingDate'))
   .set('stations', Symbol('stations'))
 
+
+/**
+ * @external Station
+ * @see {@link https://openrail.gitlab.io/docs/uk/common/Station}
+ */
 let Station = class Station {}; // placeholder class
 
 export function injectStation(station) {
@@ -26,8 +31,7 @@ export function injectStation(station) {
 /**
  * @class
  * @classdesc a class for train status messages
- * @augments module:openrailuk/common#TrainStatus
- * @instance
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class TrainStatus {
   /**
@@ -55,7 +59,8 @@ export class TrainStatus {
 
   /**
    * @member {rid} rid gets the rid of the train
-   * @memberof module:openrailuk/common#TrainStatus
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainStatus
    * @instance
    * @readonly
    */
@@ -65,7 +70,8 @@ export class TrainStatus {
 
   /**
    * @member {uid} uniqueId gets the schedule uid of the train
-   * @memberof module:openrailuk/common#TrainStatus
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainStatus
    * @instance
    * @readonly
    */
@@ -75,7 +81,8 @@ export class TrainStatus {
 
   /**
    * @member {ssd} serviceStartingDate gets the ssd of the train
-   * @memberof module:openrailuk/common#TrainStatus
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainStatus
    * @instance
    * @readonly
    */
@@ -84,8 +91,9 @@ export class TrainStatus {
   }
 
   /**
-   * @member {Station[]} stations gets all of the stations that this train status applies to
-   * @memberof module:openrailuk/common#TrainStatus
+   * @member {external:Station[]} stations gets all of the stations that this train status applies to
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof TrainStatus
    * @instance
    * @readonly
    */

@@ -7,13 +7,13 @@ export const symbols = new Map()
 /**
  * @class
  * @classdesc A class for location information along with helpful functions
- * @augments module:openrailuk/common#Location
- * @instance
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class Location {
   /**
    * @constructor
    * @param {Object} loc the raw location object to be parsed
+   * @author Steven Collins <steven@carboncollins.uk>
    */
   constructor(options = {}) {
     this[symbols.get('tiploc')] = options.tiploc;
@@ -26,7 +26,7 @@ export class Location {
 
   /**
    * @member {tpl} tiploc the tiploc code
-   * @memberof module:openrailuk/common#Location
+   * @memberof Location
    * @description returns the locations tiploc code
    * @instance
    * @readonly
@@ -37,7 +37,7 @@ export class Location {
 
   /**
    * @member {toc} trainOperatingCompany the toc code
-   * @memberof module:openrailuk/common#Location
+   * @memberof Location
    * @description returns the locations operating company
    * @instance
    * @readonly
@@ -48,7 +48,7 @@ export class Location {
 
   /**
    * @member {crs} computerReservationSystem the crs code
-   * @memberof module:openrailuk/common#Location
+   * @memberof Location
    * @description returns the locations crs (Computer Reservation System)
    * @instance
    * @readonly
@@ -60,7 +60,7 @@ export class Location {
   /**
    * @member {String} locationName readable location name
    * @description the name of the location in a human readable format e.g. `Euston`
-   * @memberof module:openrailuk/common#Location
+   * @memberof Location
    * @instance
    * @readonly
    */
@@ -72,7 +72,7 @@ export class Location {
    * @member {String} location
    * @description Updates the location with a new raw data
    * @param {Object} location the raw location object to be parsed
-   * @memberof module:openrailuk/common#Location
+   * @memberof Location
    * @instance
    */
   set location(location = {}) {

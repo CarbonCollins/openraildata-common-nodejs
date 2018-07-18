@@ -15,6 +15,10 @@ export const symbols = new Map()
   .set('category', Symbol('category'))
   .set('passengerService', Symbol('passenger service'));
 
+/**
+ * @external Station
+ * @see {@link https://openrail.gitlab.io/docs/uk/common/Station}
+ */
 let Station = class Station {}; // placeholder class
 
 export function injectStation(station) {
@@ -26,8 +30,7 @@ export function injectStation(station) {
 /**
  * @class
  * @classdesc A class for location information along with helpful functions
- * @augments module:openrailuk/common#Schedule
- * @instance
+ * @author Steven Collins <steven@carboncollins.uk>
  */
 export class Schedule {
   /**
@@ -56,7 +59,8 @@ export class Schedule {
 
   /**
    * @member {String} rid gets the trains rid
-   * @memberof module:openrailuk/common#Schedule
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -66,7 +70,8 @@ export class Schedule {
 
   /**
    * @member {ssd} serviceStartingDate gets the trains ssd
-   * @memberof module:openrailuk/common#Schedule
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -76,7 +81,8 @@ export class Schedule {
 
   /**
    * @member {toc} trainOperatingCompany gets the trains toc
-   * @memberof module:openrailuk/common#Schedule
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -86,7 +92,8 @@ export class Schedule {
 
   /**
    * @member {String} trainId gets the trains trainId
-   * @memberof module:openrailuk/common#Schedule
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -96,7 +103,8 @@ export class Schedule {
 
   /**
    * @member {uid} uniqueId gets the schedule train uid
-   * @memberof module:openrailuk/common#Schedule
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -105,9 +113,10 @@ export class Schedule {
   }
 
   /**
-   * @member {Station} origin
-   * @memberof module:openrailuk/common#Schedule
    * @description returns the origin or the operational origin
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @member {external:Station} origin
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -116,9 +125,10 @@ export class Schedule {
   }
 
   /**
-   * @member {Station[]} passingPoints
-   * @memberof module:openrailuk/common#Schedule
    * @description returns all of the passing points in which the train passes
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @member {external:Station[]} passingPoints
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -127,9 +137,10 @@ export class Schedule {
   }
 
   /**
-   * @member {Station[]} intermediatePoints
-   * @memberof module:openrailuk/common#Schedule
    * @description returns all intermediate passenger stops
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @member {external:tation[]} intermediatePoints
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -141,6 +152,7 @@ export class Schedule {
    * @description True if this is a Q Train (runs as required) that has not yet been activated.
    * Note that a Q Train that has been activated before the XML Timetable file has been built will
    * not have this attribute set true.
+   * @author Steven Collins <steven@carboncollins.uk>
    * @readonly
    * @memberof Schedule
    */
@@ -150,6 +162,7 @@ export class Schedule {
 
   /**
    * @description type of service 
+   * @author Steven Collins <steven@carboncollins.uk>
    * @readonly
    * @memberof Schedule
    */
@@ -159,6 +172,7 @@ export class Schedule {
 
   /**
    * @description determins if this chedule is a passenger service or not
+   * @author Steven Collins <steven@carboncollins.uk>
    * @readonly
    * @memberof Schedule
    */
@@ -167,9 +181,10 @@ export class Schedule {
   }
 
   /**
-   * @member {Station[]} operationalStops
-   * @memberof module:openrailuk/common#Schedule
    * @description returns all operational intermediate stops
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @member {external:Station[]} operationalStops
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -178,9 +193,10 @@ export class Schedule {
   }
 
   /**
-   * @member {Station} destination
-   * @memberof module:openrailuk/common#Schedule
    * @description returns the destination or operational destination
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @member {external:Station} destination
+   * @memberof Schedule
    * @instance
    * @readonly
    */
@@ -189,10 +205,11 @@ export class Schedule {
   }
 
   /**
-   * @method module:openrailuk/common#Schedule~listMultiStations
-   * @desc gets a list of stations from a specificed type in the payload
+   * @description gets a list of stations from a specificed type in the payload
+   * @author Steven Collins <steven@carboncollins.uk>
    * @param {String} type the type of stations to list
-   * @returns {Station[]} a list of stations that match that type
+   * @returns {external:Station[]} a list of stations that match that type
+   * @memberof Schedule
    * @private
    */
   listMultiStations(type) {
@@ -206,10 +223,11 @@ export class Schedule {
   }
 
   /**
-   * @method module:openrailuk/common#Schedule~getSingleStation
-   * @desc gets a station and operation station
+   * @description gets a station and operation station
+   * @author Steven Collins <steven@carboncollins.uk>
    * @param {String} type the type of stations to list
-   * @returns {Station[]} a list of stations that match that type
+   * @returns {external:Station[]} a list of stations that match that type
+   * @memberof Schedule
    * @private
    */
   getSingleStation(type, operationalType) {

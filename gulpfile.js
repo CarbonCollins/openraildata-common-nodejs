@@ -55,38 +55,15 @@ gulp.task('compile', ['compileES5', 'compileES6']);
 
 gulp.task('prepCodeQuality', ['copySrcToJs', 'copyQualityConfigs']);
 
-gulp.task('generateClassDocs', () => {
-  return fs.ensureDir('docs/wiki/Models')
-    .then(() => {
-      return fs.readdir('src/models')
-    })
-    .then((models) => {
-      return models.reduce((promiseChain, model) => {
-        return promiseChain
-          .then(() => {
-            return jsdoc2md.render({
-              files: path.join('src/models', model),
-              configure: '.jsdoc.json'
-            })
-            .then((output) => {
-              return fs.writeFile(path.join('docs/wiki/Models', `${model[0].toUpperCase()}${model.slice(1)}`.replace(/\..+$/, '.md')), output);
-            });
-          });
-      }, Promise.resolve())
-    });
-});
-
-gulp.task('generateWikiPages', ['generateClassDocs']);
-
-gulp.task('generateDocs', () => {
-  return fs.ensureDir(path.join(__dirname, './docs'))
+gulp.task('build:docs', () => {
+  return fs.ensureDir('docs')
     .then(() => {
       return jsdoc2md.render({
-        files: ['docs/alias.js', 'src/common.mjs', 'src/models/*.mjs'],
+        files: ['src/models/*.mjs'],
         configure: '.jsdoc.json'
       });
     })
     .then((output) => {
-      return fs.writeFile('docs/devDoc.md', output);
+      return fs.writeFile('docs/Models.md', output);
     });
 });
