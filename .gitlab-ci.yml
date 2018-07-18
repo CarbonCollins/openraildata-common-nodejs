@@ -33,7 +33,7 @@ build_quality:
     paths:
       - quality/
     expire_in: 1 hour
-build:docs:
+build_docs:
   stage: build
   script:
     - yarn install
