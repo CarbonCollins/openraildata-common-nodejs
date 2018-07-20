@@ -1,5 +1,7 @@
 # Change Log for common-nodejs
 
+## [v3.3.3](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.3)
+* removed next version tag on gitlab ci pipe
 
 ## [v3.3.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.2)
 * Updated documentation in preparation for new docs site

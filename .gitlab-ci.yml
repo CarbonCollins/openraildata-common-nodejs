@@ -174,15 +174,15 @@ publish_NPM:
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - npm publish --scope=@openrailuk --access=public
-publish_NPM_next:
-  stage: deploy
-  only:
-    refs:
-      - master
-  except:
-    - tags
-  dependencies:
-    - build_docs
-  script:
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-    - npm publish --scope=@openrailuk --access=public --tag=next
+# publish_NPM_next:
+#   stage: deploy
+#   only:
+#     refs:
+#       - master
+#   except:
+#     - tags
+#   dependencies:
+#     - build_docs
+#   script:
+#     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+#     - npm publish --scope=@openrailuk --access=public --tag=next
