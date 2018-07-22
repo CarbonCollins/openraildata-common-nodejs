@@ -8,6 +8,11 @@
 * Updated package homepage to point to new docs site
 * Moved project to using shared openrail eslint config
 
+## [v3.3.2](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.2)
+* Updated documentation in preparation for new docs site
+* Updated package homepage to point to new docs site
+* Moved project to using shared openrail eslint config
+
 ## [v3.3.1](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.1)
 * Fixed issue [#2](https://gitlab.com/openrail/uk/common-nodejs/issues/2)
 * added missing changelog entry for v3.3.0
