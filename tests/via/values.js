@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-const model = require('../../lib/es5/models/via');
-const { Location } = require('../../lib/es5/models/location');
+const model = require('../../lib/common/models/via');
+const { Location } = require('../../lib/common/models/location');
 
 const locationConfig = require('../templates/location/location.json');
 const standardConfig = require('../templates/via/via.json');

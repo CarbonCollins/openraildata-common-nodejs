@@ -1,22 +1,22 @@
 'use strict';
 const { expect } = require('chai');
 
-let model = require('../../lib/es5/common');
-const { Association } = require('../../lib/es5/models/association');
-const { Location } = require('../../lib/es5/models/location');
-const { Schedule } = require('../../lib/es5/models/schedule');
-const { Station } = require('../../lib/es5/models/station');
-const { StationMessage } = require('../../lib/es5/models/stationMessage');
-const { TrainOrder } = require('../../lib/es5/models/trainOrder');
-const { TrainStatus } = require('../../lib/es5/models/trainStatus');
-const { Via } = require('../../lib/es5/models/via');
+let model = require('../../lib/common/common');
+const { Association } = require('../../lib/common/models/association');
+const { Location } = require('../../lib/common/models/location');
+const { Schedule } = require('../../lib/common/models/schedule');
+const { Station } = require('../../lib/common/models/station');
+const { StationMessage } = require('../../lib/common/models/stationMessage');
+const { TrainOrder } = require('../../lib/common/models/trainOrder');
+const { TrainStatus } = require('../../lib/common/models/trainStatus');
+const { Via } = require('../../lib/common/models/via');
 
 module.exports = function () {
   describe('Functional suite', function () {
     describe('associationMixer() tests', function () {
       beforeEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/common')]
-        model = require('../../lib/es5/common')
+        delete require.cache[require.resolve('../../lib/common/common')]
+        model = require('../../lib/common/common')
       });
 
       it('Should apply a mixin to the Association class', function () {
@@ -244,8 +244,8 @@ module.exports = function () {
       });
 
       afterEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/common')]
-        model = require('../../lib/es5/common')
+        delete require.cache[require.resolve('../../lib/common/common')]
+        model = require('../../lib/common/common')
       });
     });
   });

@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-let model = require('../../lib/es5/models/via');
-let { Location } = require('../../lib/es5/models/location');
+let model = require('../../lib/common/models/via');
+let { Location } = require('../../lib/common/models/location');
 
 const locationConfig = require('../templates/location/location.json');
 const standardConfig = require('../templates/via/via.json');
@@ -14,8 +14,8 @@ module.exports = function () {
   describe('Functional suite', function () {
     describe('injectLocation() Tests', function () {
       beforeEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/via')]
-        model=require('../../lib/es5/models/via')
+        delete require.cache[require.resolve('../../lib/common/models/via')]
+        model=require('../../lib/common/models/via')
       });
 
       it('injectLocation should exist', function () {
@@ -121,8 +121,8 @@ module.exports = function () {
       });
 
       afterEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/via')]
-        model=require('../../lib/es5/models/via')
+        delete require.cache[require.resolve('../../lib/common/models/via')]
+        model=require('../../lib/common/models/via')
       });
     });
 
