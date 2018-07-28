@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-let model = require('../../lib/es5/models/stationMessage');
-const { Location } = require('../../lib/es5/models/location');
+let model = require('../../lib/common/models/stationMessage');
+const { Location } = require('../../lib/common/models/location');
 
 const standardConfig = require('../templates/stationMessage/stationMessageNormal.json');
 
@@ -10,8 +10,8 @@ module.exports = function () {
   describe('Functional suite', function () {
     describe('injectLocation() Tests', function () {
       beforeEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/stationMessage')]
-        model=require('../../lib/es5/models/stationMessage')
+        delete require.cache[require.resolve('../../lib/common/models/stationMessage')]
+        model=require('../../lib/common/models/stationMessage')
       });
 
       it('injectLocation should exist', function () {
@@ -148,8 +148,8 @@ module.exports = function () {
       });
 
       afterEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/schedule')]
-        model=require('../../lib/es5/models/schedule')
+        delete require.cache[require.resolve('../../lib/common/models/schedule')]
+        model=require('../../lib/common/models/schedule')
       });
     })
   });

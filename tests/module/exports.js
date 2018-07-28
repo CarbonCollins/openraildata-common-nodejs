@@ -2,13 +2,13 @@ const { expect } = require('chai');
 
 const Module = require('../../index.js');
 
-const association = require('../../lib/es5/models/association');
-const location = require('../../lib/es5/models/location');
-const schedule = require('../../lib/es5/models/schedule');
-const station = require('../../lib/es5/models/station');
-const stationMessage = require('../../lib/es5/models/stationMessage');
-const trainOrder = require('../../lib/es5/models/trainOrder');
-const trainStatus = require('../../lib/es5/models/trainStatus');
+const association = require('../../lib/common/models/association');
+const location = require('../../lib/common/models/location');
+const schedule = require('../../lib/common/models/schedule');
+const station = require('../../lib/common/models/station');
+const stationMessage = require('../../lib/common/models/stationMessage');
+const trainOrder = require('../../lib/common/models/trainOrder');
+const trainStatus = require('../../lib/common/models/trainStatus');
 
 module.exports = function () {
   describe('Export suite', function () {

@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-let model = require('../../lib/es5/models/schedule');
-const { Station } = require('../../lib/es5/models/station');
+let model = require('../../lib/common/models/schedule');
+const { Station } = require('../../lib/common/models/station');
 
 const standardConfig = require('../templates/schedule/schedule.json');
 const standardConfigQTrain = require('../templates/schedule/scheduleQTrain.json');
@@ -200,8 +200,8 @@ module.exports = function () {
 
     describe('injectStation() Tests', function () {
       beforeEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/schedule')]
-        model=require('../../lib/es5/models/schedule')
+        delete require.cache[require.resolve('../../lib/common/models/schedule')]
+        model=require('../../lib/common/models/schedule')
       });
 
       it('injectStation should exist', function () {
@@ -318,8 +318,8 @@ module.exports = function () {
       });
 
       afterEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/schedule')]
-        model=require('../../lib/es5/models/schedule')
+        delete require.cache[require.resolve('../../lib/common/models/schedule')]
+        model=require('../../lib/common/models/schedule')
       });
     })
 

@@ -1,16 +1,16 @@
 'use strict';
 const { expect } = require('chai');
 
-const model = require('../../lib/es5/common');
+const model = require('../../lib/common/common');
 
-const { Association } = require('../../lib/es5/models/association');
-const { Location } = require('../../lib/es5/models/location');
-const { Schedule } = require('../../lib/es5/models/schedule');
-const { Station } = require('../../lib/es5/models/station');
-const { StationMessage } = require('../../lib/es5/models/stationMessage');
-const { TrainOrder } = require('../../lib/es5/models/trainOrder');
-const { TrainStatus } = require('../../lib/es5/models/trainStatus');
-const { Via } = require('../../lib/es5/models/via');
+const { Association } = require('../../lib/common/models/association');
+const { Location } = require('../../lib/common/models/location');
+const { Schedule } = require('../../lib/common/models/schedule');
+const { Station } = require('../../lib/common/models/station');
+const { StationMessage } = require('../../lib/common/models/stationMessage');
+const { TrainOrder } = require('../../lib/common/models/trainOrder');
+const { TrainStatus } = require('../../lib/common/models/trainStatus');
+const { Via } = require('../../lib/common/models/via');
 
 
 module.exports = function () {

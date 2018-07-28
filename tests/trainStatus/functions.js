@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-let model = require('../../lib/es5/models/trainStatus');
-const { Station } = require('../../lib/es5/models/station');
+let model = require('../../lib/common/models/trainStatus');
+const { Station } = require('../../lib/common/models/station');
 
 const standardConfig = require('../templates/trainStatus/trainStatus.json');
 
@@ -10,8 +10,8 @@ module.exports = function () {
   describe('Functional suite', function () {
     describe('injectStation() Tests', function () {
       beforeEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/trainStatus')]
-        model=require('../../lib/es5/models/trainStatus')
+        delete require.cache[require.resolve('../../lib/common/models/trainStatus')]
+        model=require('../../lib/common/models/trainStatus')
       });
 
       it('injectStation should exist', function () {
@@ -148,8 +148,8 @@ module.exports = function () {
       });
 
       afterEach(function () {
-        delete require.cache[require.resolve('../../lib/es5/models/trainStatus')]
-        model=require('../../lib/es5/models/trainStatus')
+        delete require.cache[require.resolve('../../lib/common/models/trainStatus')]
+        model=require('../../lib/common/models/trainStatus')
       });
     })
   });
