@@ -36,7 +36,7 @@ yarn run coverage
 
 [Babel](https://babeljs.io/) is used to transpile the ES6 source code into ES5 compatible code. This is run automatically during the automated pipeline when committing code, running tests, or it can be manual done by running:
 ```
-yarn run compile
+yarn run build
 ```
 
 ## Where do i raise an issue?
