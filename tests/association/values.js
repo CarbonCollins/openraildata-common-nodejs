@@ -1,7 +1,7 @@
 'use strict';
 const { expect } = require('chai');
 
-const model = require('../../lib/es5/models/association');
+const model = require('../../lib/common/models/association');
 
 const joinConfig = require('../templates/association/associationJoin.json');
 const splitConfig = require('../templates/association/associationSplit.json');

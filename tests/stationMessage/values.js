@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-const model = require('../../lib/es5/models/stationMessage');
-const { Location } = require('../../lib/es5/models/location');
+const model = require('../../lib/common/models/stationMessage');
+const { Location } = require('../../lib/common/models/location');
 
 const standardConfig = require('../templates/stationMessage/stationMessageNormal.json');
 const standardConfigMinor = require('../templates/stationMessage/stationMessageMinor.json');

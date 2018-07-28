@@ -1,8 +1,8 @@
 'use strict';
 const { expect } = require('chai');
 
-const model = require('../../lib/es5/models/trainStatus');
-const { Station } = require('../../lib/es5/models/station');
+const model = require('../../lib/common/models/trainStatus');
+const { Station } = require('../../lib/common/models/station');
 
 const standardConfig = require('../templates/trainStatus/trainStatus.json');
 
