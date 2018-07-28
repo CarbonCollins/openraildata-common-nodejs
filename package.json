@@ -26,19 +26,21 @@
     "url": "https://carboncollins.uk"
   },
   "scripts": {
-    "prepublishOnly": "gulp compile",
+    "prepublishOnly": "gulp build",
     "publish:npm": "npm publish --scope=@openrailuk --access=public",
     "publish:npm:next": "npm publish --scope=@openrailuk --access=public --tag=next",
-    "pretest": "gulp compile",
+    "pretest": "gulp build",
     "test": "mocha ./tests/test.all.js",
     "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
     "lint": "eslint src/**",
-    "build": "gulp compile",
-    "compile": "gulp compile",
-    "compileES5": "gulp compileES5",
-    "compileES6": "gulp compileES6",
-    "compileQuality": "gulp prepCodeQuality",
-    "build:docs": "gulp build:docs"
+    "build": "gulp build",
+    "build:common": "gulp build:common",
+    "build:es6": "gulp build:es6",
+    "build:quality": "gulp build:quality",
+    "build:docs": "gulp build:docs",
+    "clean:lib": "gulp clean:lib",
+    "clean:lib:common": "gulp clean:lib:common",
+    "clean:lib:es6": "gulp clean:lib:es6"
   },
   "repository": {
     "type": "gitlab",
