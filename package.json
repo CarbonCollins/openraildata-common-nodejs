@@ -1,10 +1,6 @@
 {
   "name": "@openrailuk/common",
-<<<<<<< package.json
   "version": "3.3.5",
-=======
-  "version": "3.3.4",
->>>>>>> package.json
   "displayName": "Open Rail UK Common",
   "description": "A package for common files and functions between the various @openrailuk packages",
   "license": "MIT",
