@@ -1,5 +1,6 @@
 # Change Log for common-nodejs
 
+
 ## [v3.3.4](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.4)
 * refactored CI jobs and code structure
 * fixed issue where lib (all compiled code) was not being published :D
