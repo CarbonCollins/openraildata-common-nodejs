@@ -56,3 +56,4 @@ export const viaMixer = (mixin) => {
 schedule.injectStation(Station); // inject potentialy mixed station object by reference
 trainStatus.injectStation(Station); // inject potentialy mixed station object by reference
 stationMessage.injectLocation(Location); // inject potentialy mixed location object by reference
+via.injectLocation(Location); // inject potentialy mixed location object by reference
