@@ -5,6 +5,7 @@
   "plannedTimeOfDeparture": "plannedTimeOfDeparture",
   "workingTimeOfArrival": "workingTimeOfArrival",
   "workingTimeOfDeparture": "workingTimeOfDeparture",
+  "workingTimeOfPassing": "workingTimeOfPassing",
   "operational": true,
   "platform": "platform",
   "platformSuppressed": true

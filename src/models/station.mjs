@@ -5,6 +5,7 @@ export const symbols = new Map()
   .set('plannedTimeOfDeparture', Symbol('plannedTimeOfDeparture'))
   .set('workingTimeOfArrival', Symbol('workingTimeOfArrival'))
   .set('workingTimeOfDeparture', Symbol('workingTimeOfDeparture'))
+  .set('workingTimeOfPassing', Symbol('workingTimeOfPassing'))
   .set('operational', Symbol('operational'))
   .set('platform', Symbol('platform'))
   .set('platformSuppressed', Symbol('platformSuppressed'));
@@ -27,6 +28,7 @@ export class Station {
     this[symbols.get('plannedTimeOfDeparture')] = payload.plannedTimeOfDeparture;
     this[symbols.get('workingTimeOfArrival')] = payload.workingTimeOfArrival;
     this[symbols.get('workingTimeOfDeparture')] = payload.workingTimeOfDeparture;
+    this[symbols.get('workingTimeOfPassing')] = payload.workingTimeOfPassing;
     this[symbols.get('operational')] = operational;
     this[symbols.get('platform')] = payload.platform;
     this[symbols.get('platformSuppressed')] = payload.platformSuppressed;
@@ -88,7 +90,7 @@ export class Station {
   }
 
   /**
-   * @member {wtd} workingTimeOfDeparture gets the working time of departure for the train (hidden form pulic view)
+   * @member {wtd} workingTimeOfDeparture gets the working time of departure for the train (hidden form public view)
    * @author Steven Collins <steven@carboncollins.uk>
    * @memberof Station
    * @instance
@@ -96,6 +98,17 @@ export class Station {
    */
   get workingTimeOfDeparture() {
     return this[symbols.get('workingTimeOfDeparture')] || null;
+  }
+
+  /**
+   * @member {wtd} workingTimeOfPassing gets the working time of departure for the train (hidden form public view)
+   * @author Steven Collins <steven@carboncollins.uk>
+   * @memberof Station
+   * @instance
+   * @readonly
+   */
+  get workingTimeOfPassing() {
+    return this[symbols.get('workingTimeOfPassing')] || null;
   }
 
   /**

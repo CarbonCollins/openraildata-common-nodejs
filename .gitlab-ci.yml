@@ -2,8 +2,8 @@ image: node:latest
 stages:
   - build
   - test
-  - post_test
   - deploy
+  - update
 build_commonjs:
   stage: build
   cache:
@@ -15,6 +15,10 @@ build_commonjs:
     paths:
       - lib/common
     expire_in: 1 hour
+  only:
+    - master
+    - tags
+    - development
   script:
     - yarn install
     - yarn build:common
@@ -29,6 +33,9 @@ build_es6:
     paths:
       - lib/es6
     expire_in: 1 hour
+  only:
+    - master
+    - tags
   script:
     - yarn install
     - yarn build:es6
@@ -44,6 +51,9 @@ build_quality:
     paths:
       - quality/
     expire_in: 1 hour
+  only:
+    - master
+    - tags
   script:
     - yarn install
     - yarn build:quality
@@ -59,6 +69,9 @@ build_docs:
     paths:
       - docs/
     expire_in: 1 hour
+  only:
+    - master
+    - tags
   script:
     - yarn install
     - yarn build:docs
@@ -72,6 +85,9 @@ test_commonjs_node_6:
     paths:
       - node_modules/
     policy: pull
+  only:
+    - master
+    - tags
   script:
     - yarn install
     - yarn test
@@ -85,6 +101,9 @@ test_commonjs_node_8:
     paths:
       - node_modules/
     policy: pull
+  only:
+    - master
+    - tags
   script:
     - yarn install
     - yarn test
@@ -98,6 +117,9 @@ test_commonjs_node_10:
     paths:
       - node_modules/
     policy: pull
+  only:
+    - master
+    - tags
   script:
     - yarn install
     - yarn test
@@ -111,14 +133,18 @@ test_commonjs_node_latest:
     paths:
       - node_modules/
     policy: pull
-  script:
-    - yarn install
-    - "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" yarn test"
   artifacts:
     paths:
       - .nyc_output/
+  only:
+    - master
+    - tags
+    - development
+  script:
+    - yarn install
+    - "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" yarn test"
 code_coverage:
-  stage: post_test
+  stage: deploy
   image: node:latest
   allow_failure: true
   cache:
@@ -133,11 +159,14 @@ code_coverage:
       - coverage/lcov-report/
     expire_in: 1 day
   coverage: '/^Statements\s*:\s*([^%]+)/'
+  only:
+    - master
+    - tags
   script:
     - "./node_modules/.bin/nyc report --reporter=\"text-summary\" --reporter=\"lcov\""
 code_quality:
   image: docker:latest
-  stage: post_test
+  stage: deploy
   variables:
     DOCKER_DRIVER: overlay2
   allow_failure: true
@@ -147,6 +176,9 @@ code_quality:
     - docker:stable-dind
   artifacts:
     paths: [gl-code-quality-report.json]
+  only:
+    - master
+    - tags
   script:
     - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
     - docker run
@@ -156,7 +188,7 @@ code_quality:
         "registry.gitlab.com/gitlab-org/security-products/codequality:$SP_VERSION" /code
 dependency_scanning:
   image: docker:latest
-  stage: post_test
+  stage: deploy
   variables:
     DOCKER_DRIVER: overlay2
   allow_failure: true
@@ -171,6 +203,9 @@ dependency_scanning:
     policy: pull
   artifacts:
     paths: [gl-dependency-scanning-report.json]
+  only:
+    - master
+    - tags
   script:
     - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
     - docker run
@@ -190,15 +225,16 @@ publish_npm:
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - npm publish --scope=@openrailuk --access=public
-# publish_NPM_next:
-#   stage: deploy
-#   only:
-#     refs:
-#       - master
-#   except:
-#     - tags
-#   dependencies:
-#     - build_docs
-#   script:
-#     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-#     - npm publish --scope=@openrailuk --access=public --tag=next
+update_dependencies:
+  stage: update
+  cache:
+    key: "renovate"
+    paths:
+      - ${HOME}/.cache/yarn
+      - ${HOME}/.npm
+  before_script:
+    - yarn global add renovate@latest
+  script:
+    - "renovate --platform gitlab --endpoint https://gitlab.com/api/v4 --token ${GITLAB_AUTH_TOKEN} --autodiscover"
+  only:
+    - schedules
