@@ -19,6 +19,8 @@ build_commonjs:
     - master
     - tags
     - development
+  except:
+    - schedules
   script:
     - yarn install
     - yarn build:common
@@ -36,6 +38,8 @@ build_es6:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - yarn install
     - yarn build:es6
@@ -54,6 +58,8 @@ build_quality:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - yarn install
     - yarn build:quality
@@ -72,6 +78,8 @@ build_docs:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - yarn install
     - yarn build:docs
@@ -88,6 +96,8 @@ test_commonjs_node_6:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - yarn install
     - yarn test
@@ -104,6 +114,8 @@ test_commonjs_node_8:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - yarn install
     - yarn test
@@ -120,6 +132,8 @@ test_commonjs_node_10:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - yarn install
     - yarn test
@@ -140,6 +154,8 @@ test_commonjs_node_latest:
     - master
     - tags
     - development
+  except:
+    - schedules
   script:
     - yarn install
     - "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" yarn test"
@@ -162,6 +178,8 @@ code_coverage:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - "./node_modules/.bin/nyc report --reporter=\"text-summary\" --reporter=\"lcov\""
 code_quality:
@@ -179,6 +197,8 @@ code_quality:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
     - docker run
@@ -206,6 +226,8 @@ dependency_scanning:
   only:
     - master
     - tags
+  except:
+    - schedules
   script:
     - export SP_VERSION=$(echo "$CI_SERVER_VERSION" | sed 's/^\([0-9]*\)\.\([0-9]*\).*/\1-\2-stable/')
     - docker run
@@ -218,6 +240,8 @@ publish_npm:
   only:
     - tags
     - triggers
+  except:
+    - schedules
   dependencies:
     - build_docs
     - build_commonjs
@@ -235,6 +259,6 @@ update_dependencies:
   before_script:
     - yarn global add renovate@latest
   script:
-    - "renovate --platform gitlab --endpoint https://gitlab.com/api/v4 --token ${GITLAB_AUTH_TOKEN} --autodiscover"
+    - "renovate --platform gitlab --endpoint https://gitlab.com/api/v4/ --token ${GITLAB_AUTH_TOKEN} --autodiscover"
   only:
     - schedules
