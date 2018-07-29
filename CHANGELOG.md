@@ -1,6 +1,9 @@
 # Change Log for common-nodejs
 
 
+## [v3.4.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.4.0)
+* Added workingTimeOfPassing value on passing points in station model
+
 ## [v3.3.5](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.3.5)
 * Added location inject function to Via data model
 
