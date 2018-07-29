@@ -259,6 +259,6 @@ update_dependencies:
   before_script:
     - yarn global add renovate@latest
   script:
-    - "renovate --platform gitlab --endpoint https://gitlab.com/api/v4 --token ${GITLAB_AUTH_TOKEN} --autodiscover"
+    - "renovate --platform gitlab --endpoint https://gitlab.com/api/v4/ --token ${GITLAB_AUTH_TOKEN} --autodiscover"
   only:
     - schedules
