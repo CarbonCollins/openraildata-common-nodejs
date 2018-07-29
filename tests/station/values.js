@@ -28,7 +28,7 @@ module.exports = function () {
       const unit = new model.Station();
 
       expect(unit).to.be.an.instanceOf(model.Station);
-      expect(unit).to.have.all.keys(['tiploc', 'action', 'plannedTimeOfArrival', 'plannedTimeOfDeparture', 'workingTimeOfArrival', 'workingTimeOfDeparture', 'operational', 'platform', 'platformSuppressed']
+      expect(unit).to.have.all.keys(['tiploc', 'action', 'plannedTimeOfArrival', 'plannedTimeOfDeparture', 'workingTimeOfArrival', 'workingTimeOfDeparture', 'workingTimeOfPassing', 'operational', 'platform', 'platformSuppressed']
         .map((key) => {
           return model.symbols.get(key)
         }));
@@ -56,6 +56,9 @@ module.exports = function () {
 
       expect(unit.workingTimeOfDeparture).to.be.an('string');
       expect(unit.workingTimeOfDeparture).to.be.equal(standardConfig.workingTimeOfDeparture);
+
+      expect(unit.workingTimeOfPassing).to.be.an('string');
+      expect(unit.workingTimeOfPassing).to.be.equal(standardConfig.workingTimeOfPassing);
 
       expect(unit.operational).to.be.an('boolean');
       expect(unit.operational).to.be.equal(standardConfig.operational);
@@ -89,6 +92,10 @@ module.exports = function () {
       const workingTimeOfDepartureSymbol = model.symbols.get('workingTimeOfDeparture');
       expect(workingTimeOfDepartureSymbol).to.be.an('symbol');
       expect(workingTimeOfDepartureSymbol.toString()).to.be.equal('Symbol(workingTimeOfDeparture)');
+      
+      const workingTimeOfPassingSymbol = model.symbols.get('workingTimeOfPassing');
+      expect(workingTimeOfPassingSymbol).to.be.an('symbol');
+      expect(workingTimeOfPassingSymbol.toString()).to.be.equal('Symbol(workingTimeOfPassing)');
       
       const operationalSymbol = model.symbols.get('operational');
       expect(operationalSymbol).to.be.an('symbol');
