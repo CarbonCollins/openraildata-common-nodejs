@@ -86,6 +86,10 @@
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@openrail/eslint-config/-/eslint-config-1.1.0.tgz#27e302819964d8063bae146f6f3fbb3e92256a12"
 
+"@openrail/renovate-config@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@openrail/renovate-config/-/renovate-config-1.0.4.tgz#aa3b2ab7a496144dddc2fc9e71efea1a9958cf2a"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

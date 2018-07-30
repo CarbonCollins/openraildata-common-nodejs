@@ -74,6 +74,7 @@
   },
   "devDependencies": {
     "@openrail/eslint-config": "^1.1.0",
+    "@openrail/renovate-config": "^1.0.4",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-rename-import": "^2.2.0",
     "babel-preset-node6": "^11.0.0",
