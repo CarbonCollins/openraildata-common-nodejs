@@ -1,6 +1,6 @@
 {
   "name": "@openrailuk/common",
-  "version": "3.4.0",
+  "version": "3.4.1",
   "displayName": "Open Rail UK Common",
   "description": "A package for common files and functions between the various @openrailuk packages",
   "license": "MIT",
@@ -50,12 +50,36 @@
     "url": "https://gitlab.com/openrail/uk/common-nodejs/issues"
   },
   "badges": [
-    "https://img.shields.io/badge/license-MIT-blue.svg",
-    "https://img.shields.io/badge/country-UK-blue.svg",
-    "https://img.shields.io/badge/status-WIP-yellow.svg",
-    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg",
-    "https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg",
-    "https://img.shields.io/npm/v/@openrailuk/common.svg"
+    {
+      "description": "license",
+      "href": "https://img.shields.io/badge/license-MIT-blue.svg",
+      "url": "https://gitlab.com/openrail/uk/common-nodejs/blob/master/LICENSE.txt"
+    },
+    {
+      "description": "country",
+      "href": "https://img.shields.io/badge/country-UK-blue.svg",
+      "url": "https://gitlab.com/openrail/uk"
+    },
+    {
+      "description": "wip",
+      "href": "https://img.shields.io/badge/status-WIP-yellow.svg",
+      "url": "https://gitlab.com/openrail/uk/common-nodejs"
+    },
+    {
+      "description": "pipeline",
+      "href": "https://gitlab.com/openrail/uk/common-nodejs/badges/master/pipeline.svg",
+      "url": "https://gitlab.com/openrail/uk/common-nodejs/commits/master"
+    },
+    {
+      "description": "coverage",
+      "href": "https://gitlab.com/openrail/uk/common-nodejs/badges/master/coverage.svg",
+      "url": "https://gitlab.com/openrail/uk/common-nodejs/commits/master"
+    },
+    {
+      "description": "npm",
+      "href": "https://img.shields.io/npm/v/@openrailuk/common.svg",
+      "url": "https://open-rail-slack-invite.herokuapp.com/"
+    }
   ],
   "markdown": "standard",
   "publisher": "npm",
@@ -73,15 +97,15 @@
     "test": "./tests"
   },
   "devDependencies": {
-    "@openrail/eslint-config": "^1.1.0",
+    "@openrail/eslint-config": "^1.3.3",
     "@openrail/renovate-config": "^1.0.4",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-rename-import": "^2.2.0",
     "babel-preset-node6": "^11.0.0",
     "chai": "^4.1.2",
     "diff": "^3.5.0",
+    "eslint": "4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
-    "eslint": "^5.0.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-mocha": "^5.0.0",
     "eslint-plugin-node": "^7.0.0",
