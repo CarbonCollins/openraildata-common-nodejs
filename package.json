@@ -79,7 +79,7 @@
     "babel-preset-node6": "^11.0.0",
     "chai": "^4.1.2",
     "diff": "^3.5.0",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-mocha": "^5.0.0",
