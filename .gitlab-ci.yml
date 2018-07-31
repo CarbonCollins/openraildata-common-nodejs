@@ -3,7 +3,6 @@ stages:
   - build
   - test
   - deploy
-  - update
 build_commonjs:
   stage: build
   cache:
@@ -249,16 +248,3 @@ publish_npm:
   script:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
     - npm publish --scope=@openrailuk --access=public
-update_dependencies:
-  stage: update
-  cache:
-    key: "renovate"
-    paths:
-      - ${HOME}/.cache/yarn
-      - ${HOME}/.npm
-  before_script:
-    - yarn global add renovate@latest
-  script:
-    - "renovate --platform gitlab --endpoint https://gitlab.com/api/v4/ --token ${GITLAB_AUTH_TOKEN} --autodiscover"
-  only:
-    - schedules

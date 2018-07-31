@@ -51,7 +51,7 @@ const mixin = (SuperClass) => {
   return class StationMix extends SuperClass {
     constructor(payload) { super(payload); }
 
-    newFunction(parms) { return 'stuff'; }
+    newFunction(params) { return 'stuff'; }
   };
 };
 ```
