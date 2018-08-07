@@ -109,5 +109,40 @@ module.exports = function () {
       expect(platformSuppressedSymbol).to.be.an('symbol');
       expect(platformSuppressedSymbol.toString()).to.be.equal('Symbol(platformSuppressed)');
     });
+
+    it('should export a valid proxy handler', function() {
+      expect(model.proxyHandler).to.be.an('object');
+
+      expect(model.proxyHandler.get).to.be.an('function');
+
+      expect(model.proxyHandler.get({ testObj: 'testObj' }, 'testObj')).to.be.equal('testObj', 'Should return un-modified property');
+      
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tpl')).to.be.equal('tpl', 'Should return tpl un-modified');
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tiploc')).to.be.equal('tpl', 'Should return tpl modified as tiploc');
+      
+      expect(model.proxyHandler.get({ act: 'act' }, 'act')).to.be.equal('act', 'Should return act un-modified');
+      expect(model.proxyHandler.get({ act: 'act' }, 'action')).to.be.equal('act', 'Should return crs modified as action');
+      
+      expect(model.proxyHandler.get({ pta: 'pta' }, 'pta')).to.be.equal('pta', 'Should return pta un-modified');
+      expect(model.proxyHandler.get({ pta: 'pta' }, 'plannedTimeOfArrival')).to.be.equal('pta', 'Should return pta modified as plannedTimeOfArrival');
+      
+      expect(model.proxyHandler.get({ ptd: 'ptd' }, 'ptd')).to.be.equal('ptd', 'Should return ptd un-modified');
+      expect(model.proxyHandler.get({ ptd: 'ptd' }, 'plannedTimeOfDeparture')).to.be.equal('ptd', 'Should return ptd modified as plannedTimeOfDeparture');
+      
+      expect(model.proxyHandler.get({ wta: 'wta' }, 'wta')).to.be.equal('wta', 'Should return wta un-modified');
+      expect(model.proxyHandler.get({ wta: 'wta' }, 'workingTimeOfArrival')).to.be.equal('wta', 'Should return wta modified as workingTimeOfArrival');
+      
+      expect(model.proxyHandler.get({ wtd: 'wtd' }, 'wtd')).to.be.equal('wtd', 'Should return wtd un-modified');
+      expect(model.proxyHandler.get({ wtd: 'wtd' }, 'workingTimeOfDeparture')).to.be.equal('wtd', 'Should return wtd modified as workingTimeOfDeparture');
+      
+      expect(model.proxyHandler.get({ wtp: 'wtp' }, 'wtp')).to.be.equal('wtp', 'Should return wtp un-modified');
+      expect(model.proxyHandler.get({ wtp: 'wtp' }, 'workingTimeOfPassing')).to.be.equal('wtp', 'Should return wtp modified as workingTimeOfPassing');
+      
+      expect(model.proxyHandler.get({ platsup: 'platsup' }, 'platsup')).to.be.equal('platsup', 'Should return platsup un-modified');
+      expect(model.proxyHandler.get({ platsup: 'platsup' }, 'platformSuppressed')).to.be.equal('platsup', 'Should return platsup modified as platformSuppressed');
+      
+      expect(model.proxyHandler.get({ plat: 'plat' }, 'plat')).to.be.equal('plat', 'Should return plat un-modified');
+      expect(model.proxyHandler.get({ plat: 'plat' }, 'platform')).to.be.equal('plat', 'Should return plat modified as platform');
+    });
   });
 };

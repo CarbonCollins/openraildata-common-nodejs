@@ -87,7 +87,7 @@ module.exports = function () {
     it('symbol export should have correct mapping', function () {
       const computerReservationSystemSymbol = model.symbols.get('computerReservationSystem');
       expect(computerReservationSystemSymbol).to.be.an('symbol');
-      expect(computerReservationSystemSymbol.toString()).to.be.equal('Symbol(computerReservationSystem)');
+      expect(computerReservationSystemSymbol.toString()).to.be.equal('Symbol(computer reservation system)');
 
       const platformSymbol = model.symbols.get('platform');
       expect(platformSymbol).to.be.an('symbol');
@@ -104,6 +104,23 @@ module.exports = function () {
       const clearSymbol = model.symbols.get('clear');
       expect(clearSymbol).to.be.an('symbol');
       expect(clearSymbol.toString()).to.be.equal('Symbol(clear)');
+    });
+
+    it('should export a valid proxy handler', function() {
+      expect(model.proxyHandler).to.be.an('object');
+
+      expect(model.proxyHandler.get).to.be.an('function');
+
+      expect(model.proxyHandler.get({ testObj: 'testObj' }, 'testObj')).to.be.equal('testObj', 'Should return un-modified property');
+      
+      expect(model.proxyHandler.get({ crs: 'crs' }, 'crs')).to.be.equal('crs', 'Should return crs un-modified');
+      expect(model.proxyHandler.get({ crs: 'crs' }, 'computerReservationSystem')).to.be.equal('crs', 'Should return crs modified as computerReservationSystem');
+      
+      expect(model.proxyHandler.get({ plat: 'plat' }, 'plat')).to.be.equal('plat', 'Should return plat un-modified');
+      expect(model.proxyHandler.get({ plat: 'plat' }, 'platform')).to.be.equal('plat', 'Should return plat modified as platform');
+      
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tpl')).to.be.equal('tpl', 'Should return tpl un-modified');
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tiploc')).to.be.equal('tpl', 'Should return tpl modified as tiploc');
     });
   });
 };

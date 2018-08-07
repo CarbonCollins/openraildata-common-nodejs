@@ -14,7 +14,7 @@ import * as trainStatus from './models/trainStatus';
 import * as via from './models/via';
 
 export let Association = association.Association;
-export const trainStatusProxyHandler = trainStatus.proxyHandler;
+export const associationProxyHandler = association.proxyHandler;
 export const associationMixer = (mixin) => {
   Association = mixin(Association, association.symbols);
 }
@@ -49,14 +49,14 @@ export const trainOrderMixer = (mixin) => {
   TrainOrder = mixin(TrainOrder, trainOrder.symbols);
 }
 
-export let trainStatus = trainStatus.TrainStatus;
+export let TrainStatus = trainStatus.TrainStatus;
 export const trainStatusProxyHandler = trainStatus.proxyHandler;
 export const trainStatusMixer = (mixin) => {
   TrainStatus = mixin(TrainStatus, trainStatus.symbols);
 }
 
 export let Via = via.Via;
-export const  viaProxyHandler = via.proxyHandler;
+export const viaProxyHandler = via.proxyHandler;
 export const viaMixer = (mixin) => {
   Via = mixin(Via, via.symbols);
 }
