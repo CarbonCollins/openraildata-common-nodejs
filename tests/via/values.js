@@ -166,6 +166,7 @@ module.exports = function () {
       
       expect(model.proxyHandler.get({ dest: 'dest' }, 'dest')).to.be.equal('dest', 'Should return dest un-modified');
       expect(model.proxyHandler.get({ dest: 'dest' }, 'destination')).to.be.equal('dest', 'Should return dest modified as destination');
+      expect(model.proxyHandler.get({ destination: 'destination' }, 'destination')).to.be.equal('destination', 'Should return destination modified as destination');
       
       expect(model.proxyHandler.get({ loc1: 'loc1' }, 'loc1')).to.be.equal('loc1', 'Should return loc1 un-modified');
       expect(model.proxyHandler.get({ loc1: 'loc1' }, 'location1')).to.be.equal('loc1', 'Should return loc1 modified as location1');

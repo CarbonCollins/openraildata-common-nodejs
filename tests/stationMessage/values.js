@@ -210,6 +210,7 @@ module.exports = function () {
       
       expect(model.proxyHandler.get({ cat: 'cat' }, 'cat')).to.be.equal('cat', 'Should return cat un-modified');
       expect(model.proxyHandler.get({ cat: 'cat' }, 'category')).to.be.equal('cat', 'Should return cat modified as category');
+      expect(model.proxyHandler.get({ category: 'category' }, 'category')).to.be.equal('category', 'Should return category un-modified as category');
     });
   });
 };

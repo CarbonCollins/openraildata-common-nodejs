@@ -20,6 +20,7 @@ module.exports = function () {
       expect(unit.plannedTimeOfDeparture).to.be.equal(null);
       expect(unit.workingTimeOfArrival).to.be.equal(null);
       expect(unit.workingTimeOfDeparture).to.be.equal(null);
+      expect(unit.workingTimeOfPassing).to.be.equal(null);
       expect(unit.operational).to.be.equal(false);
       expect(unit.platform).to.be.equal(null);
     });
@@ -119,6 +120,7 @@ module.exports = function () {
       
       expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tpl')).to.be.equal('tpl', 'Should return tpl un-modified');
       expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tiploc')).to.be.equal('tpl', 'Should return tpl modified as tiploc');
+      expect(model.proxyHandler.get({ tiploc: 'tiploc' }, 'tiploc')).to.be.equal('tiploc', 'Should return tiploc un-modified as tiploc');
       
       expect(model.proxyHandler.get({ act: 'act' }, 'act')).to.be.equal('act', 'Should return act un-modified');
       expect(model.proxyHandler.get({ act: 'act' }, 'action')).to.be.equal('act', 'Should return crs modified as action');

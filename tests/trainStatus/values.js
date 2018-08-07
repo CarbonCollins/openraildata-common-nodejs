@@ -82,6 +82,7 @@ module.exports = function () {
       
       expect(model.proxyHandler.get({ uid: 'uid' }, 'uid')).to.be.equal('uid', 'Should return uid un-modified');
       expect(model.proxyHandler.get({ uid: 'uid' }, 'uniqueId')).to.be.equal('uid', 'Should return uid modified as uniqueId');
+      expect(model.proxyHandler.get({ uniqueId: 'uniqueId' }, 'uniqueId')).to.be.equal('uniqueId', 'Should return uniqueId un-modified as uniqueId');
       
       expect(model.proxyHandler.get({ ssd: 'ssd' }, 'ssd')).to.be.equal('ssd', 'Should return ssd un-modified');
       expect(model.proxyHandler.get({ ssd: 'ssd' }, 'serviceStartingDate')).to.be.equal('ssd', 'Should return ssd modified as serviceStartingDate');

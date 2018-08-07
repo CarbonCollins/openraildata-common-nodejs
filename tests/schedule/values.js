@@ -180,6 +180,7 @@ module.exports = function () {
       
       expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tpl')).to.be.equal('tpl', 'Should return tpl un-modified');
       expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tiploc')).to.be.equal('tpl', 'Should return tpl modified as tiploc');
+      expect(model.proxyHandler.get({ tiploc: 'tiploc' }, 'tiploc')).to.be.equal('tiploc', 'Should return tiploc un-modified as tiploc');
       
       expect(model.proxyHandler.get({ ssd: 'ssd' }, 'ssd')).to.be.equal('ssd', 'Should return ssd un-modified');
       expect(model.proxyHandler.get({ ssd: 'ssd' }, 'serviceStartingDate')).to.be.equal('ssd', 'Should return crs modified as serviceStartingDate');
