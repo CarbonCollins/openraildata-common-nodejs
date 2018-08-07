@@ -1,13 +1,21 @@
-// export const stationMap = new Map()
-//   .set('tpl', 'tiploc')
-//   .set('act', 'action')
-//   .set('pta', 'plannedTimeOfArrival')
-//   .set('ptd', 'plannedTimeOfDeparture')
-//   .set('wta', 'workingTimeOfArrival')
-//   .set('wtd', 'workingTimeOfDeparture')
-//   .set('operational', 'operational')
-//   .set('plat', 'platform')
-//   .set('platsup', 'platformSuppressed');
+const stationMap = new Map()
+  .set('action', 'act')
+  .set('tiploc', 'tpl')
+  .set('platform', 'plat')
+  .set('platformSuppressed', 'platSup')
+  .set('plannedTimeOfArrival', 'pta')
+  .set('plannedTimeOfDeparture', 'ptd')
+  .set('workingTimeOfArrival', 'wta')
+  .set('workingTimeOfDeparture', 'wtd')
+  .set('workingTimeOfPassing', 'wtp')
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (stationMap.has(prop))
+      ? obj[stationMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
 
 export const symbols = new Map()
   .set('rid', Symbol('rid'))

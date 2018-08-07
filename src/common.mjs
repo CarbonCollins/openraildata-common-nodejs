@@ -29,6 +29,7 @@ export const scheduleMixer = (mixin) => {
 }
 
 export let Station = station.Station;
+// export const stationProxyHandler = station.proxyHandler;
 export const stationMixer = (mixin) => {
   Station = mixin(Station, station.symbols);
 }
@@ -44,6 +45,7 @@ export const trainOrderMixer = (mixin) => {
 }
 
 export let TrainStatus = trainStatus.TrainStatus;
+export const trainStatusProxyHandler = trainStatus.proxyHandler;
 export const trainStatusMixer = (mixin) => {
   TrainStatus = mixin(TrainStatus, trainStatus.symbols);
 }
