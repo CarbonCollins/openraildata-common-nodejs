@@ -1,6 +1,9 @@
 # Change Log for common-nodejs
 
 
+## [v3.5.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.5.0)
+* Added proxyHandlers for each data model
+
 ## [v3.4.0](https://gitlab.com/openrail/uk/common-nodejs/tags/v3.4.0)
 * Added workingTimeOfPassing value on passing points in station model
 * Updates old dependencies

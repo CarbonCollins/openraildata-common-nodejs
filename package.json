@@ -1,6 +1,6 @@
 {
   "name": "@openrailuk/common",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "displayName": "Open Rail UK Common",
   "description": "A package for common files and functions between the various @openrailuk packages",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "publish:npm:next": "npm publish --scope=@openrailuk --access=public --tag=next",
     "pretest": "gulp build",
     "test": "mocha ./tests/test.all.js",
-    "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
+    "coverage": "./node_modules/.bin/nyc -x \"**/lib/es6/**/*.js\" -x \"**/src/**/*.js\" -x \"**/tests/**/*.js\" -x \"gulpfile.js\" --reporter=\"text-summary\" --reporter=\"lcov\" mocha \"./tests/test.all.js\" --reporter=\"mochawesome\"",
     "lint": "eslint src/**",
     "build": "gulp build",
     "build:common": "gulp build:common",
