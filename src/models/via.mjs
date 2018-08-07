@@ -1,3 +1,16 @@
+const viaMap = new Map()
+  .set('destination', 'dest')
+  .set('location1', 'loc1')
+  .set('location2', 'loc2');
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (viaMap.has(prop))
+      ? obj[viaMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
   .set('at', Symbol('at'))
   .set('destination', Symbol('destination'))

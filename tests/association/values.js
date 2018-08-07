@@ -129,5 +129,20 @@ module.exports = function () {
       expect(associationSymbol).to.be.an('symbol');
       expect(associationSymbol.toString()).to.be.equal('Symbol(association)');
     });
+
+    it('should export a valid proxy handler', function() {
+      expect(model.proxyHandler).to.be.an('object');
+
+      expect(model.proxyHandler.get).to.be.an('function');
+
+      expect(model.proxyHandler.get({ testObj: 'testObj' }, 'testObj')).to.be.equal('testObj', 'Should return un-modified property');
+      
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tpl')).to.be.equal('tpl', 'Should return tpl un-modified');
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tiploc')).to.be.equal('tpl', 'Should return tpl modified as tiploc');
+      expect(model.proxyHandler.get({ tiploc: 'tiploc' }, 'tiploc')).to.be.equal('tiploc', 'Should return tiploc un-modified as tiploc');
+      
+      expect(model.proxyHandler.get({ assoc: 'assoc' }, 'assoc')).to.be.equal('assoc', 'Should return assoc un-modified');
+      expect(model.proxyHandler.get({ assoc: 'assoc' }, 'association')).to.be.equal('assoc', 'Should return assoc modified as association');
+    });
   });
 };

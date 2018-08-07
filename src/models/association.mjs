@@ -1,3 +1,15 @@
+const associationMap = new Map()
+  .set('tiploc', 'tpl')
+  .set('association', 'assoc');
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (associationMap.has(prop))
+      ? obj[associationMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
   .set('tiploc', Symbol('tiploc'))
   .set('category', Symbol('category'))

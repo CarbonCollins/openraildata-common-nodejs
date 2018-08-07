@@ -1,5 +1,18 @@
+const trainOrderMap = new Map()
+  .set('computerReservationSystem', 'crs')
+  .set('platform', 'plat')
+  .set('tiploc', 'tpl');
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (trainOrderMap.has(prop))
+      ? obj[trainOrderMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
-  .set('computerReservationSystem', Symbol('computerReservationSystem'))
+  .set('computerReservationSystem', Symbol('computer reservation system'))
   .set('platform', Symbol('platform'))
   .set('tiploc', Symbol('tiploc'))
   .set('set', Symbol('set'))

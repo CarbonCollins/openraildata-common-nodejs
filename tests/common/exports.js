@@ -18,7 +18,39 @@ module.exports = function () {
     it('Should export', function() {
       expect(model).to.be.an('object');
 
-      expect(model).to.have.all.keys(['Association', 'associationMixer', 'Location', 'locationMixer', 'Schedule', 'scheduleMixer', 'Station', 'stationMixer', 'StationMessage', 'stationMessageMixer', 'TrainOrder', 'trainOrderMixer', 'TrainStatus', 'trainStatusMixer', 'Via', 'viaMixer']);
+      expect(model).to.have.all.keys([
+        'Association',
+        'associationMixer',
+        'associationProxyHandler',
+
+        'Location',
+        'locationMixer',
+        'locationProxyHandler',
+
+        'Schedule',
+        'scheduleMixer',
+        'scheduleProxyHandler',
+
+        'Station',
+        'stationMixer',
+        'stationProxyHandler',
+
+        'StationMessage',
+        'stationMessageMixer',
+        'stationMessageProxyHandler',
+
+        'TrainOrder',
+        'trainOrderMixer',
+        'trainOrderProxyHandler',
+
+        'TrainStatus',
+        'trainStatusMixer',
+        'trainStatusProxyHandler',
+
+        'Via',
+        'viaMixer',
+        'viaProxyHandler'
+      ]);
     });
 
     it('Should export Association Class', function () {

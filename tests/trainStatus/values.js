@@ -66,11 +66,26 @@ module.exports = function () {
 
       const serviceStartingDateSymbol = model.symbols.get('serviceStartingDate');
       expect(serviceStartingDateSymbol).to.be.an('symbol');
-      expect(serviceStartingDateSymbol.toString()).to.be.equal('Symbol(serviceStartingDate)');
+      expect(serviceStartingDateSymbol.toString()).to.be.equal('Symbol(service starting date)');
 
       const stationsSymbol = model.symbols.get('stations');
       expect(stationsSymbol).to.be.an('symbol');
       expect(stationsSymbol.toString()).to.be.equal('Symbol(stations)');
+    });
+
+    it('should export a valid proxy handler', function() {
+      expect(model.proxyHandler).to.be.an('object');
+
+      expect(model.proxyHandler.get).to.be.an('function');
+
+      expect(model.proxyHandler.get({ testObj: 'testObj' }, 'testObj')).to.be.equal('testObj', 'Should return un-modified property');
+      
+      expect(model.proxyHandler.get({ uid: 'uid' }, 'uid')).to.be.equal('uid', 'Should return uid un-modified');
+      expect(model.proxyHandler.get({ uid: 'uid' }, 'uniqueId')).to.be.equal('uid', 'Should return uid modified as uniqueId');
+      expect(model.proxyHandler.get({ uniqueId: 'uniqueId' }, 'uniqueId')).to.be.equal('uniqueId', 'Should return uniqueId un-modified as uniqueId');
+      
+      expect(model.proxyHandler.get({ ssd: 'ssd' }, 'ssd')).to.be.equal('ssd', 'Should return ssd un-modified');
+      expect(model.proxyHandler.get({ ssd: 'ssd' }, 'serviceStartingDate')).to.be.equal('ssd', 'Should return ssd modified as serviceStartingDate');
     });
   });
 };

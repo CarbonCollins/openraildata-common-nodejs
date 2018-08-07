@@ -170,5 +170,50 @@ module.exports = function () {
       expect(passengerServiceSymbol.toString()).to.be.equal('Symbol(passenger service)');
 
     });
+
+    it('should export a valid proxy handler', function() {
+      expect(model.proxyHandler).to.be.an('object');
+
+      expect(model.proxyHandler.get).to.be.an('function');
+
+      expect(model.proxyHandler.get({ testObj: 'testObj' }, 'testObj')).to.be.equal('testObj', 'Should return un-modified property');
+      
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tpl')).to.be.equal('tpl', 'Should return tpl un-modified');
+      expect(model.proxyHandler.get({ tpl: 'tpl' }, 'tiploc')).to.be.equal('tpl', 'Should return tpl modified as tiploc');
+      expect(model.proxyHandler.get({ tiploc: 'tiploc' }, 'tiploc')).to.be.equal('tiploc', 'Should return tiploc un-modified as tiploc');
+      
+      expect(model.proxyHandler.get({ ssd: 'ssd' }, 'ssd')).to.be.equal('ssd', 'Should return ssd un-modified');
+      expect(model.proxyHandler.get({ ssd: 'ssd' }, 'serviceStartingDate')).to.be.equal('ssd', 'Should return crs modified as serviceStartingDate');
+      
+      expect(model.proxyHandler.get({ toc: 'toc' }, 'toc')).to.be.equal('toc', 'Should return toc un-modified');
+      expect(model.proxyHandler.get({ toc: 'toc' }, 'trainOperatingCompany')).to.be.equal('toc', 'Should return toc modified as trainOperatingCompany');
+      
+      expect(model.proxyHandler.get({ locname: 'locname' }, 'locname')).to.be.equal('locname', 'Should return locname un-modified');
+      expect(model.proxyHandler.get({ locname: 'locname' }, 'locationName')).to.be.equal('locname', 'Should return locname modified as locationName');
+      
+      expect(model.proxyHandler.get({ uid: 'uid' }, 'uid')).to.be.equal('uid', 'Should return uid un-modified');
+      expect(model.proxyHandler.get({ uid: 'uid' }, 'uniqueId')).to.be.equal('uid', 'Should return uid modified as uniqueId');
+      
+      expect(model.proxyHandler.get({ OR: 'OR' }, 'OR')).to.be.equal('OR', 'Should return OR un-modified');
+      expect(model.proxyHandler.get({ OR: 'OR' }, 'origin')).to.be.equal('OR', 'Should return OR modified as origin');
+      
+      expect(model.proxyHandler.get({ OPOR: 'OPOR' }, 'OPOR')).to.be.equal('OPOR', 'Should return OPOR un-modified');
+      expect(model.proxyHandler.get({ OPOR: 'OPOR' }, 'operationalOrigin')).to.be.equal('OPOR', 'Should return OPOR modified as operationalOrigin');
+      
+      expect(model.proxyHandler.get({ DT: 'DT' }, 'DT')).to.be.equal('DT', 'Should return DT un-modified');
+      expect(model.proxyHandler.get({ DT: 'DT' }, 'destination')).to.be.equal('DT', 'Should return DT modified as destination');
+      
+      expect(model.proxyHandler.get({ OPDT: 'OPDT' }, 'OPDT')).to.be.equal('OPDT', 'Should return OPDT un-modified');
+      expect(model.proxyHandler.get({ OPDT: 'OPDT' }, 'operationalDestination')).to.be.equal('OPDT', 'Should return OPDT modified as operationalDestination');
+      
+      expect(model.proxyHandler.get({ PP: 'PP' }, 'PP')).to.be.equal('PP', 'Should return PP un-modified');
+      expect(model.proxyHandler.get({ PP: 'PP' }, 'passingPoints')).to.be.equal('PP', 'Should return PP modified as passingPoints');
+      
+      expect(model.proxyHandler.get({ IP: 'IP' }, 'IP')).to.be.equal('IP', 'Should return IP un-modified');
+      expect(model.proxyHandler.get({ IP: 'IP' }, 'intermediatePoints')).to.be.equal('IP', 'Should return IP modified as intermediatePoints');
+      
+      expect(model.proxyHandler.get({ OPIP: 'OPIP' }, 'OPIP')).to.be.equal('OPIP', 'Should return OPIP un-modified');
+      expect(model.proxyHandler.get({ OPIP: 'OPIP' }, 'operationalIntermediatePoints')).to.be.equal('OPIP', 'Should return OPIP modified as operationalIntermediatePoints');
+    });
   });
 };

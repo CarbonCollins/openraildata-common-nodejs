@@ -20,7 +20,7 @@ module.exports = function () {
     });
 
     it('should not have any extra exports', function () {
-      expect(model).to.have.all.keys(['TrainOrder', 'symbols']);
+      expect(model).to.have.all.keys(['TrainOrder', 'symbols', 'proxyHandler']);
     });
   });
 };

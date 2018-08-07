@@ -200,5 +200,17 @@ module.exports = function () {
       expect(locationsSymbol).to.be.an('symbol');
       expect(locationsSymbol.toString()).to.be.equal('Symbol(locations)');
     });
+
+    it('should export a valid proxy handler', function() {
+      expect(model.proxyHandler).to.be.an('object');
+
+      expect(model.proxyHandler.get).to.be.an('function');
+
+      expect(model.proxyHandler.get({ testObj: 'testObj' }, 'testObj')).to.be.equal('testObj', 'Should return un-modified property');
+      
+      expect(model.proxyHandler.get({ cat: 'cat' }, 'cat')).to.be.equal('cat', 'Should return cat un-modified');
+      expect(model.proxyHandler.get({ cat: 'cat' }, 'category')).to.be.equal('cat', 'Should return cat modified as category');
+      expect(model.proxyHandler.get({ category: 'category' }, 'category')).to.be.equal('category', 'Should return category un-modified as category');
+    });
   });
 };

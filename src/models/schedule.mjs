@@ -1,3 +1,25 @@
+const scheduleMap = new Map()
+  .set('tiploc', 'tpl')
+  .set('serviceStartingDate', 'ssd')
+  .set('trainOperatingCompany', 'toc')
+  .set('locationName', 'locname')
+  .set('uniqueId', 'uid')
+  .set('origin', 'OR')
+  .set('operationalOrigin', 'OPOR')
+  .set('destination', 'DT')
+  .set('operationalDestination', 'OPDT')
+  .set('passingPoints', 'PP')
+  .set('intermediatePoints', 'IP')
+  .set('operationalIntermediatePoints', 'OPIP')
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (scheduleMap.has(prop))
+      ? obj[scheduleMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
   .set('rid', Symbol('rid'))
   .set('serviceStartingDate', Symbol('service starting date'))

@@ -14,41 +14,49 @@ import * as trainStatus from './models/trainStatus';
 import * as via from './models/via';
 
 export let Association = association.Association;
+export const associationProxyHandler = association.proxyHandler;
 export const associationMixer = (mixin) => {
   Association = mixin(Association, association.symbols);
 }
 
 export let Location = location.Location;
+export const locationProxyHandler = location.proxyHandler;
 export const locationMixer = (mixin) => {
   Location = mixin(Location, location.symbols);
 }
 
 export let Schedule = schedule.Schedule;
+export const scheduleProxyHandler = schedule.proxyHandler;
 export const scheduleMixer = (mixin) => {
   Schedule = mixin(Schedule, schedule.symbols);
 }
 
 export let Station = station.Station;
+export const stationProxyHandler = station.proxyHandler;
 export const stationMixer = (mixin) => {
   Station = mixin(Station, station.symbols);
 }
 
 export let StationMessage = stationMessage.StationMessage;
+export const stationMessageProxyHandler = stationMessage.proxyHandler;
 export const stationMessageMixer = (mixin) => {
   StationMessage = mixin(StationMessage, stationMessage.symbols);
 }
 
 export let TrainOrder = trainOrder.TrainOrder;
+export const trainOrderProxyHandler = trainOrder.proxyHandler;
 export const trainOrderMixer = (mixin) => {
   TrainOrder = mixin(TrainOrder, trainOrder.symbols);
 }
 
 export let TrainStatus = trainStatus.TrainStatus;
+export const trainStatusProxyHandler = trainStatus.proxyHandler;
 export const trainStatusMixer = (mixin) => {
   TrainStatus = mixin(TrainStatus, trainStatus.symbols);
 }
 
 export let Via = via.Via;
+export const viaProxyHandler = via.proxyHandler;
 export const viaMixer = (mixin) => {
   Via = mixin(Via, via.symbols);
 }

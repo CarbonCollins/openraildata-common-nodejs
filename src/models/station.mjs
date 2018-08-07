@@ -1,3 +1,22 @@
+const stationMap = new Map()
+  .set('action', 'act')
+  .set('tiploc', 'tpl')
+  .set('platform', 'plat')
+  .set('platformSuppressed', 'platsup')
+  .set('plannedTimeOfArrival', 'pta')
+  .set('plannedTimeOfDeparture', 'ptd')
+  .set('workingTimeOfArrival', 'wta')
+  .set('workingTimeOfDeparture', 'wtd')
+  .set('workingTimeOfPassing', 'wtp')
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (stationMap.has(prop))
+      ? obj[stationMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
   .set('tiploc', Symbol('tiploc'))
   .set('action', Symbol('action'))
