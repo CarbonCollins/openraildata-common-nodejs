@@ -1,8 +1,22 @@
+const locationMap = new Map()
+  .set('tiploc', 'tpl')
+  .set('computerReservationSystem', 'crs')
+  .set('trainOperatingCompany', 'toc')
+  .set('locationName', 'locname');
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (locationMap.has(prop))
+      ? obj[locationMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
   .set('tiploc', Symbol('tiploc'))
-  .set('computerReservationSystem', Symbol('computerReservationSystem'))
-  .set('trainOperatingCompany', Symbol('trainOperatingCompany'))
-  .set('locationName', Symbol('locationName'));
+  .set('computerReservationSystem', Symbol('computer reservation system'))
+  .set('trainOperatingCompany', Symbol('train operating company'))
+  .set('locationName', Symbol('location name'));
 
 /**
  * @class

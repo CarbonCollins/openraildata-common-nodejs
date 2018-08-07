@@ -1,18 +1,11 @@
-const stationMap = new Map()
-  .set('action', 'act')
-  .set('tiploc', 'tpl')
-  .set('platform', 'plat')
-  .set('platformSuppressed', 'platSup')
-  .set('plannedTimeOfArrival', 'pta')
-  .set('plannedTimeOfDeparture', 'ptd')
-  .set('workingTimeOfArrival', 'wta')
-  .set('workingTimeOfDeparture', 'wtd')
-  .set('workingTimeOfPassing', 'wtp')
+const trainStatusMap = new Map()
+  .set('uniqueId', 'uid')
+  .set('serviceStartingDate', 'ssd');
 
 export const proxyHandler = {
   get: (obj, prop) => {
-    return (stationMap.has(prop))
-      ? obj[stationMap.get(prop)] || obj[prop]
+    return (trainStatusMap.has(prop))
+      ? obj[trainStatusMap.get(prop)] || obj[prop]
       : obj[prop];
   }
 }
@@ -20,7 +13,7 @@ export const proxyHandler = {
 export const symbols = new Map()
   .set('rid', Symbol('rid'))
   .set('uniqueId', Symbol('uniqueId'))
-  .set('serviceStartingDate', Symbol('serviceStartingDate'))
+  .set('serviceStartingDate', Symbol('service starting date'))
   .set('stations', Symbol('stations'))
 
 

@@ -1,3 +1,14 @@
+const stationMessageMap = new Map()
+  .set('category', 'cat');
+
+export const proxyHandler = {
+  get: (obj, prop) => {
+    return (stationMessageMap.has(prop))
+      ? obj[stationMessageMap.get(prop)] || obj[prop]
+      : obj[prop];
+  }
+}
+
 export const symbols = new Map()
   .set('id', Symbol('id'))
   .set('category', Symbol('category'))
